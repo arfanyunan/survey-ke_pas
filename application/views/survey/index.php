@@ -33,17 +33,17 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <img class="col-lg-5" src="<?= base_url('assets/img/gambar.jpg'); ?>"></img>
+                            <img class="col-lg-3" src="<?= base_url('assets/img/gambar.jpg'); ?>"></img>
                             <!-- <div class="col-lg-3 d-none d-lg-block bg-login-image"></div> -->
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <!-- <h1 class="h4 text-gray-900 mb-4">Survey Kepuasan RSKIA SADEWA</h1> -->
+                                        <!-- <h7 class="h7 text-gray-900 mb-7">Survey Kepuasan RSKIA SADEWA</h7> -->
                                         <h1>Survey Kepuasan Pasien RSKIA SADEWA</h1>
                                     </div>
                                     <tr>
                                         <br>
-                                        <form class="user">
+                                        <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">                                       
                                             <div class="jw-top-title">
                                                 <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
 
@@ -156,25 +156,25 @@
                                                 <strong for="">5. Kesopanan dan keramahan yang diberikan oleh petugas?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_ya" name="p2" value="Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_ya">Kurang Sekali</label>
+                                                        <input type="radio" id="rb_5_1" name="p5" value="1" required="">
+                                                        <label class="form-check-label" for="rb_5_1">Kurang Sekali</label>
                                                     </div>
 
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Kurang</label>
+                                                        <input type="radio" id="rb_5_2" name="p5" value="2" required="">
+                                                        <label class="form-check-label" for="rb_5_2">Kurang</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Cukup</label>
+                                                        <input type="radio" id="rb_5_3" name="p5" value="3" required="">
+                                                        <label class="form-check-label" for="rb_5_3">Cukup</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Baik</label>
+                                                        <input type="radio" id="rb_5_4" name="p5" value="4" required="">
+                                                        <label class="form-check-label" for="rb_5_4">Baik</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Baik Sekali</label>
+                                                        <input type="radio" id="rb_5_5" name="p5" value="5" required="">
+                                                        <label class="form-check-label" for="rb_5_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -182,25 +182,25 @@
                                                 <strong for="">6. Rasa makanan untuk pasien rawat inap?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_ya" name="p2" value="Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_ya">Kurang Sekali</label>
+                                                        <input type="radio" id="rb_6_1" name="p6" value="1" required="">
+                                                        <label class="form-check-label" for="rb_6_1">Kurang Sekali</label>
                                                     </div>
 
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Kurang</label>
+                                                        <input type="radio" id="rb_6_2" name="p6" value="2" required="">
+                                                        <label class="form-check-label" for="rb_6_2">Kurang</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Cukup</label>
+                                                        <input type="radio" id="rb_6_3" name="p6" value="3" required="">
+                                                        <label class="form-check-label" for="rb_6_3">Cukup</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Baik</label>
+                                                        <input type="radio" id="rb_6_4" name="p6" value="4" required="">
+                                                        <label class="form-check-label" for="rb_6_4">Baik</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Baik Sekali</label>
+                                                        <input type="radio" id="rb_6_5" name="p6" value="5" required="">
+                                                        <label class="form-check-label" for="rb_6_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -208,32 +208,32 @@
                                                 <strong for>7. Penampilan makanan untuk pasein rawat inap?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_ya" name="p2" value="Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_ya">Kurang Sekali</label>
+                                                        <input type="radio" id="rb_7_1" name="p7" value="1" required="">
+                                                        <label class="form-check-label" for="rb_7_1">Kurang Sekali</label>
                                                     </div>
 
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Kurang</label>
+                                                        <input type="radio" id="rb_7_2" name="p7" value="2" required="">
+                                                        <label class="form-check-label" for="rb_7_2">Kurang</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Cukup</label>
+                                                        <input type="radio" id="rb_7_3" name="p7" value="3" required="">
+                                                        <label class="form-check-label" for="rb_7_3">Cukup</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Baik</label>
+                                                        <input type="radio" id="rb_7_4" name="p7" value="4" required="">
+                                                        <label class="form-check-label" for="rb_7_4">Baik</label>
                                                     </div>
                                                     <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_2_tidak" name="p2" value="Tidak Selesai" required="">
-                                                        <label class="form-check-label" for="rb_2_tidak">Baik Sekali</label>
+                                                        <input type="radio" id="rb_7_5" name="p7" value="5" required="">
+                                                        <label class="form-check-label" for="rb_7_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Simpan
                                         </a> -->
-                                            <button type="button" class="btn btn-danger btn-block">Simpan</button>
+                                            <button type="submit" class="btn btn-danger btn-block">Simpan</button>
                                             <hr>
                                             <hr>
                                             <marquee behavior="center" direction="left">-- Terikasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
