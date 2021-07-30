@@ -35,7 +35,7 @@
                         <div class="row">
                             <img class="col-lg-3" src="<?= base_url('assets/img/gambar.jpg'); ?>"></img>
                             <!-- <div class="col-lg-3 d-none d-lg-block bg-login-image"></div> -->
-                            <div class="col-lg">
+                            <div class="col-lg 9">
                                 <div class="p-5">
                                     <div class="text-center">
                                         <!-- <h7 class="h7 text-gray-900 mb-7">Survey Kepuasan RSKIA SADEWA</h7> -->
@@ -43,7 +43,7 @@
                                     </div>
                                     <tr>
                                         <br>
-                                        <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">                                       
+                                        <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">
                                             <div class="jw-top-title">
                                                 <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
 
