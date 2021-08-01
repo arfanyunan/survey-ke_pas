@@ -17,6 +17,11 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+    
 
 </head>
 
@@ -54,8 +59,8 @@
                 <a class="nav-link" href="/survey">
                     <i class="fas fa-sign-out-alt"></i>
                     <strong>Logout</strong></a>
-            </li>          
-            
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -169,9 +174,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?= $this->session->flashdata('pesan'); ?>
+                                            <!-- <?= $this->session->flashdata('pesan'); ?> -->
                                             <div class="card-body table-responsive-lg">
-                                                <table id="example1" class="table table-bordered table-striped table-hover dt-responsive nowrap" style="width: 100%;">
+                                                <table id="tabelsurvey" class="table table-bordered table-striped table-hover dt-responsive nowrap" style="width: 100%;">
                                                     <thead>
                                                         <tr>
                                                             <th class="text-center">No</th>
@@ -182,13 +187,13 @@
                                                             <th class="text-center">P4</th>
                                                             <th class="text-center">P5</th>
                                                             <th class="text-center">P6</th>
-                                                            <th class="text-center">P7</th>                                                            
+                                                            <th class="text-center">P7</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
                                                         <?php $no = 1;
-                                                                foreach ($data_admin as $dt_admin) : ?>                                                            <tr>
+                                                        foreach ($data_admin as $dt_admin) : ?> <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p1']; ?></td>
@@ -200,7 +205,7 @@
                                                                 <td class="text-center"><?= $dt_admin['p7']; ?></td>
                                                             </tr>
                                                         <?php $no++;
-                                                                endforeach ?>
+                                                        endforeach ?>
 
                                                     </tbody>
                                                 </table>
@@ -220,9 +225,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?= $this->session->flashdata('pesan'); ?>
-                                            <div class="card-body table-responsive-lg">
-                                                <table id="example1" class="table table-bordered table-striped table-hover dt-responsive nowrap" style="width: 100%;">
+                                            <!-- <?= $this->session->flashdata('pesan'); ?> -->
+                                            <div class="card-body table-responsive-lg 7">
+                                                <table id="tabelsurvey" class="table table-bordered table-striped table-hover dt-responsive nowrap" style="width: 100%;">
                                                     <thead>
                                                         <tr>
                                                             <th class="text-center">No</th>
@@ -239,7 +244,7 @@
                                                     <tbody>
 
                                                         <?php $no = 1;
-                                                                foreach ($data_admin as $dt_admin) : ?>
+                                                        foreach ($data_admin as $dt_admin) : ?>
                                                             <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
@@ -252,7 +257,7 @@
                                                                 <td class="text-center"><?= $dt_admin['p7']; ?></td>
                                                             </tr>
                                                         <?php $no++;
-                                                                endforeach ?>
+                                                        endforeach ?>
 
                                                     </tbody>
                                                 </table>
@@ -315,16 +320,26 @@
         </div>
     </div>
 
+
+
+
     <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+    <script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
+    <script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
     <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
+    <script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
 
-</body>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tabelsurvey').DataTable();
+        });
+    </script>
+
+    </body>
 
 </html>
