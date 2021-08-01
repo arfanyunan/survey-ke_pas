@@ -12,11 +12,11 @@
     <title>Admin</title>
 
     <!-- Custom fonts for this template-->
-    <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url('assets/'); ?>https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
 
 </head>
 
@@ -44,10 +44,18 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="/survey/admin">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fas fa-book"></i>
                     <span>Lihat Data</span></a>
             </li>
 
+            <hr class="sidebar-divider my-1">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/survey">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <strong>Logout</strong></a>
+            </li>          
+            
             <!-- Divider -->
             <hr class="sidebar-divider">
 
@@ -97,7 +105,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hallo Admin !</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <!-- <img class="img-profile rounded-circle" src="img/undraw_posting_photo.svg"> -->
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -174,31 +182,25 @@
                                                             <th class="text-center">P4</th>
                                                             <th class="text-center">P5</th>
                                                             <th class="text-center">P6</th>
-                                                            <th class="text-center">P7</th>
-                                                            <th class="text-center">P8</th>
-
+                                                            <th class="text-center">P7</th>                                                            
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
-                                                        <!-- <?php $no = 1;
-                                                                foreach ($data_admin as $dt_admin) : ?>
-                                                            <tr>
+                                                        <?php $no = 1;
+                                                                foreach ($data_admin as $dt_admin) : ?>                                                            <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
-                                                                <td class="text-center">
-                                                                    <button onclick="hapusData('<?= $dt_admin['id']; ?>')" type="button" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i></button>
-                                                                </td>
-                                                                <td class="text-center"><?= $dt_admin['tanggal_isi']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p1a']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p1b']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p1']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p2']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p3a']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p3b']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p3']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p4']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p5']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p6']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p7']; ?></td>
                                                             </tr>
                                                         <?php $no++;
-                                                                endforeach ?> -->
+                                                                endforeach ?>
 
                                                     </tbody>
                                                 </table>
@@ -232,30 +234,25 @@
                                                             <th class="text-center">P5</th>
                                                             <th class="text-center">P6</th>
                                                             <th class="text-center">P7</th>
-                                                            <th class="text-center">P8</th>
-
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
-                                                        <!-- <?php $no = 1;
+                                                        <?php $no = 1;
                                                                 foreach ($data_admin as $dt_admin) : ?>
                                                             <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
-                                                                <td class="text-center">
-                                                                    <button onclick="hapusData('<?= $dt_admin['id']; ?>')" type="button" class="btn btn-danger btn-xs"><i class="fas fa-trash-alt"></i></button>
-                                                                </td>
-                                                                <td class="text-center"><?= $dt_admin['tanggal_isi']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p1a']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p1b']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p1']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p2']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p3a']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p3b']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p3']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p4']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p5']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p6']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p7']; ?></td>
                                                             </tr>
                                                         <?php $no++;
-                                                                endforeach ?> -->
+                                                                endforeach ?>
 
                                                     </tbody>
                                                 </table>
@@ -282,7 +279,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; SURVEY SADEWA 2021</span>
                     </div>
                 </div>
             </footer>

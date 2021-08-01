@@ -16,7 +16,7 @@ class Survey extends CI_Controller
     public function index()
     {
         $this->load->database('survey_sadewa');
-        $this->load->view('survey/index');
+        $this->load->view('survey/index_survey');
         $data['title'] = "Data Survey Pasien";
         // echo "berhasil";
     }

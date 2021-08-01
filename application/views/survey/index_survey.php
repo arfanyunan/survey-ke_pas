@@ -13,7 +13,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/'); ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="<?= base_url('assets/'); ?>https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/'); ?>css/sb-admin-2.min.css" rel="stylesheet">
@@ -233,7 +233,7 @@
                                             <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Simpan
                                         </a> -->
-                                            <button type="submit" class="btn btn-danger btn-block">Simpan</button>
+                                            <button type="submit" class="btn btn-danger btn-block">Simpan</button>                                            
                                             <hr>
                                             <hr>
                                             <marquee behavior="center" direction="left">-- Terikasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
@@ -241,6 +241,7 @@
                             </div>
                             <hr>
                             </form>
+                            <button class="nav-link btn-warning btn-block" href="/survey" class="btn nav-link btn-warning btn-block">Admin</button>
                         </div>
                     </div>
                 </div>

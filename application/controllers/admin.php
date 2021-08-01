@@ -14,9 +14,11 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $this->load->database('survey_sadewa');
-        $this->load->view('survey/admin');
+        $this->load->database('survey_sadewa');        
         $data['title'] = "Admin Survey Pasien";
-        // echo "berhasil";
+        $data['data_admin'] = $this->Admin_Model->showAllData(); 
+        // var_dump($data['data_admin']);
+        $this->load->view('admin/index_admin', $data);
+        //  echo "berhasil";
     }
 }
