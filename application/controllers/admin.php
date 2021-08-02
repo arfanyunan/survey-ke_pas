@@ -14,11 +14,22 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $this->load->database('survey_sadewa');        
+        $this->load->database('survey_sadewa');
         $data['title'] = "Admin Survey Pasien";
-        $data['data_admin'] = $this->Admin_Model->showAllData(); 
+        $data['data_admin'] = $this->Admin_Model->showAllData();
         // var_dump($data['data_admin']);
         $this->load->view('admin/index_admin', $data);
         //  echo "berhasil";
+    }
+
+    public function periode_bln()
+    {
+        $this->load->database('survey_sadewa');
+        $data['title'] = "Data Survey Pasien";
+        $filter_tgl = formatTahunBulan($this->input->post('date_Isi'));
+        $data['periode'] = $filter_tgl;
+        $data['data_admin'] = $this->Admin_Model->showPeriode($filter_tgl);       
+        $this->load->view('admin/periode_admin', $data);
+        // var_dump($data['data_admin']);
     }
 }

@@ -4,13 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Survey extends CI_Controller
 {
     public function __construct()
-        {
-            parent::__construct();
-            // status_log(); //helper untuk cek sttus login  
-            $this->load->database();      
-            $this->load->model('Survey_Model');
-            
-        }
+    {
+        parent::__construct();
+        // status_log(); //helper untuk cek sttus login  
+        $this->load->database();
+        $this->load->model('Survey_Model');
+    }
 
 
     public function index()
@@ -37,8 +36,8 @@ class Survey extends CI_Controller
 
         $this->Survey_Model->insertSurvey($data_survey);
         // $this->load->set_flashdata('pesan','Berhasil Disimpan');
-                       
-        redirect('/survey');
+
+        redirect('/');
         // echo "berhasil tersimpan";
     }
 }
