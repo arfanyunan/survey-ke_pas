@@ -39,15 +39,23 @@
                                 <div class="p-5">
                                     <div class="text-center">
                                         <!-- <h7 class="h7 text-gray-900 mb-7">Survey Kepuasan RSKIA SADEWA</h7> -->
-                                        <h1 aria-colspan="">Kepuasan Pasien RSKIA SADEWA</h1>
+                                        <h1 aria-colspan="">Survey Kepuasan Pasien RSKIA SADEWA</h1>
                                     </div>
                                     <tr>
                                         <br>
                                         <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">
                                             <div class="jw-top-title">
-                                                <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
+                                                <h5>TERIMAKASIH TELAH MEMILIH RSKIA SADEWA</h5>
+                                                <p class="text-justify">Bantu kami menjadi lebih baik lagi dengan mengisi Form Kepuasan Pasien di RSKIA SADEWA. Silahkan pilih menu sesuai
+                                                    pelayanan yang akan dinilai:
+                                                </p>
 
-                                                <div class="form-group">
+                                                <div class="text-center">
+                                                    <a href="survey/index_ralan" class="btn btn-outline-success mb-2" role="button" aria-pressed="true">Rawat Jalan</a>
+                                                    <a href="survey/index_ranap" class="btn btn-outline-info mb-2" role="button" aria-pressed="true">Rawat Inap</a>
+                                                </div>
+
+                                                <!-- <div class="form-group">
                                                     <strong for="fw-bold">1. Kenyamanan dan kebersihan Rumah Sakit?</strong>
                                                     <div class="form-group clearfix">
                                                         <div class="icheck-primary d-inline">
@@ -72,8 +80,8 @@
                                                             <label class="form-check-label" for="rb_1_5">Baik Sekali</label>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="form-group">
+                                                </div> -->
+                                                <!-- <div class="form-group">
                                                     <strong for="">2. Kejelasan Informasi dan komunikasi dengan Dokter?</strong>
                                                     <div class="form-group clearfix">
                                                         <div class="icheck-primary d-inline">
@@ -98,8 +106,8 @@
                                                             <label class="form-check-label" for="rb_2_5">Baik Sekali</label>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <strong for="">3. Tenaga medis dapat diandalkan untuk menangani pasien?</strong>
+                                                </div> -->
+                                                <!-- <strong for="">3. Tenaga medis dapat diandalkan untuk menangani pasien?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
                                                         <input type="radio" id="rb_3_1" name="p3" value="1" required="">
@@ -123,9 +131,9 @@
                                                         <label class="form-check-label" for="rb_3_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
 
-                                            <div class="form-group">
+                                                <!-- <div class="form-group">
                                                 <strong for="">4. Perhatian dari Dokter kepada Pasien?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
@@ -150,9 +158,9 @@
                                                         <label class="form-check-label" for="rb_4_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- sampai sini -->
-                                            <div class="form-group">
+                                            </div> -->
+
+                                                <!-- <div class="form-group">
                                                 <strong for="">5. Kesopanan dan keramahan yang diberikan oleh petugas?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
@@ -177,8 +185,8 @@
                                                         <label class="form-check-label" for="rb_5_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
+                                            </div> -->
+                                                <!-- <div class="form-group">
                                                 <strong for="">6. Rasa makanan untuk pasien rawat inap?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
@@ -203,8 +211,8 @@
                                                         <label class="form-check-label" for="rb_6_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
+                                            </div> -->
+                                                <!-- <div class="form-group">
                                                 <strong for>7. Penampilan makanan untuk pasein rawat inap?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
@@ -229,25 +237,25 @@
                                                         <label class="form-check-label" for="rb_7_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                            </div> -->
+                                                <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Simpan
                                         </a> -->
-                                            <button type="submit" class="btn btn-danger btn-block">Simpan</button>
-                                            <hr>
-                                            <hr>
-                                            <marquee behavior="center" direction="left">-- Terikasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
+                                                <!-- <button type="submit" class="btn btn-danger btn-block">Simpan</button> -->
+
+                                                <hr>
+                                                <marquee behavior="center" direction="left">-- Terikasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
+                                            </div>
                                 </div>
+                                <hr>
+                                </form>
                             </div>
-                            <hr>
-                            </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
     </div>
 
