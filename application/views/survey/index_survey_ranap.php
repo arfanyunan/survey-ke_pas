@@ -43,7 +43,7 @@
                                     </div>
                                     <tr>
                                         <br>
-                                        <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">
+                                        <form class="user" action="<?= base_url('survey/simpan_ranap'); ?>" method="POST">
                                             <div class="jw-top-title">
                                                 <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
 
@@ -51,40 +51,73 @@
                                                     <strong for="fw-bold">Bangsal:</strong>
                                                     <div class="form-group">
                                                         <!-- <label for="txt_Nama" class="col-form-label-sm">Nama Dokter*</label> -->
-                                                        <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" id="cmb_Dokter" name="cmb_Dokter" required="" data-select2-id="cmb_Dokter" tabindex="-1" aria-hidden="true">
+                                                        <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" id="cmb_bangsal" name="cmb_bangsal" required="" data-select2-id="cmb_dokter" tabindex="-1" aria-hidden="true">
                                                             <option value="" selected="selected" data-select2-id="2">Pilih</option>
-                                                            <!-- Tampilkan data dokter -->
-                                                            <option value="IGD" data-select2-id="7">Alengka</option>
-                                                            <option value="Alengka" data-select2-id="7">Alengka</option>
-                                                            <option value="Amarta" data-select2-id="7">Amarta</option>
-                                                            <option value="Astina" data-select2-id="7">Astina</option>
-                                                            <option value="Ayodya" data-select2-id="7">Ayodya</option>
+                                                            <!-- Tampilkan data bangsal -->
+                                                            <option value="Alengka" data-select2-id="1">Alengka</option>
+                                                            <option value="Amarta" data-select2-id="2">Amarta</option>
+                                                            <option value="Astina" data-select2-id="3">Astina</option>
+                                                            <option value="Ayodya" data-select2-id="4">Ayodya</option>
                                                         </select><span class="select2 select2-container select2-container--bootstrap4 select2-container--below select2-container--focus" dir="ltr" data-select2-id="1" style="width: 100%;">
-                                                            <!-- <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-cmb_Dokter-container"><span class="select2-selection__rendered" id="select2-cmb_Dokter-container" role="textbox" aria-readonly="true" title="Pilih">Pilih</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
-                                                            <input type="hidden" class="form-control form-control-sm" id="txt_NmPoli" name="txt_NmPoli" placeholder="Nama Poli">
+                                                            <!-- <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-cmb_dokter-container"><span class="select2-selection__rendered" id="select2-cmb_dokter-container" role="textbox" aria-readonly="true" title="Pilih">Pilih</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                                            <input type="hidden" class="form-control form-control-sm" id="txt_NmBangsal" name="txt_NmBangsal" placeholder="Nama Bangsal">
                                                     </div>
 
                                                     <strong for="fw-bold">Dokter:</strong>
 
                                                     <div class="form-group">
                                                         <!-- <label for="txt_Nama" class="col-form-label-sm">Nama Dokter*</label> -->
-                                                        <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" id="cmb_Dokter" name="cmb_Dokter" required="" data-select2-id="cmb_Dokter" tabindex="-1" aria-hidden="true">
+                                                        <select class="form-control select2bs4 select2-hidden-accessible" style="width: 100%;" id="cmb_dokter" name="cmb_dokter" required="" data-select2-id="cmb_dokter" tabindex="-1" aria-hidden="true">
                                                             <option value="" selected="selected" data-select2-id="2">Pilih</option>
                                                             <!-- Tampilkan data dokter -->
-                                                            <option value="D0000111" data-select2-id="7">dr. Achwido Arjundananto Wiyasa</option>
-                                                            <option value="D0000112" data-select2-id="7">dr. Ayu Kurnia Priyantiningrum</option>
-                                                            <option value="D0000113" data-select2-id="7">dr. Danny Sulistyowaty</option>
-                                                            <option value="D0000114" data-select2-id="7">dr. Fendy Andra Fahreza</option>
-                                                            <option value="D0000115" data-select2-id="7">dr. Myggi Rizdwike Nanda</option>
-                                                            <option value="D0000116" data-select2-id="7">dr. Ria Rossi</option>
-                                                            <option value="D0000117" data-select2-id="7">dr. Rinansita Warihwati</option>
-                                                            <option value="D0000118" data-select2-id="7">dr. Rr.Shinta Chandra Permata</option>
-                                                            <option value="D0000119" data-select2-id="7">dr. Riska Diene Pratiwi</option>
-                                                            <option value="D0000110" data-select2-id="7">dr. Seftiandar Mega Riandana</option>
-                                                            <option value="D00001111" data-select2-id="7">dr. Virgien Eka Merdekawati Salina</option>
-                                                            <option value="D00001112" data-select2-id="7">dr. Yane Aulia Yasmin</option>
+                                                            <option value="20200454" data-select2-id="1">dr. Achwido Arjundananto Wiyasa</option>
+                                                            <option value="20180422" data-select2-id="2">dr. Ayu Kurnia Priyantiningrum</option>
+                                                            <option value="20180337" data-select2-id="3">dr. Danny Sulistyowaty</option>
+                                                            <option value="20200519" data-select2-id="4">dr. Fendy Andra Fahreza</option>
+                                                            <option value="20180338" data-select2-id="5">dr. Myggi Rizdwike Nanda</option>
+                                                            <option value="20180373" data-select2-id="1">dr. Ria Rossi</option>
+                                                            <option value="20180368" data-select2-id="2">dr. Rinansita Warihwati</option>
+                                                            <option value="20200453" data-select2-id="3">dr. Rr.Shinta Chandra Permata</option>
+                                                            <option value="20200520" data-select2-id="4">dr. Riska Diene Pratiwi</option>
+                                                            <option value="20200464" data-select2-id="5">dr. Seftiandar Mega Riandana</option>
+                                                            <option value="20180413" data-select2-id="1">dr. Virgien Eka Merdekawati Salina</option>
+                                                            <option value="20210539" data-select2-id="2">dr. Yane Aulia Yasmin</option>
+                                                            <option value="20180340" data-select2-id="2">drg. Berty Maharani F.</option>
+                                                            <option value="20180344" data-select2-id="2">drg. Elfira Maharani, M.P.H,Sp.Ort</option>
+                                                            <option value="20170310" data-select2-id="2">drg. Maura Kurnia Uki Adiarti</option>
+                                                            <option value="20180345" data-select2-id="2">drg. Sigit Aprianto</option>
+                                                            <option value="20180346" data-select2-id="2">drg. Teleseptiserngi Dian Arisanti,Sp.KG</option>
+                                                            <option value="20180348" data-select2-id="2">dr. Ariesta Christiawanti, Sp.OG</option>
+                                                            <option value="20180349" data-select2-id="2">dr. Yasmini Fitriyati, Sp.OG</option>
+                                                            <option value="20180350" data-select2-id="2">dr. Hasto Wardoyo, Sp.OG (K)</option>
+                                                            <option value="20180351" data-select2-id="2">dr. Shofwal Widad, Sp.OG (K)</option>
+                                                            <option value="20180352" data-select2-id="2">dr. Oktavianus Wahyu PTP., Sp.OG</option>
+                                                            <option value="20180353" data-select2-id="2">dr. Dwi Haryadi, Sp.OG (K)</option>
+                                                            <option value="20180354" data-select2-id="2">dr. Arief Kurnia, Sp.OG</option>
+                                                            <option value="20180355" data-select2-id="2">dr. Supriyatiningsih, M.Kes, Sp.OG</option>
+                                                            <option value="20180356" data-select2-id="2">dr. Eugenius Phyowai Ganap, Sp.OG (K)</option>
+                                                            <option value="20180357" data-select2-id="2">dr. Ayu Wityasti Wardhani, Sp.OG</option>
+                                                            <option value="20200467" data-select2-id="2">dr. Agung Dewanto,Sp.OG (K).,PhD</option>
+                                                            <option value="20190428" data-select2-id="2">Dr.dr. Mochammad Any Ashari,Sp.OG (K)</option>
+                                                            <option value="20190429" data-select2-id="2">dr. Danny Wiguna,Sp.OG</option>
+                                                            <option value="20190430" data-select2-id="2">dr. Arsi Palupi,Sp.OG</option>
+                                                            <option value="20180364" data-select2-id="2">dr. Ade Febrina Lestari, M.Sc., Sp.A ( K )</option>
+                                                            <option value="20190424" data-select2-id="2">dr. Afiarina Dhevianty,M.Sc,Sp.A</option>
+                                                            <option value="20180365" data-select2-id="2">dr. Braghmandita Widya Indraswari, M.Sc., Sp.A</option>
+                                                            <option value="20180362" data-select2-id="2">dr. Dwikisworo Setyowireni, Sp.A (K)</option>
+                                                            <option value="20180363" data-select2-id="2">dr. Desy Rusmawatiningtyas, M.Sc., Sp.A (K)</option>
+                                                            <option value="20180361" data-select2-id="2">dr. Nini Rahmani A., Sp.A</option>
+                                                            <option value="20180360" data-select2-id="2">dr. Sari Kusumastuti, Sp.A</option>
+                                                            <option value="20180366" data-select2-id="2">DR.dr. Dicky Moch. Rizal, M.Kes., Sp.And., AIFM</option>
+                                                            <option value="20180418" data-select2-id="2">dr. Seso Sulijaya Suyono, Sp.And</option>
+                                                            <option value="20160257" data-select2-id="2">dr. Rinaldi Tri Frisianto, Sp.An</option>
+                                                            <option value="20190431" data-select2-id="2">dr. Trisula Utomo, Sp.U (K)</option>
+                                                            <option value="20180408" data-select2-id="2">Dr.dr. Ita Fauzia Hanoum,MCE</option>
+                                                            <option value="20190433" data-select2-id="2">dr. Rahma Yuantari, MSc,Sp.PK</option>
+                                                            <option value="20200522" data-select2-id="2">dr. Bustomi Kurnia,M.Sc.,Sp.Rad</option>
+                                                            <option value="20200523" data-select2-id="2">dr. Sri Nurwati,Sp.Rad,M.Sc</option>
                                                         </select><span class="select2 select2-container select2-container--bootstrap4 select2-container--below select2-container--focus" dir="ltr" data-select2-id="1" style="width: 100%;">
-                                                            <!-- <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-cmb_Dokter-container"><span class="select2-selection__rendered" id="select2-cmb_Dokter-container" role="textbox" aria-readonly="true" title="Pilih">Pilih</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
+                                                            <!-- <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-cmb_dokter-container"><span class="select2-selection__rendered" id="select2-cmb_dokter-container" role="textbox" aria-readonly="true" title="Pilih">Pilih</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
                                                             <input type="hidden" class="form-control form-control-sm" id="txt_Nmdokter" name="txt_Nmdokter" placeholder="Nama Dokter">
                                                     </div>
                                                 </div>
@@ -222,6 +255,32 @@
                                                 </div>
                                             </div>
 
+                                            <div class="form-group">
+                                                <strong for>6. Rasa makanan untuk pasein rawat inap?</strong>
+                                                <div class="form-group clearfix">
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" id="rb_6_1" name="p6" value="1" required="">
+                                                        <label class="form-check-label" for="rb_6_1">Kurang Sekali</label>
+                                                    </div>
+
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" id="rb_6_2" name="p6" value="2" required="">
+                                                        <label class="form-check-label" for="rb_6_2">Kurang</label>
+                                                    </div>
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" id="rb_6_3" name="p6" value="3" required="">
+                                                        <label class="form-check-label" for="rb_6_3">Cukup</label>
+                                                    </div>
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" id="rb_6_4" name="p6" value="4" required="">
+                                                        <label class="form-check-label" for="rb_6_4">Baik</label>
+                                                    </div>
+                                                    <div class="icheck-primary d-inline">
+                                                        <input type="radio" id="rb_6_5" name="p6" value="5" required="">
+                                                        <label class="form-check-label" for="rb_6_5">Baik Sekali</label>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="form-group">
                                                 <strong for>6. Penampilan makanan untuk pasein rawat inap?</strong>
                                                 <div class="form-group clearfix">

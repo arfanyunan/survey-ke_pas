@@ -12,24 +12,34 @@ class Admin extends CI_Controller
     }
 
 
-    public function index()
+    public function ralan()
     {
         $this->load->database('survey_sadewa');
         $data['title'] = "Admin Survey Pasien";
-        $data['data_admin'] = $this->Admin_Model->showAllData();
+        $data['data_admin'] = $this->Admin_Model->showAllDataRalan();
         // var_dump($data['data_admin']);
-        $this->load->view('admin/index_admin', $data);
+        $this->load->view('admin/index_admin_ralan', $data);
         //  echo "berhasil";
     }
 
-    public function periode_bln()
+    public function ranap()
+    {
+        $this->load->database('survey_sadewa');
+        $data['title'] = "Admin Survey Pasien";
+        $data['data_admin'] = $this->Admin_Model->showAllDataRanap();
+        // var_dump($data['data_admin']);
+        $this->load->view('admin/index_admin_ranap', $data);
+        //  echo "berhasil";
+    }
+
+    public function periode_bln_ralan()
     {
         $this->load->database('survey_sadewa');
         $data['title'] = "Data Survey Pasien";
         $filter_tgl = formatTahunBulan($this->input->post('date_Isi'));
         $data['periode'] = $filter_tgl;
-        $data['data_admin'] = $this->Admin_Model->showPeriode($filter_tgl);       
-        $this->load->view('admin/periode_admin', $data);
+        $data['data_admin'] = $this->Admin_Model->showPeriode($filter_tgl);
+        $this->load->view('admin/periode_admin_ralan', $data);
         // var_dump($data['data_admin']);
     }
 }

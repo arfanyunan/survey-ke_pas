@@ -43,7 +43,7 @@
                                     </div>
                                     <tr>
                                         <br>
-                                        <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">
+                                        <form class="user" action="<?= base_url('survey/simpan_ralan'); ?>" method="POST">
                                             <div class="jw-top-title">
                                                 <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
 
@@ -223,7 +223,7 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group">
+                                            <!-- <div class="form-group">
                                                 <strong for>6. Penampilan makanan untuk pasein rawat inap?</strong>
                                                 <div class="form-group clearfix">
                                                     <div class="icheck-primary d-inline">
@@ -248,7 +248,7 @@
                                                         <label class="form-check-label" for="rb_6_5">Baik Sekali</label>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
                                             Simpan
                                         </a> -->

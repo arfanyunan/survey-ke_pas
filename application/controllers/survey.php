@@ -34,7 +34,7 @@ class Survey extends CI_Controller
         // echo "berhasil";
     }
 
-    public function simpan_survey()
+    public function simpan_ralan()
     {
         date_default_timezone_set('Asia/Jakarta');
         $data_survey = array(
@@ -45,12 +45,34 @@ class Survey extends CI_Controller
             'p2' => $this->input->post('p2'),
             'p3' => $this->input->post('p3'),
             'p4' => $this->input->post('p4'),
-            'p5' => $this->input->post('p5'),
-            'p6' => $this->input->post('p6')
+            'p5' => $this->input->post('p5')
+        );
+        $this->Survey_Model->insertSurveyRanap($data_survey);
+        // $this->load->set_flashdata('pesan','Berhasil Disimpan');
 
+        // redirect('http://www.rskiasadewa.co.id');
+        redirect("/");
+        // echo "berhasil tersimpan";
+    }
+
+
+    public function simpan_ranap()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+        $data_survey = array(
+            'tgl_isi' => date('Y-m-d H:i:s'),
+            'bangsal' => $this->input->post('cmb_bangsal'),
+            'nm_dokter' => $this->input->post('cmb_dokter'),
+            'p1' => $this->input->post('p1'),
+            'p2' => $this->input->post('p2'),
+            'p3' => $this->input->post('p3'),
+            'p4' => $this->input->post('p4'),
+            'p5' => $this->input->post('p5'),
+            'p6' => $this->input->post('p6'),
+            'p7' => $this->input->post('p7')
         );
 
-        $this->Survey_Model->insertSurvey($data_survey);
+        $this->Survey_Model->insertSurveyRanap($data_survey);
         // $this->load->set_flashdata('pesan','Berhasil Disimpan');
 
         // redirect('http://www.rskiasadewa.co.id');

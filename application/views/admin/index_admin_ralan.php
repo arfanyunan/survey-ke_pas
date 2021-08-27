@@ -19,7 +19,7 @@
     <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
 
-       
+
 
 </head>
 
@@ -46,9 +46,14 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="/survey/admin">
+                <a class="nav-link" href="/survey/admin/ralan">
                     <i class="fas fa-book"></i>
-                    <span>Lihat Data</span></a>
+                    <span>Lihat Data Ralan</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/survey/admin/ranap">
+                    <i class="fas fa-book"></i>
+                    <span>Lihat Data Ranap</span></a>
             </li>
 
             <hr class="sidebar-divider my-1">
@@ -129,7 +134,7 @@
                     <div class="col lg 6">
                         <div class="row mb-3">
                             <div class="col-md-4">
-                                <form action="<?= base_url('admin/periode_bln'); ?>" method="POST">
+                                <form action="<?= base_url('admin/periode_bln_ralan'); ?>" method="POST">
                                     <div class="input-group input-group-sm">
                                         <input type="date" class="form-control" name="date_Isi" required>
                                         <span class="input-group-append">
@@ -163,7 +168,7 @@
                                             <div class="card-header">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
-                                                        <h3 class="card-title"><i class="fas fa-user-tie"></i>Tabel Indikator Kinerja Individu Administrasi</h3>
+                                                        <h3 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien Ralan</h3>
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <button type="button" class="btn bg-gradient-teal btn-sm float-right" data-toggle="modal" data-target="#modal_Cari"><i class="fas fa-plus"></i> Input Data</button>
@@ -179,13 +184,14 @@
                                                         <tr>
                                                             <th class="text-center">No</th>
                                                             <th class="text-center">Tanggal Isi</th>
-                                                            <th class="text-center">P1</th>
+                                                            <th class="text-center">Poli</th>
+                                                            <th class="text-center">Dokter</th>
+                                                            <th class="text-center">Pertanyaan 1</th>
                                                             <th class="text-center">P2</th>
                                                             <th class="text-center">P3</th>
                                                             <th class="text-center">P4</th>
                                                             <th class="text-center">P5</th>
-                                                            <th class="text-center">P6</th>
-                                                            <th class="text-center">P7</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -194,13 +200,14 @@
                                                         foreach ($data_admin as $dt_admin) : ?> <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p1']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p2']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p3']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p4']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p5']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p6']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p7']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['poli']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['nm_dokter']; ?></td>
+                                                                <th class="text-center">Pertanyaan 1</th>
+                                                                <th class="text-center">Pertanyaan 2</th>
+                                                                <th class="text-center">Pertanyaan 3</th>
+                                                                <th class="text-center">Pertanyaan 4</th>
+                                                                <th class="text-center">Pertanyaan 5</th>
+
                                                             </tr>
                                                         <?php $no++;
                                                         endforeach ?>
@@ -219,24 +226,25 @@
                                             <div class="card-header">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
-                                                        <h5 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien</h5>
+                                                        <h5 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien Ralan</h5>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- <?= $this->session->flashdata('pesan'); ?> -->
-                                            <div class="card-body table-responsive-lg 7">
+                                            <div class="card-body table-responsive-lg">
                                                 <table id="tabelsurvey" class="table table-ligh table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
                                                     <thead class="thead-dark">
                                                         <tr>
                                                             <th class="text-center">No</th>
                                                             <th class="text-center">Tanggal Isi</th>
-                                                            <th class="text-center">P1</th>
-                                                            <th class="text-center">P2</th>
-                                                            <th class="text-center">P3</th>
-                                                            <th class="text-center">P4</th>
-                                                            <th class="text-center">P5</th>
-                                                            <th class="text-center">P6</th>
-                                                            <th class="text-center">P7</th>
+                                                            <th class="text-center">Poli</th>
+                                                            <th class="text-center">Dokter</th>
+                                                            <th class="text-center">Pertanyaan 1</th>
+                                                            <th class="text-center">Pertanyaan 2</th>
+                                                            <th class="text-center">Pertanyaan 3</th>
+                                                            <th class="text-center">Pertanyaan 4</th>
+                                                            <th class="text-center">Pertanyaan 5</th>
+
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -246,13 +254,14 @@
                                                             <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['poli']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['nm_dokter']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p1']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p2']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p3']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p4']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p5']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p6']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['p7']; ?></td>
+
                                                             </tr>
                                                         <?php $no++;
                                                         endforeach ?>
@@ -309,10 +318,10 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Keluar halaman Admin?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/survey">Logout</a>
                 </div>
             </div>
         </div>
@@ -335,15 +344,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-    
+
 
     <script>
         $(document).ready(function() {
             $('#tabelsurvey').DataTable();
         });
     </script>
-    
-    </body>
-    
+
+</body>
+
 
 </html>
