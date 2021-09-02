@@ -46,6 +46,12 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
+                <a class="nav-link" href="/survey/admin/">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="/survey/admin/ralan">
                     <i class="fas fa-book"></i>
                     <span>Lihat Data Ralan</span></a>

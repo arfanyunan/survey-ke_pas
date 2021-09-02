@@ -47,7 +47,7 @@ class Survey extends CI_Controller
             'p4' => $this->input->post('p4'),
             'p5' => $this->input->post('p5')
         );
-        $this->Survey_Model->insertSurveyRanap($data_survey);
+        $this->Survey_Model->insertSurveyRalan($data_survey);
         // $this->load->set_flashdata('pesan','Berhasil Disimpan');
 
         // redirect('http://www.rskiasadewa.co.id');
