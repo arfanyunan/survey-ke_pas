@@ -60,7 +60,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/survey/admin/ranap">
                     <i class="fas fa-book"></i>
-                    <span>Lihat Data Ranapa</span></a>
+                    <span>Lihat Data Ranap</span></a>
             </li>
 
             <hr class="sidebar-divider my-1">
@@ -144,7 +144,7 @@
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                             Total Survey (Ralan)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                        <div class="h5 mb-0 font-weight-bold text-gray-800">40,000</div>
                                     </div>
                                     <div class="col-auto">
                                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -178,7 +178,7 @@
                             <div class="card-body">
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
-                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Ralan Bulan September
                                         </div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
@@ -206,7 +206,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                            Pending Requests</div>
+                                            Ranap Bulan September</div>
                                         <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                     </div>
                                     <div class="col-auto">
@@ -219,7 +219,7 @@
                 </div>
 
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Data Jawaban Survey Bulan Agustus 2021</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Data Jawaban Survey Bulan September 2021</h6>
                 </div>
                 <div class="card-body">
                     <h4 class="small font-weight-bold">Jawaban Kurang Sekali <span class="float-right">5%</span></h4>

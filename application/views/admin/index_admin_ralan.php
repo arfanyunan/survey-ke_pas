@@ -245,11 +245,11 @@
                                                             <th class="text-center">Tanggal Isi</th>
                                                             <th class="text-center">Poli</th>
                                                             <th class="text-center">Dokter</th>
-                                                            <th class="text-center">Pertanyaan 1</th>
-                                                            <th class="text-center">Pertanyaan 2</th>
-                                                            <th class="text-center">Pertanyaan 3</th>
-                                                            <th class="text-center">Pertanyaan 4</th>
-                                                            <th class="text-center">Pertanyaan 5</th>
+                                                            <th class="text-center">P1</th>
+                                                            <th class="text-center">P2</th>
+                                                            <th class="text-center">P3</th>
+                                                            <th class="text-center">P4</th>
+                                                            <th class="text-center">P5</th>
 
                                                         </tr>
                                                     </thead>
