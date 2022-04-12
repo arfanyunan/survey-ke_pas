@@ -45,14 +45,16 @@
                                         <br>
                                         <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">
                                             <div class="jw-top-title">
-                                                <h5>TERIMAKASIH TELAH MEMILIH RSKIA SADEWA</h5>
-                                                <p class="text-justify">Bantu kami menjadi lebih baik lagi dengan mengisi Form Kepuasan Pasien di RSKIA SADEWA. Silahkan pilih menu sesuai
+                                                <h5>Terimakasih Telah Memilih RSKIA SADEWA</h5>
+                                                <p class="text-justify">Bantu kami menjadi lebih baik lagi dengan mengisi Form Kepuasan Pasien di RSKIA SADEWA. Silahkan pilih dan klik tombol menu dibawah sesuai
                                                     pelayanan yang akan dinilai:
                                                 </p>
 
                                                 <div class="text-center">
-                                                    <a href="survey/index_ralan" class="btn btn-outline-success mb-2" role="button" aria-pressed="true">Rawat Jalan</a>
-                                                    <a href="survey/index_ranap" class="btn btn-outline-info mb-2" role="button" aria-pressed="true">Rawat Inap</a>
+                                                    <a href="survey/index_igd" class="btn btn-outline-danger mb-2" role="button" aria-pressed="true">IGD</a><br>
+                                                    <a href="survey/index_ralan" class="btn btn-outline-success mb-2" role="button" aria-pressed="true">Rawat Jalan</a><br>
+                                                    <a href="survey/index_ranap" class="btn btn-outline-info mb-2" role="button" aria-pressed="true">Rawat Inap</a><br>
+
                                                 </div>
 
                                                 <!-- <div class="form-group">
@@ -244,7 +246,7 @@
                                                 <!-- <button type="submit" class="btn btn-danger btn-block">Simpan</button> -->
 
                                                 <hr>
-                                                <marquee behavior="center" direction="left">-- Terikasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
+                                                <marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
                                             </div>
                                 </div>
                                 <hr>

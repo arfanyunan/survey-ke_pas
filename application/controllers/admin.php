@@ -22,11 +22,21 @@ class Admin extends CI_Controller
         //  echo "berhasil";
     }
 
+    public function igd()
+    {
+        $this->load->database('survey_sadewa');
+        $data['title'] = "Admin Survey Pasien";
+        $data['data_admin'] = $this->Admin_Model->showAllDataIgd(date('Y-m'));
+        // var_dump($data['data_admin']);
+        $this->load->view('admin/index_admin_igd', $data);
+        //  echo "berhasil";
+    }
+
     public function ralan()
     {
         $this->load->database('survey_sadewa');
         $data['title'] = "Admin Survey Pasien";
-        $data['data_admin'] = $this->Admin_Model->showAllDataRalan();
+        $data['data_admin'] = $this->Admin_Model->showAllDataRalan(date('Y-m'));
         // var_dump($data['data_admin']);
         $this->load->view('admin/index_admin_ralan', $data);
         //  echo "berhasil";

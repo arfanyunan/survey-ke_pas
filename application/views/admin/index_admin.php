@@ -52,6 +52,12 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="/survey/admin/igd">
+                    <i class="fas fa-book"></i>
+                    <span>Lihat Data IGD</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="/survey/admin/ralan">
                     <i class="fas fa-book"></i>
                     <span>Lihat Data Ralan</span></a>

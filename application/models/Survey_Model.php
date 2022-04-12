@@ -27,4 +27,14 @@ class Survey_Model extends CI_Model
         }
         return $response;
     }
+    public function insertSurveyIgd($data_survey)
+    {
+        $response = array('status' => "Data Berhasil Tersimpan", 'error' => false);
+        if (!$this->db->insert('jawaban_survey_igd', $data_survey)) {
+            $error = $this->db->error();
+            $response['status'] = "Gagal : " . $error['message'];
+            $response['error'] = true;
+        }
+        return $response;
+    }
 }

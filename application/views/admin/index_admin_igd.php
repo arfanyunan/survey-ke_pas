@@ -146,7 +146,7 @@
                     <div class="col lg 6">
                         <div class="row mb-3">
                             <div class="col-md-4">
-                                <form action="<?= base_url('admin/periode_bln_ralan'); ?>" method="POST">
+                                <form action="<?= base_url('admin/periode_bln_igd'); ?>" method="POST">
                                     <div class="input-group input-group-sm">
                                         <input type="date" class="form-control" name="date_Isi" required>
                                         <span class="input-group-append">
@@ -180,72 +180,17 @@
                                             <div class="card-header">
                                                 <div class="row">
                                                     <div class="col-sm-12 col-md-6">
-                                                        <h3 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien Ralan</h3>
+                                                        <h3 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien IGD</h3>
                                                     </div>
                                                     <div class="col-sm-12 col-md-6">
                                                         <button type="button" class="btn bg-gradient-teal btn-sm float-right" data-toggle="modal" data-target="#modal_Cari"><i class="fas fa-plus"></i> Input Data</button>
-                                                        <!-- <label for="chk_Andro">Mode Android</label> -->
-                                                        <!-- <input class="form-control form-control-sm" onfocus="gantiCookie();" type="checkbox" name="chk_Andro" id="chk_Andro" data-bootstrap-switch data-off-color="danger" data-on-color="success"> -->
+
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="card-body table-responsive">
                                                 <table id="tabelsurvey" class="table table-bordered table-striped table-hover dt-responsive nowrap" style="width: 100%;">
                                                     <thead>
-                                                        <tr>
-                                                            <th class="text-center">No</th>
-                                                            <th class="text-center">Tanggal Isi</th>
-                                                            <th class="text-center">Poli</th>
-                                                            <th class="text-center">Dokter</th>
-                                                            <th class="text-center">Pertanyaan 1</th>
-                                                            <th class="text-center">P2</th>
-                                                            <th class="text-center">P3</th>
-                                                            <th class="text-center">P4</th>
-                                                            <th class="text-center">P5</th>
-
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-
-                                                        <?php $no = 1;
-                                                        foreach ($data_admin as $dt_admin) : ?> <tr>
-                                                                <td class="text-center"><?= $no; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['poli']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['nm_dokter']; ?></td>
-                                                                <th class="text-center">Pertanyaan 1</th>
-                                                                <th class="text-center">Pertanyaan 2</th>
-                                                                <th class="text-center">Pertanyaan 3</th>
-                                                                <th class="text-center">Pertanyaan 4</th>
-                                                                <th class="text-center">Pertanyaan 5</th>
-
-                                                            </tr>
-                                                        <?php $no++;
-                                                        endforeach ?>
-
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php } else { ?>
-
-                                <div class="row mb-2">
-                                    <div class="col-lg-12">
-                                        <div class="card card-success card-outline">
-                                            <div class="card-header">
-                                                <div class="row">
-                                                    <div class="col-sm-12 col-md-6">
-                                                        <h5 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien Ralan</h5>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- <?= $this->session->flashdata('pesan'); ?> -->
-                                            <div class="card-body table-responsive">
-                                                <table id="tabelsurvey" class="table table-ligh table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
-                                                    <thead class="thead-dark">
                                                         <tr>
                                                             <th class="text-center">No</th>
                                                             <th class="text-center">Tanggal Isi</th>
@@ -264,12 +209,71 @@
                                                     <tbody>
 
                                                         <?php $no = 1;
+                                                        foreach ($data_admin as $dt_admin) : ?> <tr>
+                                                                <td class="text-center"><?= $no; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['tgl_periksa']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['nama']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['petugas']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p1']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p2']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p3']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p4']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['p5']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['saran']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['kritik']; ?></td>
+                                                            </tr>
+                                                        <?php $no++;
+                                                        endforeach ?>
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+
+                                <div class="row mb-2">
+                                    <div class="col-lg-12">
+                                        <div class="card card-success card-outline">
+                                            <div class="card-header">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <h5 class="card-title"><i class="fas fa-user-tie"></i>Tabel Data Survey Kepuasan Pasien IGD</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-body table-responsive">
+                                                <table id="tabelsurvey" class="table table-ligh table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
+                                                    <thead class="thead-dark">
+                                                        <tr>
+                                                            <th class="text-center">No</th>
+                                                            <th class="text-center">Tgl Isi</th>
+                                                            <th class="text-center">Tgl Periksa</th>
+                                                            <th class="text-center">Nama Pasien</th>
+                                                            <th class="text-center">Petugas</th>
+                                                            <th class="text-center">Pertanyaan 1</th>
+                                                            <th class="text-center">Pertanyaan 2</th>
+                                                            <th class="text-center">Pertanyaan 3</th>
+                                                            <th class="text-center">Pertanyaan 4</th>
+                                                            <th class="text-center">Pertanyaan 5</th>
+                                                            <th class="text-center">Saran</th>
+                                                            <th class="text-center">Kritik</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+
+                                                        <?php $no = 1;
                                                         foreach ($data_admin as $dt_admin) : ?>
                                                             <tr>
                                                                 <td class="text-center"><?= $no; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['poli']; ?></td>
-                                                                <td class="text-center"><?= $dt_admin['nm_dokter']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['tgl_periksa']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['nama']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['petugas']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p1']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p2']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p3']; ?></td>
@@ -307,7 +311,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; SURVEY SADEWA 2021</span>
+                        <span>Copyright &copy; SURVEY SADEWA V2 2022</span>
                     </div>
                 </div>
             </footer>
@@ -384,7 +388,7 @@
         });
     </script>
 
-</body>
 
+</body>
 
 </html>

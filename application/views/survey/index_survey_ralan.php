@@ -48,6 +48,12 @@
                                                 <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
 
                                                 <div class="form-group">
+                                                    <strong for="exampleFormControlInput1" class="form-label">Tanggal dan waktu perawatan:</strong>
+                                                    <input type="datetime-local" class="form-control" name="tanggal_datang" value="" required>
+                                                    <div class="mb-3">
+                                                        <strong for="exampleFormControlInput1" class="form-label">Nama Pasien:</strong>
+                                                        <input type="text" class="form-control" name="txt_nama" id="txt_nama" placeholder="">
+                                                    </div>
                                                     <strong for="fw-bold">Poli:</strong>
                                                     <div class="form-group">
                                                         <!-- <label for="txt_Nama" class="col-form-label-sm">Nama Dokter*</label> -->
@@ -87,6 +93,11 @@
                                                         </select><span class="select2 select2-container select2-container--bootstrap4 select2-container--below select2-container--focus" dir="ltr" data-select2-id="1" style="width: 100%;">
                                                             <!-- <span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-cmb_dokter-container"><span class="select2-selection__rendered" id="select2-cmb_dokter-container" role="textbox" aria-readonly="true" title="Pilih">Pilih</span><span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span></span></span><span class="dropdown-wrapper" aria-hidden="true"></span></span> -->
                                                             <input type="hidden" class="form-control form-control-sm" id="txt_Nmdokter" name="txt_Nmdokter" placeholder="Nama Dokter">
+                                                    </div>
+
+                                                    <div class="mb-3">
+                                                        <strong for="exampleFormControlInput1" class="form-label">Nama Petugas:</strong>
+                                                        <input type="text" class="form-control" name="txt_petugas" id="txt_petugas" placeholder="">
                                                     </div>
                                                 </div>
 
@@ -223,6 +234,16 @@
                                                 </div>
                                             </div>
 
+                                            <div class="mb-3">
+                                                <Strong for="exampleFormControlTextarea1">Saran:</Strong>
+                                                <textarea class="form-control" name="ta_saran" id="ta_saran" rows="2"></textarea>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <strong for="exampleFormControlTextarea1">Kritik:</strong>
+                                                <textarea class="form-control" name="ta_kritik" id="ta_kritik" rows="2"></textarea>
+                                            </div>
+
                                             <!-- <div class="form-group">
                                                 <strong for>6. Penampilan makanan untuk pasein rawat inap?</strong>
                                                 <div class="form-group clearfix">
@@ -258,7 +279,7 @@
                                                 <a href="/survey" class="btn btn-outline-success mb-2" role="button" aria-pressed="true">Beranda</a>
                                             </div>
                                             <hr>
-                                            <marquee behavior="center" direction="left">-- Terikasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
+                                            <marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
                                 </div>
                             </div>
 

@@ -10,9 +10,20 @@ class Admin_Model extends CI_Model
     }
 
 
-    public function showAllDataRalan()
+    public function showAllDataIgd($periode)
     {
-        return $this->db->order_by('tgl_isi', 'ASC')->get('jawaban_survey_ralan')->result_array();
+        return $this->db->order_by('tgl_isi', 'ASC')->like(['tgl_periksa' => $periode])->get('jawaban_survey_igd')->result_array();
+    }
+
+    public function showPeriodeIgd($periode)
+    {
+        $hasil = $this->db->order_by('tgl_isi', 'ASC')->like(['tgl_periksa' => $periode])->get('jawaban_survey_igd')->result_array();
+        return $hasil;
+    }
+
+    public function showAllDataRalan($periode)
+    {
+        return $this->db->order_by('tgl_isi', 'ASC')->like(['tgl_isi' => $periode])->get('jawaban_survey_ralan')->result_array();
     }
 
     public function showPeriodeRalan($periode)
