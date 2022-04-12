@@ -48,6 +48,7 @@
                                                 <h5>Masukan anda sangat berarti bagi kemajuan pelayanan kami.</h5>
 
                                                 <div class="form-group">
+                                                    <strong for="exampleFormControlInput1" class="form-label">Tanggal dan waktu perawatan:</strong>
                                                     <input type="datetime-local" class="form-control" name="tanggal_datang" value="" required>
                                                     <div class="mb-3">
                                                         <strong for="exampleFormControlInput1" class="form-label">Nama Pasien:</strong>
