@@ -52,18 +52,18 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/survey/admin/igd">
+                <a class="nav-link" href="<?= base_url('/admin/igd') ?>">
                     <i class="fas fa-book"></i>
                     <span>Lihat Data IGD</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/survey/admin/ralan">
+                <a class="nav-link" href="<?= base_url('/admin/ralan') ?>">
                     <i class="fas fa-book"></i>
                     <span>Lihat Data Ralan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/survey/admin/ranap">
+                <a class="nav-link" href="<?= base_url('admin/ranap') ?>">
                     <i class="fas fa-book"></i>
                     <span>Lihat Data Ranap</span></a>
             </li>
@@ -251,6 +251,7 @@
                                                             <th class="text-center">Tanggal Isi</th>
                                                             <th class="text-center">Poli</th>
                                                             <th class="text-center">Dokter</th>
+                                                            <th class="text-center">Petugas</th>
                                                             <th class="text-center">Pertanyaan 1</th>
                                                             <th class="text-center">Pertanyaan 2</th>
                                                             <th class="text-center">Pertanyaan 3</th>
@@ -270,6 +271,7 @@
                                                                 <td class="text-center"><?= $dt_admin['tgl_isi']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['poli']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['nm_dokter']; ?></td>
+                                                                <td class="text-center"><?= $dt_admin['petugas']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p1']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p2']; ?></td>
                                                                 <td class="text-center"><?= $dt_admin['p3']; ?></td>

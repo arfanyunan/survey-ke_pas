@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'locahlost',
-	'username' => 'client',
-	'password' => 'client',
+	'hostname' => 'eth120.rskiasadewa.co.id',
+	'username' => 'pasiensdw',
+	'password' => 'bolehakses16@!',
 	'database' => 'survey_sadewa',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -92,17 +92,16 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'port' => '3306',
-	'save_queries' => TRUE
+	'save_queries' => TRUE,
+	'port' => 3375
 
 );
-
 $db['sadewa'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'client',
-	'password' => 'client',
-	'database' => 'sik',
+	'hostname' => 'eth120.rskiasadewa.co.id',
+	'username' => 'pasiensdw',
+	'password' => 'bolehakses16@!',
+	'database' => 'sadewa',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -116,7 +115,8 @@ $db['sadewa'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'port' => '3306',
+	'port' => 3375,
 	'save_queries' => TRUE
 
 );
+

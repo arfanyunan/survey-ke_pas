@@ -52,20 +52,20 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/survey/admin/igd">
+                    <a class="nav-link" href="<?= base_url('/admin/igd') ?>">
                         <i class="fas fa-book"></i>
                         <span>Lihat Data IGD</span></a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/survey/admin/ralan">
+                    <a class="nav-link" href="<?= base_url('/admin/ralan') ?>">
                         <i class="fas fa-book"></i>
                         <span>Lihat Data Ralan</span></a>
                 </li>
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item">
-                    <a class="nav-link" href="/survey/admin/ranap">
+                    <a class="nav-link" href="<?= base_url('/admin/ranap') ?>">
                         <i class="fas fa-book"></i>
                         <span>Lihat Data Ranap</span></a>
                 </li>
