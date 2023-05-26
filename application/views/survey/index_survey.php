@@ -1,278 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<img class="img-fluid d-lg-block d-md-block d-sm-none d-none" src="<?= base_url('assets/img/header_3.png'); ?>"></img>
+<img class="img-fluid d-lg-none d-md-none d-sm-block d-block" src="<?= base_url('assets/img/header_4.png'); ?>"></img>
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-lg-10">
+			<p class="text-center mt-4">Terimakasih Telah Memilih <b style="color:#4dcfc6;">RSKIA SADEWA</b>. Bantu kami menjadi lebih baik lagi dengan mengisi Form Kepuasan Pasien di <b style="color:#4dcfc6;">RSKIA SADEWA.</b> Silahkan pilih dan klik tombol menu dibawah sesuai pelayanan yang akan dinilai.</p>
+			<div class="card ps-3 pe-3 pt-3 mb-4" id="card-menu-pelayanan">
 
-<head>
+				<h4 class="text-center font-weight-bold" style="color: #4dcfc6;">Form Pelayanan Kepuasan Pasien</h4>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+				<div class="row row-cols-2 row-cols-md-4 row-cols-sm-2 g-1 justify-content-center mt-3">
+					<div class="col">
+						<a href="survey/index_igd" class="nav-link mb-3">
+							<div class="card gambar shadow_cus">
+								<img src="<?= base_url('assets/img/igd.png'); ?>" class="card-img" alt="..." style="box-shadow: 0px 0px 10px 5px var(--brand2)">
+							</div>
+						</a>
+					</div>
+					<div class="col" id="left">
+						<a href="survey/index_ralan" class="nav-link mb-3">
+							<div class="card gambar shadow_cus">
+								<img src="<?= base_url('assets/img/rawat_jalan.png'); ?>" class="card-img" alt="..." style="box-shadow: 0px 0px 10px 5px var(--brand2)">
+							</div>
+						</a>
+					</div>
+					<div class="col" id="right">
+						<a href="survey/index_ranap" class="nav-link mb-3">
+							<div class="card gambar shadow_cus">
+								<img src="<?= base_url('assets/img/rawat_inap.png'); ?>" class="card-img" alt="..." style="box-shadow: 0px 0px 10px 5px var(--brand2)">
+							</div>
+						</a>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-10 mb-3 ">
+						<div class="text-center pl-3 pr-3">
+							<?= $this->session->flashdata('massage'); ?>
+							<marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien <b style="color:#4dcfc6;">RSKIA SADEWA</b> --</marquee>
+						</div>
+						</div>
+				</div>
+			</div>
+		</div>
 
-    <title>Survey Kepuasan Pasien</title>
+	</div>
 
-    <!-- Custom fonts for this template-->
-    <link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+</div>
 
-    <!-- Custom styles for this template-->
-    <link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
-
-</head>
-
-<body class="bg-info">
-
-    <div class="container">
-
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-
-            <div class="col-lg-12">
-
-                <div class="card o-hidden border-0 shadow-lg my-5">
-                    <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <img class="col-lg-5 d-none d-lg-block" src="<?= base_url('assets/img/gambar.jpg'); ?>"></img>
-                            <!-- <div class="col-lg-3 d-none d-lg-block bg-login-image"></div> -->
-                            <div class="col-lg">
-                                <div class="p-5">
-                                    <div class="text-center">
-                                        <!-- <h7 class="h7 text-gray-900 mb-7">Survey Kepuasan RSKIA SADEWA</h7> -->
-                                        <h1 aria-colspan="">Survey Kepuasan Pasien RSKIA SADEWA</h1>
-                                    </div>
-                                    <tr>
-                                        <br>
-                                        <form class="user" action="<?= base_url('Survey/simpan_survey'); ?>" method="POST">
-                                            <div class="jw-top-title">
-                                                <h5>Terimakasih Telah Memilih RSKIA SADEWA</h5>
-                                                <p class="text-justify">Bantu kami menjadi lebih baik lagi dengan mengisi Form Kepuasan Pasien di RSKIA SADEWA. Silahkan pilih dan klik tombol menu dibawah sesuai
-                                                    pelayanan yang akan dinilai:
-                                                </p>
-
-                                                <div class="text-center">
-                                                    <a href="survey/index_igd" class="btn btn-outline-danger mb-2" role="button" aria-pressed="true">IGD</a><br>
-                                                    <a href="survey/index_ralan" class="btn btn-outline-success mb-2" role="button" aria-pressed="true">Rawat Jalan</a><br>
-                                                    <a href="survey/index_ranap" class="btn btn-outline-info mb-2" role="button" aria-pressed="true">Rawat Inap</a><br>
-
-                                                </div>
-
-                                                <!-- <div class="form-group">
-                                                    <strong for="fw-bold">1. Kenyamanan dan kebersihan Rumah Sakit?</strong>
-                                                    <div class="form-group clearfix">
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_1_1" name="p1" value="1" required="">
-                                                            <label class="form-check-label" for="rb_1_1">Kurang Sekali</label>
-                                                        </div>
-
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_1_2" name="p1" value="2" required="">
-                                                            <label class="form-check-label" for="rb_1_2">Kurang</label>
-                                                        </div>
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_1_3" name="p1" value="3" required="">
-                                                            <label class="form-check-label" for="rb_1_3">Cukup</label>
-                                                        </div>
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_1_4" name="p1" value="4" required="">
-                                                            <label class="form-check-label" for="rb_1_4">Baik</label>
-                                                        </div>
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_1_5" name="p1" value="5" required="">
-                                                            <label class="form-check-label" for="rb_1_5">Baik Sekali</label>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <div class="form-group">
-                                                    <strong for="">2. Kejelasan Informasi dan komunikasi dengan Dokter?</strong>
-                                                    <div class="form-group clearfix">
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_2_1" name="p2" value="1" required="">
-                                                            <label class="form-check-label" for="rb_2_1">Kurang Sekali</label>
-                                                        </div>
-
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_2_2" name="p2" value="2" required="">
-                                                            <label class="form-check-label" for="rb_2_2">Kurang</label>
-                                                        </div>
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_2_3" name="p2" value="3" required="">
-                                                            <label class="form-check-label" for="rb_2_3">Cukup</label>
-                                                        </div>
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_2_4" name="p2" value="4" required="">
-                                                            <label class="form-check-label" for="rb_2_4">Baik</label>
-                                                        </div>
-                                                        <div class="icheck-primary d-inline">
-                                                            <input type="radio" id="rb_2_5" name="p2" value="5" required="">
-                                                            <label class="form-check-label" for="rb_2_5">Baik Sekali</label>
-                                                        </div>
-                                                    </div>
-                                                </div> -->
-                                                <!-- <strong for="">3. Tenaga medis dapat diandalkan untuk menangani pasien?</strong>
-                                                <div class="form-group clearfix">
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_3_1" name="p3" value="1" required="">
-                                                        <label class="form-check-label" for="rb_3_1">Kurang Sekali</label>
-                                                    </div>
-
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_3_2" name="p3" value="2" required="">
-                                                        <label class="form-check-label" for="rb_3_2">Kurang</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_3_3" name="p3" value="3" required="">
-                                                        <label class="form-check-label" for="rb_3_3">Cukup</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_3_4" name="p3" value="4" required="">
-                                                        <label class="form-check-label" for="rb_3_4">Baik</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_3_5" name="p3" value="5" required="">
-                                                        <label class="form-check-label" for="rb_3_5">Baik Sekali</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
-                                                <!-- <div class="form-group">
-                                                <strong for="">4. Perhatian dari Dokter kepada Pasien?</strong>
-                                                <div class="form-group clearfix">
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_4_1" name="p4" value="1" required="">
-                                                        <label class="form-check-label" for="rb_4_1">Kurang Sekali</label>
-                                                    </div>
-
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_4_2" name="p4" value="2" required="">
-                                                        <label class="form-check-label" for="rb_4_2">Kurang</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_4_3" name="p4" value="3" required="">
-                                                        <label class="form-check-label" for="rb_4_3">Cukup</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_4_4" name="p4" value="4" required="">
-                                                        <label class="form-check-label" for="rb_4_4">Baik</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_4_5" name="p4" value="5" required="">
-                                                        <label class="form-check-label" for="rb_4_5">Baik Sekali</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-
-                                                <!-- <div class="form-group">
-                                                <strong for="">5. Kesopanan dan keramahan yang diberikan oleh petugas?</strong>
-                                                <div class="form-group clearfix">
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_5_1" name="p5" value="1" required="">
-                                                        <label class="form-check-label" for="rb_5_1">Kurang Sekali</label>
-                                                    </div>
-
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_5_2" name="p5" value="2" required="">
-                                                        <label class="form-check-label" for="rb_5_2">Kurang</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_5_3" name="p5" value="3" required="">
-                                                        <label class="form-check-label" for="rb_5_3">Cukup</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_5_4" name="p5" value="4" required="">
-                                                        <label class="form-check-label" for="rb_5_4">Baik</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_5_5" name="p5" value="5" required="">
-                                                        <label class="form-check-label" for="rb_5_5">Baik Sekali</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                                <!-- <div class="form-group">
-                                                <strong for="">6. Rasa makanan untuk pasien rawat inap?</strong>
-                                                <div class="form-group clearfix">
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_6_1" name="p6" value="1" required="">
-                                                        <label class="form-check-label" for="rb_6_1">Kurang Sekali</label>
-                                                    </div>
-
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_6_2" name="p6" value="2" required="">
-                                                        <label class="form-check-label" for="rb_6_2">Kurang</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_6_3" name="p6" value="3" required="">
-                                                        <label class="form-check-label" for="rb_6_3">Cukup</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_6_4" name="p6" value="4" required="">
-                                                        <label class="form-check-label" for="rb_6_4">Baik</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_6_5" name="p6" value="5" required="">
-                                                        <label class="form-check-label" for="rb_6_5">Baik Sekali</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                                <!-- <div class="form-group">
-                                                <strong for>7. Penampilan makanan untuk pasein rawat inap?</strong>
-                                                <div class="form-group clearfix">
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_7_1" name="p7" value="1" required="">
-                                                        <label class="form-check-label" for="rb_7_1">Kurang Sekali</label>
-                                                    </div>
-
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_7_2" name="p7" value="2" required="">
-                                                        <label class="form-check-label" for="rb_7_2">Kurang</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_7_3" name="p7" value="3" required="">
-                                                        <label class="form-check-label" for="rb_7_3">Cukup</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_7_4" name="p7" value="4" required="">
-                                                        <label class="form-check-label" for="rb_7_4">Baik</label>
-                                                    </div>
-                                                    <div class="icheck-primary d-inline">
-                                                        <input type="radio" id="rb_7_5" name="p7" value="5" required="">
-                                                        <label class="form-check-label" for="rb_7_5">Baik Sekali</label>
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                                <!-- <a href="index.html" class="btn btn-primary btn-user btn-block">
-                                            Simpan
-                                        </a> -->
-                                                <!-- <button type="submit" class="btn btn-danger btn-block">Simpan</button> -->
-
-                                                <hr>
-                                                <marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien RSKIA SADEWA -- </marquee>
-                                            </div>
-                                </div>
-                                <hr>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-    <script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
-
-</body>
-
-</html>
+</div>

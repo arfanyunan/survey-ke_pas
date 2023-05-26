@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'locahlost',
-	'username' => 'client',
-	'password' => 'client',
-	'database' => 'survey_sadewa',
+	'hostname' => '192.168.88.2',
+	'username' => 'fajar',
+	'password' => 'jr_dev',
+	'database' => 'sadewa_survey',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -92,31 +92,6 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'port' => '3306',
-	'save_queries' => TRUE
-
-);
-
-$db['sadewa'] = array(
-	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'client',
-	'password' => 'client',
-	'database' => 'sik',
-	'dbdriver' => 'mysqli',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'port' => '3306',
-	'save_queries' => TRUE
-
+	'save_queries' => TRUE,
+	'port'=> 3377
 );
