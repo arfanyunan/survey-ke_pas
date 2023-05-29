@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<title>Survey Kepuasan Pasien</title>
-
-	<!-- Custom fonts for this template-->
-	<link href="<?= base_url('assets/vendor/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
-	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
-	<!-- Custom styles for this template-->
-	<link href="<?= base_url('assets/css/sb-admin-2.min.css'); ?>" rel="stylesheet">
-
-</head>
-
-<body class="bg-light">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
@@ -39,13 +16,13 @@
 										<div class="jw-top-title">
 											<div class="form-group">
 												<div class="mb-3">
-													<strong for="exampleFormControlInput1" class="form-label">Tanggal dan waktu perawatan:</strong>
+													<strong for="exampleFormControlInput1" class="form-label">Tanggal dan waktu perawatan: <b class="text-danger">*</b></strong>
 													<input type="date" class="form-control rounded-pill mt-2" name="tgl_periksa" value="" required>
 												</div>
 												<div class="row justify-content-center">
 													<div class="col-lg-6">
 														<div class="mb-3">
-															<strong for="fw-bold">Spesialis:</strong>
+															<strong for="fw-bold">Spesialis: <b class="text-danger">*</b></strong>
 															<div class="form-group">
 																<select class="form-control select2bs4 rounded-pill mt-2 select2-hidden-accessible" required style="width: 100%;" id="spesialis" name="spesialis">
 																	<option selected="selected" value="">-- Pilih Spesialis --</option>
@@ -59,7 +36,7 @@
 													</div>
 													<div class="col-lg-6">
 														<div class="mb-3">
-															<strong for="fw-bold">Dokter:</strong>
+															<strong for="fw-bold">Dokter: <b class="text-danger">*</b></strong>
 															<div class="form-group">
 																<!-- <label for="txt_Nama" class="col-form-label-sm">Nama Dokter*</label> -->
 																<select class="form-control select2bs4 select2-hidden-accessible rounded-pill mt-2" required style="width: 100%;" id="dokter" name="dokter">
@@ -70,19 +47,19 @@
 													</div>
 													<div class="col-lg-6">
 														<div class="mb-3">
-															<strong for="exampleFormControlInput1" class="form-label">Nama Pasien:</strong>
+															<strong for="exampleFormControlInput1" class="form-label">Nama Pasien: <b class="text-danger">*</b></strong>
 															<input type="text" class="form-control rounded-pill mt-2" name="txt_nama" id="txt_nama" required placeholder="Masukan Nama Pasien">
 														</div>
 													</div>
 													<div class="col-lg-6">
 														<div class="mb-3">
 															<strong for="exampleFormControlInput1" class="form-label">Nama Patugas:</strong>
-															<input type="text" class="form-control rounded-pill mt-2" name="txt_petugas" id="txt_petugas" required placeholder="Masukan Nama petugas">
+															<input type="text" class="form-control rounded-pill mt-2" name="txt_petugas" id="txt_petugas" placeholder="Masukan Nama petugas">
 														</div>
 													</div>
 													<div class="col-lg-6">
 														<div class="form-group mb-3 mt-3">
-															<strong for="fw-bold">1. Kenyamanan dan kebersihan Rumah Sakit?</strong>
+															<strong for="fw-bold">1. Kenyamanan dan kebersihan Rumah Sakit? <b class="text-danger">*</b></strong>
 															<div class="form-group clearfix mt-2">
 																<div class="icheck-primary d-inline">
 																	<input type="radio" id="rb_1_1" name="p1" value="Kurang Sekali" required="">
@@ -109,7 +86,7 @@
 													</div>
 													<div class="col-lg-6">
 														<div class="form-group mb-3 mt-3">
-															<strong for="">2. Kejelasan Informasi dan komunikasi dengan Dokter?</strong>
+															<strong for="">2. Kejelasan Informasi dan komunikasi dengan Dokter? <b class="text-danger">*</b></strong>
 															<div class="form-group clearfix mt-2">
 																<div class="icheck-primary d-inline">
 																	<input type="radio" id="rb_2_1" name="p2" value="Kurang Sekali" required="">
@@ -136,7 +113,7 @@
 													</div>
 													<div class="col-lg-6">
 														<div class="form-group">
-															<strong for="">3. Tenaga medis dapat diandalkan untuk menangani pasien?</strong>
+															<strong for="">3. Tenaga medis dapat diandalkan untuk menangani pasien? <b class="text-danger">*</b></strong>
 															<div class="form-group clearfix">
 																<div class="icheck-primary d-inline">
 																	<input type="radio" id="rb_3_1" name="p3" value="Kurang Sekali" required="">
@@ -163,7 +140,7 @@
 													</div>
 													<div class="col-lg-6">
 														<div class="form-group mb-3">
-															<strong for="">4. Perhatian dari Dokter kepada Pasien?</strong>
+															<strong for="">4. Perhatian dari Dokter kepada Pasien? <b class="text-danger">*</b></strong>
 															<div class="form-group clearfix">
 																<div class="icheck-primary d-inline">
 																	<input type="radio" id="rb_4_1" name="p4" value="Kurang Sekali" required="">
@@ -190,7 +167,7 @@
 													</div>
 													<div class="col-lg-6">
 														<div class="form-group mb-3">
-															<strong for="">5. Kesopanan dan keramahan yang diberikan oleh petugas?</strong>
+															<strong for="">5. Kesopanan dan keramahan yang diberikan oleh petugas? <b class="text-danger">*</b></strong>
 															<div class="form-group clearfix">
 																<div class="icheck-primary d-inline">
 																	<input type="radio" id="rb_5_1" name="p5" value="Kurang Sekali" required="">
@@ -221,20 +198,21 @@
 													<div class="col-lg-6">
 														<div class="mb-3">
 															<Strong for="exampleFormControlTextarea1">Saran:</Strong>
-															<textarea class="form-control" name="ta_saran" id="ta_saran" rows="3" required placeholder="Masukan Saran"></textarea>
+															<textarea class="form-control" name="ta_saran" id="ta_saran" rows="3" placeholder="Masukan Saran"></textarea>
 														</div>
 													</div>
 													<div class="col-lg-6">
 														<div class="mb-3">
 															<strong for="exampleFormControlTextarea1">Kritik:</strong>
-															<textarea class="form-control" name="ta_kritik" id="ta_kritik" rows="3" required placeholder="Masukan Kritik"></textarea>
+															<textarea class="form-control" name="ta_kritik" id="ta_kritik" rows="3" placeholder="Masukan Kritik"></textarea>
 														</div>
 													</div>
 												</div>
+												<h6 class="text-danger">Keterangan :<br>* Wajib Diisi</h6>
 											</div>
 										</div>
 										<div class="text-center mb-3">
-											<a href="/survey_sadewa" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
+											<a href="/sadewa-survey" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
 											<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill ml-2">Simpan</button>
 										</div>
 										<marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien <b style="color:#4dcfc6;">RSKIA SADEWA</b> --</marquee>
@@ -255,18 +233,12 @@
 
 
 	<!-- Bootstrap core JavaScript-->
-	<script src="<?= base_url('assets/'); ?>vendor/jquery/jquery.min.js"></script>
-	<script src="<?= base_url('assets/'); ?>vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+	<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
+	<script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
 	<!-- Core plugin JavaScript-->
-	<script src="<?= base_url('assets/'); ?>vendor/jquery-easing/jquery.easing.min.js"></script>
-
+	<script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
 	<!-- Custom scripts for all pages-->
-	<script src="<?= base_url('assets/'); ?>js/sb-admin-2.min.js"></script>
-	<!-- Swal -->
-	<script src="js/sweetalert2.all.min.js"></script>
-
-
+	<script src="<?= base_url('assets/s/sb-admin-2.min.js'); ?>j"></script>
 
 	<script>
 		$(document).ready(function() {
@@ -287,10 +259,6 @@
 				})
 			});
 		});
-
-
-
-
 
 		function show1(kondisi1) {
 			$('#tap1').css('display', kondisi1);
@@ -320,30 +288,6 @@
 			timer: 1500
 		})
 
-		// function isi_dokter() {
-
-		// 	let kd_sps = $('#cmb_poli').val();
-		// 	$.ajax({
-		// 		url: "<?= base_url('survey/isi_dokter') ?>",
-		// 		method: "POST",
-		// 		data: {
-		// 			kd_sps
-		// 		},
-		// 		dataType: "JSON",
-		// 		success: (hasil) => {
-		// 			console.log(hasil);
-		// 			$('#cmb_dokter').empty();
-
-		// 			$.each(hasil, function() {
-		// 				$('#cmb_dokter').append($("<option />").val(this.kd_dokter).text(this.nm_dokter));
-		// 			});
-		// 		},
-		// 		error: (err) => {
-		// 			alert('error dokter');
-		// 		}
-
-		// 	});
-		// }
 	</script>
 </body>
 

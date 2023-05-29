@@ -1,3 +1,74 @@
+		<!-- Sidebar -->
+		<ul class="navbar-nav sidebar sidebar-dark accordion bg_admin" id="accordionSidebar">
+			<!-- Sidebar - Brand -->
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="/sadewa-survey">
+				<div class="sidebar-brand-icon rotate-n-15">
+					<i class="fas fa-laugh-wink"></i>
+				</div>
+				<div class="sidebar-brand-text mx-2">
+					<h6 class="pt-2">Hallo Admin</h6>
+				</div>
+			</a>
+			<!-- Nav Item - Dashboard -->
+			<hr class="sidebar-divider my-1">
+			<li class="nav-item">
+				<a class="nav-link" href="/sadewa-survey/admin/">
+					<i class="fas fa-fw fa-tachometer-alt"></i>
+					<span>Dashboard</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('/admin/igd') ?>">
+					<i class="fas fa-book"></i>
+					<span>Lihat Data IGD</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('/admin/ralan') ?>">
+					<i class="fas fa-book"></i>
+					<span>Lihat Data Ralan</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('/admin/ranap') ?>">
+					<i class="fas fa-book"></i>
+					<span>Lihat Data Ranap</span></a>
+			</li>
+			<hr class="sidebar-divider">
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('/admin/bangsal') ?>">
+					<i class="fas fa-book"></i>
+					<span>Lihat Data Bangsal</span></a>
+			</li>
+			<li class="nav-item active">
+				<a class="nav-link" href="<?= base_url('/admin/dokter') ?>">
+					<i class="fas fa-book"></i>
+					<span>Lihat Data Dokter</span></a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('/admin/spesialis') ?>">
+					<i class="fas fa-book"></i>
+					<span>Lihat Data Spesialis</span></a>
+			</li>
+			<hr class="sidebar-divider my-1">
+			<li class="nav-item">
+				<a class="nav-link" href="<?= base_url('/admin/user') ?>">
+					<i class="fas fa-user"></i>
+					<span>Lihat Data User</span></a>
+			</li>
+			<hr class="sidebar-divider my-1">
+			<li class="nav-item">
+				<a href="" class="nav-link" data-toggle="modal" data-target="#logoutModal">
+					<i class="fas fa-sign-out-alt"></i>
+					<strong>Logout</strong>
+				</a>
+			</li>
+			<hr class="sidebar-divider">
+			<!-- Sidebar Toggler (Sidebar) -->
+			<div class="text-center d-none d-md-inline">
+				<button class="rounded-circle border-0" id="sidebarToggle"></button>
+			</div>
+
+		</ul>
+		<!-- End of Sidebar -->
+
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
 			<!-- Main Content -->
@@ -24,7 +95,7 @@
 										<div class="card-header bg-white">
 											<div class="row mt-2">
 												<div class="col-sm-3 col-md-3">
-													<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahDokter"><i class="fas fa-plus mr-2"></i>Tambah Dokter</button>
+													<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#tambahDokter" data-toggle="tooltip" data-placement="top" title="Tambah Dokter"><i class="fas fa-plus mr-2"></i>Tambah Dokter</button>
 												</div>
 												<div class="col-sm-6 col-md-6">
 													<h4 class="card-title text-center">Tabel Data Dokter  <b>RSKIA SADEWA</b></h4>
@@ -70,8 +141,8 @@
 															}
 															?>
 															<td class="text-center col-sm-2">
-																<button type="button" class="btn  bg_admin text-white btn-sm" data-toggle="modal" data-target="#editDokter<?= $dt_admin['kd_dokter']; ?>"><i class="fas fa-pen mr-2"></i>Edit Data</button>
-																<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editStatus<?= $dt_admin['kd_dokter']; ?>"><i class="fas fa-pen mr-2"></i>Edit Status</button>
+																<button type="button" class="btn  bg_admin text-white btn-sm" data-toggle="modal" data-target="#editDokter<?= $dt_admin['kd_dokter']; ?>"data-toggle="tooltip" data-placement="top" title="Edit Dokter"><i class="fas fa-pen"></i></button>
+																<button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#editStatus<?= $dt_admin['kd_dokter']; ?>"data-toggle="tooltip" data-placement="top" title="Edit Status Dokter"><i class="fas fa-pen"></i></button>
 															</td>
 														</tr>
 
@@ -212,65 +283,27 @@
 				</div>
 			</div>
 
-			<!-- Chart -->
-			<script src="<?= base_url('assets/chart_bar.js'); ?>"></script>
-
 			<!-- Bootstrap core JavaScript-->
 			<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
 			<script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-
 			<!-- Core plugin JavaScript-->
 			<script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-
 			<!-- Custom scripts for all pages-->
 			<script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
-
-			<script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
-			<script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-			<script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
-
-
-			<script src="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css"></script>
-			<script src="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"></script>
-
-			<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-			<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-			<script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-			<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
-			<script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
-
-
-			<!-- Bootstrap core JavaScript-->
-			<script src="vendor/jquery/jquery.min.js"></script>
-			<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-			<!-- Core plugin JavaScript-->
-			<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+			<!-- DataTables -->
+			<script src="<?= base_url('assets/datatables/DataTables-1.13.4/js/jquery.dataTables.min.js'); ?>"></script>
+			<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/dataTables.buttons.min.js'); ?>"></script>
+			<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/buttons.html5.min.js'); ?>"></script>
+			<script src="<?= base_url('assets/js/ajax.js'); ?>"></script>
 
 			<!-- Page level plugins -->
 			<script src="<?= base_url('assets/chart.js/Chart.min.js'); ?>"></script>
 			<script src="<?= base_url('assets/js/demo/chart-bar-demo.js'); ?>"></script>
 			<script src="<?= base_url('assets/js/chart-ralan.js'); ?>"></script>
 			<script src="<?= base_url('assets/js/chart-ranap.js'); ?>"></script>
-			<!-- <script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
+			<script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
 			<script>
-				const base_url = "/survey_sadewa/";
-				$(document).ready(function() {
-					$('#tabelsurvey').DataTable({
-						dom: 'Bfrtip',
-						buttons: [
-							'excel', 'print'
-						]
-					});
-				});
-			</script> -->
-			<script>
-				const base_url = "/survey_sadewa/";
+				const base_url = "/sadewa-survey/";
 				$(document).ready(function() {
 					$('#tabelsurvey').DataTable({
 					});

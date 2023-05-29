@@ -61,7 +61,7 @@ class Admin_Model extends CI_Model
 	{
 
 		$this->db->select("*");
-		$this->db->from('jawaban_survey_ralan');
+		$this->db->from('vw_jawaban_survey_ralan');
 		$this->db->where('tgl_isi BETWEEN "' . date('Y-m-d', strtotime($date_1)) . '" and "' . date('Y-m-d', strtotime("+1 day", strtotime($date_2))) . '"');
 		return $this->db->get()->result_array();
 	}

@@ -51,7 +51,6 @@ class Admin extends CI_Controller
 		}
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin', $data);
-		$this->load->view('template/admin_footer');
 	}
 
 	public function igd()
@@ -97,7 +96,6 @@ class Admin extends CI_Controller
 
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_igd', $data);
-		// $this->load->view('template/admin_footer');
 	}
 
 	public function ralan()
@@ -142,7 +140,6 @@ class Admin extends CI_Controller
 
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_ralan', $data);
-		// $this->load->view('template/admin_footer');
 	}
 
 	public function ranap()
@@ -190,7 +187,6 @@ class Admin extends CI_Controller
 
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_ranap', $data);
-		// $this->load->view('template/admin_footer');
 	}
 
 
@@ -204,21 +200,10 @@ public function dokter()
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_dokter', $data);
 		$this->load->view('template/form');
-		// $this->load->view('template/admin_footer');
 }
 
 public function tambah_dokter()
 {
-
-	// $kd_dokter = $this->input->post('txt_kd_dokter');
-    // $this->db->where('kd_dokter', $kd_dokter);
-    // $result = $this->db->get('dokter');
-
-    // if($result->num_rows() > 0){
-	// 	$this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">Gagal Menambah Data Tokter. Kode Dokter Sudah Terdaftar</div>');
-	// 	redirect("admin/dokter");
-    //     return false;
-    // }else{
 		$data_dokter = array(
 			'kd_dokter' => $this->input->post('txt_kd_dokter'),
 			'nm_dokter' => $this->input->post('txt_nm_dokter'),
@@ -229,7 +214,6 @@ public function tambah_dokter()
 	
 		$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Berhasil Menambahkan Data Dokter</div>');
 		redirect("admin/dokter");
-	// }
 
 }
 
@@ -280,16 +264,6 @@ public function spesialis()
 public function tambah_spesialis()
 {
 
-	// $kd_spesialis = $this->input->post('txt_kd_spesialis');
-	// $nm_spesialis = $this->input->post('txt_nm_spesialis');
-    // $this->db->where('kd_sps', $kd_spesialis);
-    // $result = $this->db->get('spesialis');
-
-    // if($result->num_rows() > 0){
-	// 	$this->session->set_flashdata('massage', '<div class="alert alert-danger" role="alert">Gagal Menambah Data Spesialis. Kode Spesialis Sudah Terdaftar</div>');
-	// 	redirect("admin/spesialis");
-    //     return false;
-    // }else{
 	$data_spesialis = array(
 		
 		'kd_sps' => $this->input->post('txt_kd_spesialis'),
@@ -298,7 +272,6 @@ public function tambah_spesialis()
 		$this->admin_model->insertAdminSpesialis($data_spesialis);
 		$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Berhasil Menambahkan Data Bangsal</div>');
 		redirect("admin/spesialis");
-	// }
 
 }
 
@@ -314,7 +287,6 @@ public function edit_spesialis()
 
 	$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Berhasil Mengedit Data Spesialis</div>');
 	redirect("admin/spesialis");
-
 	
 }
 
@@ -327,7 +299,6 @@ public function bangsal()
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_bangsal', $data);
 		$this->load->view('template/form');
-		// $this->load->view('template/admin_footer');
 }
 
 public function tambah_bangsal()
@@ -343,7 +314,6 @@ public function tambah_bangsal()
 	$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Berhasil Menambahkan Data Bangsal</div>');
 	redirect("admin/bangsal");
 
-
 }
 
 public function edit_bangsal()
@@ -358,7 +328,6 @@ public function edit_bangsal()
 
 	$this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">Berhasil Mengedit Data Bangsal</div>');
 	redirect("admin/bangsal");
-
 	
 }
 
@@ -370,7 +339,6 @@ public function user()
 		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_user', $data);
 		$this->load->view('template/form');
-		// $this->load->view('template/admin_footer');
 }
   
 public function tambah_user(){

@@ -1,5 +1,3 @@
-
-
 <img class="img-fluid d-lg-block d-md-block d-sm-none d-none" src="<?= base_url('assets/img/header_3.png'); ?>"></img>
 <img class="img-fluid d-lg-none d-md-none d-sm-block d-block" src="<?= base_url('assets/img/header_4.png'); ?>"></img>
 <div class="container">
@@ -43,9 +41,6 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
-
 </div>
-
 </div>
