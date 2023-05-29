@@ -27,7 +27,6 @@ class Survey extends CI_Controller
 		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey_ralan', $data);
 		$this->load->view('template/survey_footer');
-		$data['title'] = "Rawat Jalan";
 	}
 
 	public function index_ranap()
@@ -38,7 +37,6 @@ class Survey extends CI_Controller
 		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey_ranap', $data);
 		$this->load->view('template/survey_footer');
-		$data['title'] = "Rawat Inap";
 	}
 	public function index_igd()
 	{
@@ -46,7 +44,6 @@ class Survey extends CI_Controller
 		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey_igd');
 		$this->load->view('template/survey_footer');
-		$data['title'] = "Rawat Inap";
 	}
 
 	public function simpan_ralan()
