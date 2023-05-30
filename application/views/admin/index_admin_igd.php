@@ -1,73 +1,4 @@
-		<!-- Sidebar -->
-		<ul class="navbar-nav sidebar sidebar-dark accordion bg_admin" id="accordionSidebar">
-			<!-- Sidebar - Brand -->
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="/sadewa-survey">
-				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
-				</div>
-				<div class="sidebar-brand-text mx-2">
-					<h6 class="pt-2">Hallo Admin</h6>
-				</div>
-			</a>
-			<!-- Nav Item - Dashboard -->
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a class="nav-link" href="/sadewa-survey/admin/">
-					<i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard</span></a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="<?= base_url('/admin/igd') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data IGD</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/ralan') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Ralan</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/ranap') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Ranap</span></a>
-			</li>
-			<hr class="sidebar-divider">
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/bangsal') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Bangsal</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/dokter') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Dokter</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/spesialis') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Spesialis</span></a>
-			</li>
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/user') ?>">
-					<i class="fas fa-user"></i>
-					<span>Lihat Data User</span></a>
-			</li>
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a href="" class="nav-link" data-toggle="modal" data-target="#logoutModal">
-					<i class="fas fa-sign-out-alt"></i>
-					<strong>Logout</strong>
-				</a>
-			</li>
-			<hr class="sidebar-divider">
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
-
-		</ul>
-		<!-- End of Sidebar -->
+<?= $this->load->view('admin/sidebar',null,true); ?>
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -90,31 +21,15 @@
 						<div class="row mb-3">
 							<div class="col-md-5">
 								<h6>Data Berdasarkan Range Tanggal</h6>
-								<?php
-								if ($this->input->post('date_1') == true) {
-								?>
-									<form action="<?= base_url('admin/igd'); ?>" method="POST">
-										<div class="input-group input-group-sm">
-											<input type="date" class="form-control" name="date_1" required value="<?php echo $date_1; ?>">
-											<input type="date" class="form-control" name="date_2" required value="<?php echo $date_1; ?>">
-											<span class="input-group-append">
-												<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
-											</span>
-										</div>
-									</form>
-								<?php
-								} else {
-								?>
-									<form action="<?= base_url('admin/igd'); ?>" method="POST">
-										<div class="input-group input-group-sm">
-											<input type="date" class="form-control" name="date_1" required>
-											<input type="date" class="form-control" name="date_2" required>
-											<span class="input-group-append">
-												<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
-											</span>
-										</div>
-									</form>
-								<?php }; ?>
+								<form action="<?= base_url('admin/igd'); ?>" method="POST">
+									<div class="input-group input-group-sm">
+										<input type="date" class="form-control" id="date_1" name="date_1" required value="<?= isset($date_1) ? $date_1 : date('Y-m-d') ; ?>">
+										<input type="date" class="form-control" name="date_2" required value="<?= isset($date_2) ? $date_2 : date('Y-m-d') ; ?>">
+										<span class="input-group-append">
+											<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
+										</span>
+									</div>
+								</form>
 
 							</div>
 						</div>
@@ -208,6 +123,7 @@
 					</div>
 				</div>
 			</div>
+		</div>
 			
 		<!-- Bootstrap core JavaScript-->
 		<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
@@ -223,6 +139,8 @@
 		<script src="<?= base_url('assets/js/ajax.js'); ?>"></script>
 
 		<!-- Page level plugins -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
 		<script src="<?= base_url('assets/chart.js/Chart.min.js'); ?>"></script>
 		<script src="<?= base_url('assets/js/demo/chart-bar-demo.js'); ?>"></script>
 		<script src="<?= base_url('assets/js/chart-ralan.js'); ?>"></script>
@@ -230,18 +148,15 @@
 		<script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
 		<script>
 			const base_url = "/sadewa-survey/";
+			let label_1 = $('#date_1').val();
+			let label_2 = $('#date_1').val();
 			$(document).ready(function() {
 				$('#tabelsurvey').DataTable({
 					dom: 'Bfrtip',
 					buttons: [
 						{
 							extend: 'excel',
-							title: 'Data Survey Kepuasan Pasien IGD <?php if ($this->input->post('date_1') == true) {
-																					echo 'Tanggal ' . tgl_indo($date_1) . ' s.d ' .
-																						tgl_indo($date_2);
-																				} else {
-																					echo 'Bulan ' . date('M') . ' ' . date('Y');
-																				} ?><?php ?>'
+							title: `Data Survey Kepuasan Pasien IGD ${label_1} s.d ${label_2}`
 						},
 					]
 				});
