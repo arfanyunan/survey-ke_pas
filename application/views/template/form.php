@@ -10,10 +10,6 @@
       </div>
       <div class="modal-body">
       <form class="user" action="<?= base_url('admin/tambah_dokter'); ?>" method="POST">
-        <!-- <div class="mb-3">
-			<strong for="exampleFormControlInput1" class="form-label">Kode Dokter:</strong>
-			<input type="text" class="form-control rounded-pill mt-2" name="txt_kd_dokter" id="txt_kd_dokter" autofocus required placeholder="Masukan Kode Dokter">
-		</div> -->
         <div class="mb-3">
 			<strong for="exampleFormControlInput1" class="form-label">Nama Dokter:</strong>
 			<input type="text" class="form-control rounded-pill mt-2" name="txt_nm_dokter" id="txt_nm_dokter" required placeholder="Masukan Nama Dokter">
@@ -61,10 +57,6 @@
       </div>
       <div class="modal-body">
       <form class="user" action="<?= base_url('admin/tambah_spesialis'); ?>" method="POST">
-	  	<!-- <div class="mb-3">
-			<strong for="exampleFormControlInput1" class="form-label">Kode Spesialis:</strong>
-			<input type="text" class="form-control rounded-pill mt-2" name="txt_kd_spesialis" id="txt_kd_spesialis" required placeholder="Masukan Kode Spesialis">
-		</div> -->
         <div class="mb-3">
 			<strong for="exampleFormControlInput1" class="form-label">Nama Spesialis:</strong>
 			<input type="text" class="form-control rounded-pill mt-2" name="txt_nm_spesialis" id="txt_nm_spesialis" required placeholder="Masukan Nama Spesialis">

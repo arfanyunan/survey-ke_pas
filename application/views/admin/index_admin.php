@@ -1,4 +1,15 @@
-<?= $this->load->view('admin/sidebar',null,true); ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<?= $this->load->view('/template/admin_header',null,true); ?>
+
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+	<!-- Side Bar -->
+	<?= $this->load->view('admin/sidebar',null,true); ?>
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -34,11 +45,15 @@
 							</form>
 						</div>
 					</div>
-					<div class="row">
 
+
+					<!-- Bar Chart -->
+					<div class="card shadow p-3">
+					<h4 class="text-center mt-3 mb-3 font-weight-bold">Grafik Survey Berdasarkan Jumlah Pengisi Survey</h4>
+					<div class="row">
 						<!-- IGD -->
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-success shadow h-100 py-2">
+							<div class="card border-left-success h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -56,7 +71,7 @@
 
 						<!-- Ranap -->
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-info shadow h-100 py-2">
+							<div class="card border-left-info h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -78,7 +93,7 @@
 
 						<!-- Ralan -->
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-warning shadow h-100 py-2">
+							<div class="card border-left-warning h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -96,7 +111,7 @@
 
 						<!-- Total -->
 						<div class="col-xl-3 col-md-6 mb-4">
-							<div class="card border-left-primary shadow h-100 py-2">
+							<div class="card border-left-primary h-100 py-2">
 								<div class="card-body">
 									<div class="row no-gutters align-items-center">
 										<div class="col mr-2">
@@ -117,103 +132,51 @@
 							</div>
 						</div>
 					</div>
-
-					<!-- Bar Chart -->
 					<div class="row justify-content-center">
 						<!-- IGD -->
 						<div class="col-md-4 mb-4">
-							<div class="card shadow p-3">
+							<div class="card p-3">
 								<div>
-									<h5 class="text-center">Grafik Survay (IGD) <?php echo $tahun_input; ?></h5>
-									<!-- Coba -->
-									<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-  									<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+									<h5 class="text-center">IGD <?php echo $tahun_input; ?></h5>
 									<canvas id="cnv_grafik_igd"></canvas>
 								</div>
 							</div>
 						</div>
 						<!-- Ranap -->
 						<div class="col-md-4 mb-4">
-							<div class="card shadow p-3">
+							<div class="card p-3">
 								<div>
-									<h5 class="text-center">Grafik Survay (Ranap) <?php echo $tahun_input; ?></h5>
-									<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-  									<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+									<h5 class="text-center">Rawat Inap <?php echo $tahun_input; ?></h5>
 									<canvas id="cnv_grafik_ranap"></canvas>
 								</div>
 							</div>
 						</div>
 						<!-- Ralan -->
 						<div class="col-md-4 mb-4">
-							<div class="card shadow p-3">
+							<div class="card p-3">
 								<div>
-									<h5 class="text-center">Grafik Survay (Rawat Jalan) <?php echo $tahun_input; ?></h5>
-									<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-  									<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@1.0.0"></script>
+									<h5 class="text-center">Rawat Jalan <?php echo $tahun_input; ?></h5>
 									<canvas id="cnv_grafik_ralan"></canvas>
 								</div>
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>
 			<!-- End of Main Content -->
 
 			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; SURVEY SADEWA 2023</span>
-					</div>
-				</div>
-			</footer>
+			<?= $this->load->view('/template/admin_footer',null,true); ?>
+
 			</div>
 			<!-- End of Content Wrapper -->
 			</div>
 			<!-- End of Page Wrapper -->
 
-			<!-- Scroll to Top Button-->
-			<a class="scroll-to-top rounded" href="#page-top">
-				<i class="fas fa-angle-up"></i>
-			</a>
-
-			<!-- Logout Modal-->
-			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content p-3">
-						<div class="modal-body text-center">
-							<h1 class="display-3 text-warning"><i class="fa fa-exclamation-circle"></i></h1>
-							<h5>Keluar halaman Admin?</h5>
-						</div>
-						<div class="text-right">
-							<button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">No</button>
-							<a class="btn btn-info btn-sm" href="<?= base_url('/auth/logout') ?>">Yes</a>
-						</div>
-					</div>
-				</div>
-			</div>
-				
-    		<!-- Chart -->
-    		<script src="<?= base_url('assets/chart_bar.js'); ?>"></script>
-    		<!-- Bootstrap core JavaScript-->
-    		<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-    		<script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-    		<!-- Core plugin JavaScript-->
-    		<script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-    		<!-- Custom scripts for all pages-->
-    		<script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
-			<!-- Button Data Tables -->
-			<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/dataTables.buttons.min.js'); ?>"></script>
-
-    		<!-- Page level plugins -->
-    		<script src="<?= base_url('assets/chart.js/Chart.min.js'); ?>"></script>
-    		<script src="<?= base_url('assets/js/demo/chart-bar-demo.js'); ?>"></script>
-    		<script src="<?= base_url('assets/js/chart-ralan.js'); ?>"></script>
-    		<script src="<?= base_url('assets/js/chart-ranap.js'); ?>"></script>
-    		<script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
-    		<script>
-    			const base_url = "/sadewa-survey/";
-    			$(document).ready(function() {});
-    		</script>
+			<!-- Bottom -->
+			<?= $this->load->view('/template/admin_bottom',null,true); ?>
+	</body>
+</html>
 
 

@@ -1,4 +1,6 @@
 $(() => {
+	const graf_ralan = document.getElementById('cnv_grafik_ralan');
+	if (graf_ralan != null || graf_ralan != undefined) {
 	$.ajax({
 		url: base_url + "admin/grafik_ralan",
 		method: "GET",
@@ -7,8 +9,6 @@ $(() => {
 			tahun: $('#cmb_tahun').val()
 		},
 		success: (result) => {
-			console.log(result);
-			const graf_ralan = document.getElementById('cnv_grafik_ralan');
 					new Chart(graf_ralan, {
 						type: 'bar',
 						data: {
@@ -89,4 +89,5 @@ $(() => {
 			console.log(err);
 		}
 	})
+}
 }); //ready state

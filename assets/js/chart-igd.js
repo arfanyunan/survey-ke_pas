@@ -1,4 +1,6 @@
 $(() => {
+	const graf_igd = document.getElementById('cnv_grafik_igd');
+	if (graf_igd != null || graf_igd != undefined) {
 	$.ajax({
 		url: base_url + "admin/grafik_igd",
 		method: "GET",
@@ -90,4 +92,5 @@ $(() => {
 			console.log(err);
 		}
 	})
+}
 }); //ready state

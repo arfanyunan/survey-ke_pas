@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<?= $this->load->view('/template/survey_header',null,true); ?>
+
+<body class="bg-light">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
@@ -212,7 +219,7 @@
 											</div>
 										</div>
 										<div class="text-center mb-3">
-											<a href="/sadewa-survey" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
+											<a href="<?= base_url('/') ?>" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
 											<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill ml-2">Simpan</button>
 										</div>
 										<marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien <b style="color:#4dcfc6;">RSKIA SADEWA</b> --</marquee>
@@ -224,21 +231,10 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 
-	</div>
-
-	</div>
-
-
-	<!-- Bootstrap core JavaScript-->
-	<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-	<script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-	<!-- Core plugin JavaScript-->
-	<script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-	<!-- Custom scripts for all pages-->
-	<script src="<?= base_url('assets/s/sb-admin-2.min.js'); ?>j"></script>
+<!-- Footer -->
+<?= $this->load->view('/template/survey_footer',null,true); ?>
 
 	<script>
 		$(document).ready(function() {
@@ -280,15 +276,7 @@
 			$('#tap5').css('display', kondisi5);
 		}
 
-		Swal.fire({
-			position: 'top-end',
-			icon: 'success',
-			title: 'Your work has been saved',
-			showConfirmButton: false,
-			timer: 1500
-		})
-
 	</script>
-</body>
 
+</body>
 </html>

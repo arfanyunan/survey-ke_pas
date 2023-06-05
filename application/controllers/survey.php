@@ -13,9 +13,7 @@ class Survey extends CI_Controller
 	public function index()
 	{
 		$this->load->database('sadewa_survey');
-		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey');
-		$this->load->view('template/survey_footer');
 		$data['title'] = "Data Survey Pasien";
 	}
 
@@ -23,10 +21,7 @@ class Survey extends CI_Controller
 	{
 		$this->load->database('sadewa_survey');
 		$data['spesialis'] = $this->survey_model->showAllDataDokterSpesialis();
-		// $data['data_admin_sps'] = $this->survey_model->showAllDataDokterSpesialis();
-		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey_ralan', $data);
-		$this->load->view('template/survey_footer');
 	}
 
 	public function index_ranap()
@@ -34,16 +29,12 @@ class Survey extends CI_Controller
 		$this->load->database('survey_sadewa');
 		$data['data_bangsal']  = $this->survey_model->showAllDataBangsal();
 
-		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey_ranap', $data);
-		$this->load->view('template/survey_footer');
 	}
 	public function index_igd()
 	{
 		$this->load->database('survey_sadewa');
-		$this->load->view('template/survey_header');
 		$this->load->view('survey/index_survey_igd');
-		$this->load->view('template/survey_footer');
 	}
 
 	public function simpan_ralan()

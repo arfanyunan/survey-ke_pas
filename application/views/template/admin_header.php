@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,6 +14,11 @@
 	<!-- CSS -->
 	<link href="<?= base_url('assets/css/css-new.css'); ?>" rel="stylesheet">
 	<link href="<?= base_url('assets/datatables/DataTables-1.13.4/css/jquery.dataTables.min.css'); ?>" rel="stylesheet">
+
+	<!-- Grafik Chart -->
+	<script src="<?= base_url('assets/js/chartjs.js'); ?>"></script>
+	<script src="<?= base_url('assets/js/chartjs-plugin-datalabels.js'); ?>"></script>
+
 	<!-- Untuk menampilkan password -->
 	<script type="text/javascript">
 			window.onload=function(){
@@ -24,7 +26,3 @@
 			}
 	</script>    
 </head>
-
-<body id="page-top">
-	<!-- Page Wrapper -->
-	<div id="wrapper">

@@ -1,73 +1,15 @@
-		<!-- Sidebar -->
-		<ul class="navbar-nav sidebar sidebar-dark accordion bg_admin" id="accordionSidebar">
-			<!-- Sidebar - Brand -->
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="/sadewa-survey">
-				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
-				</div>
-				<div class="sidebar-brand-text mx-2">
-					<h6 class="pt-2">Hallo Admin</h6>
-				</div>
-			</a>
-			<!-- Nav Item - Dashboard -->
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a class="nav-link" href="/sadewa-survey/admin/">
-					<i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/igd') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data IGD</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/ralan') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Ralan</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/ranap') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Ranap</span></a>
-			</li>
-			<hr class="sidebar-divider">
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/bangsal') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Bangsal</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/dokter') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Dokter</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/spesialis') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Spesialis</span></a>
-			</li>
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item active">
-				<a class="nav-link" href="<?= base_url('/admin/user') ?>">
-					<i class="fas fa-user"></i>
-					<span>Lihat Data User</span></a>
-			</li>
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a href="" class="nav-link" data-toggle="modal" data-target="#logoutModal">
-					<i class="fas fa-sign-out-alt"></i>
-					<strong>Logout</strong>
-				</a>
-			</li>
-			<hr class="sidebar-divider">
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
+<!DOCTYPE html>
+<html lang="en">
 
-		</ul>
-		<!-- End of Sidebar -->
+<!-- Head -->
+<?= $this->load->view('/template/admin_header',null,true); ?>
+
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+	<!-- Side Bar -->
+	<?= $this->load->view('admin/sidebar',null,true); ?>
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -110,7 +52,7 @@
 										</div>
 
 										<div class="card-body table-responsive">
-										<table id="tabelsurvey" class="table table-light table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
+										<table id="tabelsurvey_user" class="table table-light table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
 												<thead class="thead-dark">
 													<tr>
 														<th class="text-center">No</th>
@@ -247,66 +189,14 @@
 			<!-- End of Main Content -->
 
 			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; SURVEY SADEWA 2023</span>
-					</div>
-				</div>
-			</footer>
+			<?= $this->load->view('/template/admin_footer',null,true); ?>
+
 			</div>
 			<!-- End of Content Wrapper -->
 			</div>
 			<!-- End of Page Wrapper -->
 
-			<!-- Scroll to Top Button-->
-			<a class="scroll-to-top rounded" href="#page-top">
-				<i class="fas fa-angle-up"></i>
-			</a>
-
-			<!-- Logout Modal-->
-			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content p-3">
-						<div class="modal-body text-center">
-							<h1 class="display-3 text-warning"><i class="fa fa-exclamation-circle"></i></h1>
-							<h5>Keluar halaman Admin?</h5>
-						</div>
-						<div class="text-right">
-							<button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">No</button>
-							<a class="btn btn-info btn-sm" href="<?= base_url('/auth/logout') ?>">Yes</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Bootstrap core JavaScript-->
-			<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-			<script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-			<!-- Core plugin JavaScript-->
-			<script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-			<!-- Custom scripts for all pages-->
-			<script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
-			<!-- DataTables -->
-			<script src="<?= base_url('assets/datatables/DataTables-1.13.4/js/jquery.dataTables.min.js'); ?>"></script>
-			<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/dataTables.buttons.min.js'); ?>"></script>
-			<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/buttons.html5.min.js'); ?>"></script>
-			<script src="<?= base_url('assets/js/ajax.js'); ?>"></script>
-
-			<!-- Page level plugins -->
-			<script src="<?= base_url('assets/chart.js/Chart.min.js'); ?>"></script>
-			<script src="<?= base_url('assets/js/demo/chart-bar-demo.js'); ?>"></script>
-			<script src="<?= base_url('assets/js/chart-ralan.js'); ?>"></script>
-			<script src="<?= base_url('assets/js/chart-ranap.js'); ?>"></script>
-			<script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
-			<script>
-				const base_url = "/sadewa-survey/";
-				$(document).ready(function() {
-					$('#tabelsurvey').DataTable({
-					});
-				});
-			</script>
-
-			</body>
-
-			</html>
+			<!-- Bottom -->
+			<?= $this->load->view('/template/admin_bottom',null,true); ?>
+	</body>
+</html>

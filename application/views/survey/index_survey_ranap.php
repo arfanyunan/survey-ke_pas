@@ -1,3 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head -->
+<?= $this->load->view('/template/survey_header',null,true); ?>
+
+<body class="bg-light">
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-12">
@@ -244,7 +251,7 @@
 											</div>
 										</div>
 										<div class="text-center mb-3">
-											<a href="/sadewa-survey" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
+											<a href="<?= base_url('/') ?>" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
 											<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill ml-2">Simpan</button>
 										</div>
 										<marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien <b style="color:#4dcfc6;">RSKIA SADEWA</b> --</marquee>
@@ -257,8 +264,9 @@
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
+
+	<!-- Footer -->
+	<?= $this->load->view('/template/survey_footer',null,true); ?>
 
 	<script>
 		function show5(kondisi5) {
@@ -272,41 +280,7 @@
 		function show7(kondisi7) {
 			$('#tap7').css('display', kondisi7);
 		}
-
-		Swal.fire({
-			position: 'top-end',
-			icon: 'success',
-			title: 'Your work has been saved',
-			showConfirmButton: false,
-			timer: 1500
-		})
-
-		function isi_dokter() {
-
-			let kd_sps = $('#cmb_poli').val();
-			$.ajax({
-				url: "<?= base_url('survey/isi_dokter') ?>",
-				method: "POST",
-				data: {
-					kd_sps
-				},
-				dataType: "JSON",
-				success: (hasil) => {
-					console.log(hasil);
-					$('#cmb_dokter').empty();
-
-					$.each(hasil, function() {
-						$('#cmb_dokter').append($("<option />").val(this.kd_dokter).text(this.nm_dokter));
-					});
-				},
-				error: (err) => {
-					alert('error dokter');
-				}
-
-			});
-		}
 	</script>
 
 </body>
-
 </html>

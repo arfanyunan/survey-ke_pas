@@ -1,73 +1,15 @@
-		<!-- Sidebar -->
-		<ul class="navbar-nav sidebar sidebar-dark accordion bg_admin" id="accordionSidebar">
-			<!-- Sidebar - Brand -->
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="/sadewa-survey">
-				<div class="sidebar-brand-icon rotate-n-15">
-					<i class="fas fa-laugh-wink"></i>
-				</div>
-				<div class="sidebar-brand-text mx-2">
-					<h6 class="pt-2">Hallo Admin</h6>
-				</div>
-			</a>
-			<!-- Nav Item - Dashboard -->
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a class="nav-link" href="/sadewa-survey/admin/">
-					<i class="fas fa-fw fa-tachometer-alt"></i>
-					<span>Dashboard</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/igd') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data IGD</span></a>
-			</li>
-			<li class="nav-item active">
-				<a class="nav-link" href="<?= base_url('/admin/ralan') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Ralan</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/ranap') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Ranap</span></a>
-			</li>
-			<hr class="sidebar-divider">
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/bangsal') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Bangsal</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/dokter') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Dokter</span></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/spesialis') ?>">
-					<i class="fas fa-book"></i>
-					<span>Lihat Data Spesialis</span></a>
-			</li>
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a class="nav-link" href="<?= base_url('/admin/user') ?>">
-					<i class="fas fa-user"></i>
-					<span>Lihat Data User</span></a>
-			</li>
-			<hr class="sidebar-divider my-1">
-			<li class="nav-item">
-				<a href="" class="nav-link" data-toggle="modal" data-target="#logoutModal">
-					<i class="fas fa-sign-out-alt"></i>
-					<strong>Logout</strong>
-				</a>
-			</li>
-			<hr class="sidebar-divider">
-			<!-- Sidebar Toggler (Sidebar) -->
-			<div class="text-center d-none d-md-inline">
-				<button class="rounded-circle border-0" id="sidebarToggle"></button>
-			</div>
+<!DOCTYPE html>
+<html lang="en">
 
-		</ul>
-		<!-- End of Sidebar -->
+<!-- Head -->
+<?= $this->load->view('/template/admin_header',null,true); ?>
+
+<body id="page-top">
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+	<!-- Side Bar -->
+	<?= $this->load->view('admin/sidebar',null,true); ?>
 
 		<!-- Content Wrapper -->
 		<div id="content-wrapper" class="d-flex flex-column">
@@ -92,31 +34,16 @@
 						<div class="row mb-3">
 							<div class="col-md-5">
 								<h6>Data Berdasarkan Range Tanggal</h6>
-								<?php
-								if ($this->input->post('date_1') == true) {
-								?>
 									<form action="<?= base_url('admin/ralan'); ?>" method="POST">
-										<div class="input-group input-group-sm">
-											<input type="date" class="form-control" name="date_1" required value="<?php echo $date_1; ?>">
-											<input type="date" class="form-control" name="date_2" required value="<?php echo $date_1; ?>">
-											<span class="input-group-append">
-												<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
-											</span>
-										</div>
+									<div class="input-group input-group-sm">
+										<input type="date" class="form-control" id="date_1" name="date_1" required value="<?= isset($date_1) ? $date_1 : date('Y-m-d') ; ?>">
+										<input type="date" class="form-control" id="date_2" name="date_2" required value="<?= isset($date_2) ? $date_2 : date('Y-m-d') ; ?>">
+										<span class="input-group-append">
+											<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
+										</span>
+									</div>
 									</form>
-								<?php
-								} else {
-								?>
-									<form action="<?= base_url('admin/ralan'); ?>" method="POST">
-										<div class="input-group input-group-sm">
-											<input type="date" class="form-control" name="date_1" required>
-											<input type="date" class="form-control" name="date_2" required>
-											<span class="input-group-append">
-												<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
-											</span>
-										</div>
-									</form>
-								<?php }; ?>
+
 							</div>
 						</div>
 					</div>
@@ -128,24 +55,12 @@
 								<div class="col-lg-12">
 									<div class="card card-success card-outline">
 										<div class="card-header bg-white">
-											<div class="row">
-												<div class="col-sm-12 col-md-12">
-													<?php
-													if ($this->input->post('date_1') == true) {
-													?>
-														<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien Ralan (Rawat Jalan) Tanggal <b><?php echo tgl_indo2($date_1); ?></b> s.d <b><?php echo tgl_indo2($date_2); ?></b></h4>
-													<?php
-													} else { ?>
-														<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien Ralan (Rawat Jalan) Bulan <b><?php echo date('M'); ?> <?php echo date('Y'); ?></b> </h4>
-													<?php
-													} ?>
-													<h6 class="font-italic text-center mb-3" style="color : #4dcfc6;">*Data Yang Ditampilkan Berdasarkan Tanggal Isi Survey</h6>
-												</div>
-											</div>
+											<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien Rawat Jalan Tanggal <b><?= isset($date_1) ? tgl_indo2($date_1) : tgl_indo2(date('Y-m-d')) ; ?></b> s.d <b><?= isset($date_2) ? tgl_indo2($date_2) : tgl_indo2(date('Y-m-d')) ; ?></b></h4>
+											<h6 class="font-italic text-center mb-3" style="color : #4dcfc6;">*Data Yang Ditampilkan Berdasarkan Tanggal Isi Survey</h6>
 										</div>
 										<!-- <?= $this->session->flashdata('pesan'); ?> -->
 										<div class="card-body table-responsive">
-											<table id="tabelsurvey" class="table table-ligh table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
+											<table id="tabelsurvey_ralan" class="table table-ligh table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
 												<thead class="thead-dark">
 													<tr>
 														<th class="text-center">No</th>
@@ -207,59 +122,16 @@
 			</div>
 			<!-- End of Main Content -->
 
-			<!-- Logout Modal-->
-			<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-				<div class="modal-dialog modal-sm" role="document">
-					<div class="modal-content p-3">
-						<div class="modal-body text-center">
-							<h1 class="display-3 text-warning"><i class="fa fa-exclamation-circle"></i></h1>
-							<h5>Keluar halaman Admin?</h5>
-						</div>
-						<div class="text-right">
-							<button class="btn btn-secondary btn-sm" type="button" data-dismiss="modal">No</button>
-							<a class="btn btn-info btn-sm" href="<?= base_url('/auth/logout') ?>">Yes</a>
-						</div>
-					</div>
-				</div>
+			<!-- Footer -->
+			<?= $this->load->view('/template/admin_footer',null,true); ?>
+
 			</div>
+			<!-- End of Content Wrapper -->
+			</div>
+			<!-- End of Page Wrapper -->
 
-		<!-- Bootstrap core JavaScript-->
-		<script src="<?= base_url('assets/vendor/jquery/jquery.min.js'); ?>"></script>
-		<script src="<?= base_url('assets/vendor/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
-		<!-- Core plugin JavaScript-->
-		<script src="<?= base_url('assets/vendor/jquery-easing/jquery.easing.min.js'); ?>"></script>
-		<!-- Custom scripts for all pages-->
-		<script src="<?= base_url('assets/js/sb-admin-2.min.js'); ?>"></script>
-		<!-- DataTables -->
-		<script src="<?= base_url('assets/datatables/DataTables-1.13.4/js/jquery.dataTables.min.js'); ?>"></script>
-		<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/dataTables.buttons.min.js'); ?>"></script>
-		<script src="<?= base_url('assets/datatables/Buttons-2.3.6/js/buttons.html5.min.js'); ?>"></script>
-		<script src="<?= base_url('assets/js/ajax.js'); ?>"></script>
+			<!-- Bottom -->
+			<?= $this->load->view('/template/admin_bottom',null,true); ?>
 
-		<!-- Page level plugins -->
-		<script src="<?= base_url('assets/chart.js/Chart.min.js'); ?>"></script>
-		<script src="<?= base_url('assets/js/demo/chart-bar-demo.js'); ?>"></script>
-		<script src="<?= base_url('assets/js/chart-ralan.js'); ?>"></script>
-		<script src="<?= base_url('assets/js/chart-ranap.js'); ?>"></script>
-		<script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
-		<script>
-			const base_url = "/sadewa-survey/";
-			$(document).ready(function() {
-				$('#tabelsurvey').DataTable({
-					dom: 'Bfrtip',
-					buttons: [
-						// 'excel', 'print'
-						{
-							extend: 'excel',
-							
-							title: 'Data Survey Kepuasan Pasien Ralan (Rawat Jalan) <?php if ($this->input->post('date_1') == true) {
-																					echo 'Tanggal ' . tgl_indo2($date_1) . ' s.d ' .
-																						tgl_indo2($date_2);
-																				} else {
-																					echo 'Bulan ' . date('M') . ' ' . date('Y');
-																				} ?><?php ?>'
-						},
-					]
-				});
-			});
-		</script>
+	</body>
+</html>

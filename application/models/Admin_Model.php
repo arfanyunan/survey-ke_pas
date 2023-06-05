@@ -39,9 +39,19 @@ class Admin_Model extends CI_Model
 	function jumlah_igd_count($periode_thn)
 	{
 
-		$this->db->select("DATE_FORMAT(tgl_isi,'%M') as bulan ,month(tgl_isi) AS bulanku, year(tgl_isi) AS tahun, COUNT(tgl_isi) AS jumlah");
+		$this->db->select("DATE_FORMAT(tgl_isi,'%M') as bulan, month(tgl_isi) AS bulanku, year(tgl_isi) AS tahun, COUNT(tgl_isi) AS jumlah");
 		$this->db->from('jawaban_survey_igd');
 		$this->db->group_by('MONTH(tgl_isi)');
+		$this->db->order_by('bulanku', "ASC");
+		$this->db->like(['year(tgl_isi)' => $periode_thn]);
+		return $this->db->get()->result_array();
+	}
+	function jumlah_igd_ya($periode_thn)
+	{
+
+		$this->db->select("DATE_FORMAT(tgl_isi,'%M') as bulan, month(tgl_isi) AS bulanku, year(tgl_isi) AS tahun,  COUNT(tgl_isi) AS jumlah, COUNT(p1) AS p1");
+		$this->db->from('jawaban_survey_igd');
+		$this->db->group_by('p1', "Ya");
 		$this->db->order_by('bulanku', "ASC");
 		$this->db->like(['year(tgl_isi)' => $periode_thn]);
 		return $this->db->get()->result_array();

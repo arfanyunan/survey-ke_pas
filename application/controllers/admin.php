@@ -49,7 +49,6 @@ class Admin extends CI_Controller
 		} else {
 			$data['tahun_input'] = date('Y');
 		}
-		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin', $data);
 	}
 
@@ -94,7 +93,6 @@ class Admin extends CI_Controller
 			$data['data_admin']  = $this->admin_model->showAllDataIgd(date('Y-m'));
 		}
 
-		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_igd', $data);
 	}
 
@@ -185,7 +183,6 @@ class Admin extends CI_Controller
 			$data['data_admin']  = $this->admin_model->showAllDataRanap(date('Y-m'));
 		}
 
-		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_ranap', $data);
 	}
 
@@ -197,7 +194,7 @@ public function dokter()
 		$data['data_admin']  = $this->admin_model->showAllDataDokter();
 		$data['data_admin_sps']  = $this->admin_model->showAllDataDokterSpesialis();
 
-		$this->load->view('template/admin_header');
+		
 		$this->load->view('admin/index_admin_dokter', $data);
 		$this->load->view('template/form');
 }
@@ -255,10 +252,8 @@ public function spesialis()
 		
 		$data['data_admin']  = $this->admin_model->showAllDataDokterSpesialis();
 
-		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_spesialis', $data);
 		$this->load->view('template/form');
-		// $this->load->view('template/admin_footer');
 }
 
 public function tambah_spesialis()
@@ -296,7 +291,6 @@ public function bangsal()
 		
 		$data['data_admin']  = $this->admin_model->showAllDataBangsal();
 
-		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_bangsal', $data);
 		$this->load->view('template/form');
 }
@@ -336,7 +330,6 @@ public function user()
 		$this->load->database('sadewa_survey');
 		$data['data_admin']  = $this->admin_model->showAllDataUser();
 
-		$this->load->view('template/admin_header');
 		$this->load->view('admin/index_admin_user', $data);
 		$this->load->view('template/form');
 }
