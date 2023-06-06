@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 27 Mei 2023 pada 09.06
+-- Generation Time: 06 Jun 2023 pada 08.58
 -- Versi Server: 10.1.48-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.4.32
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bangsal` (
   `kd_bangsal` int(4) NOT NULL,
-  `nm_bangsal` varchar(100) NOT NULL
+  `nm_bangsal` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -39,7 +39,7 @@ INSERT INTO `bangsal` (`kd_bangsal`, `nm_bangsal`) VALUES
 (1001, 'Alengka'),
 (1002, 'Amarta'),
 (1003, 'Astina'),
-(1004, 'Astina VIV'),
+(1004, 'Astina VIP'),
 (1005, 'Ayodya');
 
 -- --------------------------------------------------------
@@ -49,8 +49,8 @@ INSERT INTO `bangsal` (`kd_bangsal`, `nm_bangsal`) VALUES
 --
 
 CREATE TABLE `dokter` (
-  `kd_dokter` int(3) NOT NULL,
-  `nm_dokter` varchar(20) NOT NULL,
+  `kd_dokter` int(5) NOT NULL,
+  `nm_dokter` varchar(250) NOT NULL,
   `kd_sps` int(5) NOT NULL,
   `status_aktif` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -200,15 +200,15 @@ CREATE TABLE `jawaban_survey_igd` (
   `id` int(5) NOT NULL,
   `tgl_isi` datetime NOT NULL,
   `tgl_periksa` date NOT NULL,
-  `pasien` varchar(100) NOT NULL,
-  `petugas` varchar(100) NOT NULL,
+  `pasien` varchar(250) NOT NULL,
+  `petugas` varchar(250) DEFAULT '-',
   `p1` varchar(50) NOT NULL,
   `p2` varchar(50) NOT NULL,
   `p3` varchar(50) NOT NULL,
   `p4` varchar(50) NOT NULL,
   `p5` varchar(50) NOT NULL,
-  `saran` text NOT NULL,
-  `kritik` text NOT NULL
+  `saran` text,
+  `kritik` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -232,10 +232,10 @@ INSERT INTO `jawaban_survey_igd` (`id`, `tgl_isi`, `tgl_periksa`, `pasien`, `pet
 (14, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
 (15, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
 (16, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
-(17, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
-(18, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
-(19, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
-(20, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
+(17, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Tidak', 'Tidak', 'Tidak', 'Tidak Ada', 'Tidak Ada'),
+(18, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Tidak', 'Tidak', 'Tidak Ada', 'Tidak Ada'),
+(19, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak', 'Tidak Ada', 'Tidak Ada'),
+(20, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Tidak', 'Tidak', 'Tidak', 'Tidak', 'Tidak Ada', 'Tidak Ada'),
 (21, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
 (22, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
 (23, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
@@ -331,7 +331,13 @@ INSERT INTO `jawaban_survey_igd` (`id`, `tgl_isi`, `tgl_periksa`, `pasien`, `pet
 (113, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
 (114, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
 (115, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
-(177, '2023-05-26 08:49:16', '2023-05-10', 'Yulianti', 'Dika', 'Tidak, Tidak puas ', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada');
+(177, '2023-05-26 08:49:16', '2023-05-10', 'Yulianti', 'Dika', 'Tidak, Tidak puas ', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
+(178, '2023-05-29 11:18:29', '2023-05-01', 'Yulianti', 'Dika', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak Ada', 'Tidak Ada'),
+(179, '2023-05-29 11:19:20', '2023-05-01', 'Yulianti', 'Dika', 'Tidak, Tidak Puas', 'Tidak, Tidak Puas', 'Tidak, Tidak Puas', 'Tidak, Tidak Puas', 'Tidak, Tidak Puas', 'Tidak Ada', 'Tidak Ada'),
+(180, '2023-05-29 12:45:31', '2023-05-01', 'Yulianti', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(181, '2023-05-29 12:49:12', '2023-05-01', 'Yulianti', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(182, '2023-05-29 14:22:20', '2023-05-01', 'Yulianti', 'Dika', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(183, '2023-05-31 08:28:59', '2023-05-01', 'Dwi', 'Fajardika', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak puas', 'Tidak puas');
 
 -- --------------------------------------------------------
 
@@ -345,15 +351,15 @@ CREATE TABLE `jawaban_survey_ralan` (
   `tgl_periksa` date NOT NULL,
   `kd_sps` int(5) NOT NULL,
   `kd_dokter` int(5) NOT NULL,
-  `nm_pasien` varchar(100) NOT NULL,
-  `nm_petugas` varchar(50) NOT NULL,
+  `nm_pasien` varchar(250) NOT NULL,
+  `nm_petugas` varchar(250) DEFAULT '-',
   `p1` varchar(50) NOT NULL,
   `p2` varchar(50) NOT NULL,
   `p3` varchar(50) NOT NULL,
   `p4` varchar(50) NOT NULL,
   `p5` varchar(50) NOT NULL,
-  `saran` text NOT NULL,
-  `kritik` text NOT NULL
+  `saran` text,
+  `kritik` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -457,7 +463,15 @@ INSERT INTO `jawaban_survey_ralan` (`id`, `tgl_isi`, `tgl_periksa`, `kd_sps`, `k
 (94, '2022-12-01 00:01:00', '2022-12-01', 1, 3, 'Data Dummy', 'Data Dummy', 'Baik', 'Baik', 'Baik', 'Baik', 'Baik', 'Tidak Ada', 'Tidak Ada'),
 (95, '2022-12-01 00:01:00', '2022-12-01', 1, 3, 'Data Dummy', 'Data Dummy', 'Baik', 'Baik', 'Baik', 'Baik', 'Baik', 'Tidak Ada', 'Tidak Ada'),
 (96, '2022-12-01 00:01:00', '2022-12-01', 1, 3, 'Data Dummy', 'Data Dummy', 'Baik', 'Baik', 'Baik', 'Baik', 'Baik', 'Tidak Ada', 'Tidak Ada'),
-(336, '2023-05-26 08:50:22', '2023-05-30', 2, 70, 'Yulianti', 'Dika', 'Baik', 'Baik', 'Baik', 'Cukup', 'Baik', 'Tidak Ada', 'Tidak Ada');
+(336, '2023-05-26 08:50:22', '2023-05-30', 2, 70, 'Yulianti', 'Dika', 'Baik', 'Baik', 'Baik', 'Cukup', 'Baik', 'Tidak Ada', 'Tidak Ada'),
+(337, '2023-05-29 11:25:45', '2023-05-01', 5, 11, 'Yulianti', 'Dika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Tidak Ada', 'Tidak Ada'),
+(338, '2023-05-29 11:26:23', '2023-05-01', 3, 50, 'Yulianti', 'Dika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Tidak Ada', 'Tidak Ada'),
+(339, '2023-05-29 11:42:20', '2023-05-30', 1, 4, 'Yulianti', '', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', '', ''),
+(340, '2023-05-29 12:50:12', '2023-05-01', 5, 11, 'Yulianti', '', 'Baik', 'Cukup', 'Cukup', 'Kurang', 'Cukup', '', ''),
+(341, '2023-05-29 14:22:46', '2023-05-16', 1, 12, 'Yulianti', 'Dika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', '', ''),
+(342, '2023-05-29 14:58:07', '2023-05-31', 1, 12, 'Yulianti', 'Dika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', '', ''),
+(343, '2023-05-31 08:30:27', '2023-05-01', 1, 3, 'Dwi', 'Fajardika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Puas', 'Puas'),
+(344, '2023-06-05 13:15:18', '2023-06-05', 4, 10, 'adaaaa', 'sari', 'Baik', 'Baik', 'Baik', 'Cukup', 'Cukup', 'saranya apa ngga tau', 'Belum nemu yang mau di kritik');
 
 -- --------------------------------------------------------
 
@@ -469,16 +483,16 @@ CREATE TABLE `jawaban_survey_ranap` (
   `id` int(5) NOT NULL,
   `tgl_isi` datetime NOT NULL,
   `tgl_ranap` date NOT NULL,
-  `pasien` varchar(50) NOT NULL,
-  `petugas` varchar(50) NOT NULL,
-  `bangsal` varchar(20) NOT NULL,
-  `p1` varchar(20) NOT NULL,
-  `p2` varchar(20) DEFAULT NULL,
-  `p3` varchar(20) DEFAULT NULL,
-  `p4` varchar(20) DEFAULT NULL,
-  `p5` text,
-  `p6` text,
-  `p7` text,
+  `pasien` varchar(250) NOT NULL,
+  `petugas` varchar(250) DEFAULT '-',
+  `bangsal` varchar(250) NOT NULL,
+  `p1` text NOT NULL,
+  `p2` text NOT NULL,
+  `p3` text NOT NULL,
+  `p4` text NOT NULL,
+  `p5` text NOT NULL,
+  `p6` text NOT NULL,
+  `p7` text NOT NULL,
   `p8a` varchar(50) DEFAULT NULL,
   `p8b` varchar(50) DEFAULT NULL,
   `p8c` varchar(50) DEFAULT NULL,
@@ -492,115 +506,81 @@ CREATE TABLE `jawaban_survey_ranap` (
 --
 
 INSERT INTO `jawaban_survey_ranap` (`id`, `tgl_isi`, `tgl_ranap`, `pasien`, `petugas`, `bangsal`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8a`, `p8b`, `p8c`, `p8d`, `saran`, `kritik`) VALUES
-(1, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(2, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(3, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(4, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(5, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(6, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(7, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(8, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(9, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(10, '2022-01-01 00:01:00', '2022-01-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(11, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(12, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(13, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(14, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(15, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(16, '2022-02-01 00:01:00', '2022-02-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(17, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(18, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(19, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(20, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(21, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(22, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(23, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(24, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(25, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(26, '2022-03-01 00:01:00', '2022-03-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(27, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(28, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(29, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(30, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(31, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(32, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(33, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(34, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(35, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(36, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(37, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(38, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(39, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(40, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(41, '2022-04-01 00:01:00', '2022-04-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(42, '2022-05-01 00:01:00', '2022-05-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(43, '2022-05-01 00:01:00', '2022-05-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(44, '2022-05-01 00:01:00', '2022-05-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(45, '2022-05-01 00:01:00', '2022-05-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(46, '2022-05-01 00:01:00', '2022-05-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(47, '2022-06-01 00:01:00', '2022-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(48, '2022-06-01 00:01:00', '2022-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(49, '2022-06-01 00:01:00', '2022-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(50, '2022-06-01 00:01:00', '2022-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(51, '2022-06-01 00:01:00', '2022-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(52, '2022-06-01 00:01:00', '2022-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(53, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(54, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(55, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(56, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(57, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(58, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(59, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(60, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(61, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(62, '2022-07-01 00:01:00', '2022-07-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(63, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(64, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(65, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(66, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(67, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(68, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(69, '2022-08-01 00:01:00', '2022-08-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(70, '2022-09-01 00:01:00', '2022-09-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(71, '2022-09-01 00:01:00', '2022-09-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(72, '2022-09-01 00:01:00', '2022-09-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(73, '2022-09-01 00:01:00', '2022-09-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(74, '2022-09-01 00:01:00', '2022-09-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(75, '2022-09-01 00:01:00', '2022-09-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(76, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(77, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(78, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(79, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(80, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(81, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(82, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(83, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(84, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(85, '2022-10-01 00:01:00', '2022-10-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(86, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(87, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(88, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(89, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(90, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(91, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(92, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(93, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(94, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(95, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(96, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(97, '2022-11-01 00:01:00', '2022-11-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(98, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(99, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(100, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(101, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(102, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(103, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(104, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(105, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(106, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(107, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(108, '2022-12-01 00:01:00', '2022-12-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi ', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Ada'),
-(109, '2023-05-26 08:51:18', '2023-05-30', 'Yulianti', 'Dika', 'Astina VIV', 'Baik Sekali', 'Baik Sekali', 'Cukup', 'Cukup', 'Ya', 'Tidak, Tidak Puas', 'Ya', 'Memberi ASI', 'Menggendong bayi', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak Ada', 'Tidak Ada');
+(1, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(2, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(3, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(4, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(5, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(6, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(7, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(8, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(9, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(10, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(11, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(12, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(13, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(14, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Kurang Sekali', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(15, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Alengka', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(16, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(17, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(18, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(19, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(20, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(21, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(22, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(23, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(24, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(25, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(26, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(27, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(28, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(29, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(30, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Amarta', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(31, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(32, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(33, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(34, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(35, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(36, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(37, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(38, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(39, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(40, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(41, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(42, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(43, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(44, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(45, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(46, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(47, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(48, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(49, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(50, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(51, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(52, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(53, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(54, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(55, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(56, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(57, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(58, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(59, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(60, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Ayodya', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(61, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(62, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(63, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(64, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(65, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(66, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(67, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(68, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(69, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Baik', 'Baik', 'Baik', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(70, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(71, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(72, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(73, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(74, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(75, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -610,7 +590,7 @@ INSERT INTO `jawaban_survey_ranap` (`id`, `tgl_isi`, `tgl_ranap`, `pasien`, `pet
 
 CREATE TABLE `spesialis` (
   `kd_sps` int(5) NOT NULL,
-  `nm_sps` varchar(30) NOT NULL
+  `nm_sps` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -632,7 +612,7 @@ INSERT INTO `spesialis` (`kd_sps`, `nm_sps`) VALUES
 
 CREATE TABLE `user` (
   `nik` varchar(8) NOT NULL,
-  `nama` varchar(128) CHARACTER SET utf8mb4 NOT NULL,
+  `nama` varchar(256) CHARACTER SET utf8mb4 NOT NULL,
   `password` varchar(256) CHARACTER SET utf8mb4 NOT NULL,
   `role_id` int(11) NOT NULL,
   `date_created` date NOT NULL
@@ -676,11 +656,11 @@ CREATE TABLE `vw_jawaban_survey_ralan` (
 ,`tgl_isi` datetime
 ,`tgl_periksa` date
 ,`kd_sps` int(5)
-,`nm_sps` varchar(30)
+,`nm_sps` varchar(250)
 ,`kd_dokter` int(5)
-,`nm_dokter` varchar(20)
-,`nm_pasien` varchar(100)
-,`nm_petugas` varchar(50)
+,`nm_dokter` varchar(250)
+,`nm_pasien` varchar(250)
+,`nm_petugas` varchar(250)
 ,`p1` varchar(50)
 ,`p2` varchar(50)
 ,`p3` varchar(50)
@@ -763,32 +743,32 @@ ALTER TABLE `user_role`
 -- AUTO_INCREMENT for table `bangsal`
 --
 ALTER TABLE `bangsal`
-  MODIFY `kd_bangsal` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1012;
+  MODIFY `kd_bangsal` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1014;
 --
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `kd_dokter` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `kd_dokter` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
 --
 -- AUTO_INCREMENT for table `jawaban_survey_igd`
 --
 ALTER TABLE `jawaban_survey_igd`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=178;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
 --
 -- AUTO_INCREMENT for table `jawaban_survey_ralan`
 --
 ALTER TABLE `jawaban_survey_ralan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=337;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
 --
 -- AUTO_INCREMENT for table `jawaban_survey_ranap`
 --
 ALTER TABLE `jawaban_survey_ranap`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=110;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 --
 -- AUTO_INCREMENT for table `spesialis`
 --
 ALTER TABLE `spesialis`
-  MODIFY `kd_sps` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `kd_sps` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `user_role`
 --
