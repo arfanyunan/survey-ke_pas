@@ -1,0 +1,68 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: nginx-survey-sadewa
+    restart: always
+    image: nginx:latest
+    volumes:
+      - ./:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 8085:80
+    networks:
+      - sadewa-survey-network
+    depends_on:
+      - app
+      - database
+  
+  app:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    container_name: web-survey-sadewa
+    restart: always
+    image: php:7.3.29-fpm
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    networks:
+      - sadewa-survey-network
+  
+  database:
+    container_name: database-survey-sadewa
+    image: mariadb:10.6
+    restart: always
+    ports:
+      - 3378:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root_survey
+      - MYSQL_DATABASE=sadewa_survey
+      - MYSQL_USER=fiddy
+      - MYSQL_PASSWORD=fiddy
+      - MYSQL_INITDB_CHARSET=utf8mb4
+      - MYSQL_INITDB_COLLATION=utf8mb4_general_ci
+      - MYSQL_ROOT_HOST="0.0.0.0"
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    networks:
+      - sadewa-survey-network
+
+  phpmyadmin:
+    container_name: phpmyadmin-survey-sadewa
+    image: phpmyadmin:latest
+    restart: always
+    ports:
+      - 8086:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=database
+      - MYSQL_ROOT_PASSWORD=root_survey
+    depends_on:
+      - database
+    networks:
+    - sadewa-survey-network
+networks:
+  sadewa-survey-network:
+    driver: bridge
+
