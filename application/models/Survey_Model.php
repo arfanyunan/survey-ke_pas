@@ -1,10 +1,8 @@
 <?php
 defined('BASEPATH') or exit('[M] What Are Yout Looking For ?');
 
-/* Model digunakan untuk menu Admin */
-class Survey_Model extends CI_Model
+class Survey_model extends CI_Model
 {
-
 	// Proses Simpan jawaban 
 	public function insertSurveyRalan($data_survey)
 	{

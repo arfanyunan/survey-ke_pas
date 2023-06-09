@@ -38,8 +38,13 @@
     								<h6>Data Berdasarkan Range Tanggal</h6>
     									<form action="<?= base_url('admin/ranap'); ?>" method="POST">
     									<div class="input-group input-group-sm">
-										<input type="date" class="form-control" id="date_1" name="date_1" required value="<?= isset($date_1) ? $date_1 : date('Y-m-d') ; ?>">
-										<input type="date" class="form-control" id="date_2" name="date_2" required value="<?= isset($date_2) ? $date_2 : date('Y-m-d') ; ?>">
+										<?php
+											$hari_ini = date("Y-m-d");
+											$tgl_pertama = date('Y-m-01', strtotime($hari_ini));
+											$tgl_terakhir = date('Y-m-t', strtotime($hari_ini));
+										?>
+										<input type="date" class="form-control" id="date_1" name="date_1" required value="<?= isset($date_1) ? $date_1 : $tgl_pertama ; ?>">
+										<input type="date" class="form-control" id="date_2" name="date_2" required value="<?= isset($date_2) ? $date_2 : $tgl_terakhir ; ?>">
 										<span class="input-group-append">
 											<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
 										</span>
@@ -55,7 +60,7 @@
     								<div class="col-lg-12">
     									<div class="card card-success card-outline">
 										<div class="card-header bg-white">
-											<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien Rawat Inap Tanggal <b><?= isset($date_1) ? tgl_indo3($date_1) : tgl_indo3(date('Y-m-d')) ; ?></b> s.d <b><?= isset($date_2) ? tgl_indo3($date_2) : tgl_indo3(date('Y-m-d')) ; ?></b></h4>
+											<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien Rawat Inap Tanggal <b><?= isset($date_1) ? tgl_indo3($date_1) : tgl_indo3($tgl_pertama) ; ?></b> s.d <b><?= isset($date_2) ? tgl_indo3($date_2) : tgl_indo3($tgl_terakhir) ; ?></b></h4>
 											<h6 class="font-italic text-center mb-3" style="color : #4dcfc6;">*Data Yang Ditampilkan Berdasarkan Tanggal Isi Survey</h6>
 										</div>
     										<div class="card-body table-responsive">

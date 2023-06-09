@@ -9,6 +9,7 @@ class Auth extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 	}
+	
 	public function index()
 	{
 		$this->form_validation->set_rules(
@@ -43,8 +44,8 @@ class Auth extends CI_Controller
 
 	private function _login()
 	{
-		$nik = $this->input->post('nik');
-		$password = $this->input->post('password');
+		$nik = $this->input->post('nik',TRUE);
+		$password = $this->input->post('password',TRUE);
 
 		$user = $this->db->get_where('user', ['nik' => $nik])->row_array();
 		// jika user ada
@@ -112,8 +113,8 @@ class Auth extends CI_Controller
 		} else {
 
 			$data = [
-				'name' => $this->input->post('name'),
-				'email' => $this->input->post('email'),
+				'name' => $this->input->post('name',TRUE),
+				'email' => $this->input->post('email',TRUE),
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
 				'role_id' => 1,
 				'date_created' => date('y-m-d')
@@ -127,7 +128,6 @@ class Auth extends CI_Controller
 
 		
 	}
-
 
 	public function logout()
 	{

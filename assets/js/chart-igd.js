@@ -64,6 +64,7 @@ $(() => {
 							
 							plugins: {
 								datalabels: {
+									display: 'auto',
 									color: [
 										'rgba(255, 99, 132)',
 										'rgba(255, 159, 64)',

@@ -59,6 +59,7 @@
 														<th class="text-center">Kode Dokter</th>
 														<th class="text-center">Nama Dokter</th>
 														<th class="text-center">Kode Spesialis</th>
+														<th class="text-center">Nama Spesialis</th>
 														<th class="text-center">Status Aktif</th>
 														<th class="text-center">Action</th>
 													</tr>
@@ -71,6 +72,7 @@
 															<td class="text-center col-sm-2"><?= $dt_admin['kd_dokter']; ?></td>
 															<td class="text-center col-sm-4"><?= $dt_admin['nm_dokter']; ?></td>
 															<td class="text-center col-sm-1"><?= $dt_admin['kd_sps']; ?></td>
+															<td class="text-center col-sm-1"><?= $dt_admin['nm_sps']; ?></td>
 															<?php 
 															if ($dt_admin['status_aktif'] == 0){
 															?>

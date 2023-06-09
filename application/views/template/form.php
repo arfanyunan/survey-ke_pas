@@ -117,28 +117,27 @@
           <input type="text" class="form-control rounded-pill mt-2" name="txt_nama" id="txt_nama" required placeholder="Masukan Nama">
         </div>
         <div class="mb-3">
-																<label for="disabledSelect" class="form-label ms-1">Password</label>
-																<div class="input-group">
-																	<input type="password" class="form-control rounded-pill input-md" name="txt_password" data-toggle="password" required autocomplete="off" title="Hanya Bisa Huruf dan Angka" pattern="[A-Za-z0-9]+" placeholder="Masukan Password">
-															
-																<div class="input-group-append">
-																	<span class="input-group-text ms-1 rounded-pill bg-light" style="padding:0.6rem;"><i class="fa fa-eye"></i></span>
-																</div>
-																</div>
-															</div>
-															<div class="mb-3">
-																<label for="disabledSelect" class="form-label ms-1">Password</label>
-																<div class="input-group">
-																	<input type="password" class="form-control rounded-pill input-md" name="txt_password2" data-toggle="password" required title="Hanya Bisa Huruf dan Angka" pattern="[A-Za-z0-9]+" placeholder="Masukan Ulangi Password">
-																<div class="input-group-append">
-																	<span class="input-group-text ms-1 rounded-pill bg-light" style="padding:0.6rem;"><i class="fa fa-eye"></i></span>
-																</div>
-																</div>
-															</div>
-		<div class="text-right">
-			<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill">Simpan</button>
-		</div>
-	  </form>
+				  <label for="disabledSelect" class="form-label ms-1">Password</label>
+						<div class="input-group">
+							  <input type="password" class="form-control rounded-pill input-md" name="txt_password" data-toggle="password" required autocomplete="off" title="Hanya Bisa Huruf dan Angka" pattern="[A-Za-z0-9]+" placeholder="Masukan Password">
+								<div class="input-group-append">
+									<span class="input-group-text ms-1 rounded-pill bg-light" style="padding:0.6rem;"><i class="fa fa-eye"></i></span>
+								</div>
+						</div>
+				</div>
+				<div class="mb-3">
+					<label for="disabledSelect" class="form-label ms-1">Password</label>
+	    			<div class="input-group">
+								<input type="password" class="form-control rounded-pill input-md" name="txt_password2" data-toggle="password" required title="Hanya Bisa Huruf dan Angka" pattern="[A-Za-z0-9]+" placeholder="Masukan Ulangi Password">
+								<div class="input-group-append">
+										<span class="input-group-text ms-1 rounded-pill bg-light" style="padding:0.6rem;"><i class="fa fa-eye"></i></span>
+								</div>
+					  </div>
+				</div>
+		  <div class="text-right">
+		  	<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill">Simpan</button>
+	  	</div>
+  	  </form>
       </div>
     </div>
   </div>
