@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: 06 Jun 2023 pada 08.58
+-- Generation Time: 09 Jun 2023 pada 08.22
 -- Versi Server: 10.1.48-MariaDB-0ubuntu0.18.04.1
 -- PHP Version: 7.4.32
 
@@ -188,7 +188,8 @@ INSERT INTO `dokter` (`kd_dokter`, `nm_dokter`, `kd_sps`, `status_aktif`) VALUES
 (128, 'dr. Diah Hydrawati S', 2, 0),
 (129, 'dr. Irwan Taufiqur R', 2, 0),
 (130, 'dr. Erick Yuang, Sp.', 2, 0),
-(131, 'dr. Hj. Ivo Fitrian ', 2, 0);
+(131, 'dr. Hj. Ivo Fitrian ', 2, 0),
+(133, '1', 5, 1);
 
 -- --------------------------------------------------------
 
@@ -337,7 +338,16 @@ INSERT INTO `jawaban_survey_igd` (`id`, `tgl_isi`, `tgl_periksa`, `pasien`, `pet
 (180, '2023-05-29 12:45:31', '2023-05-01', 'Yulianti', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
 (181, '2023-05-29 12:49:12', '2023-05-01', 'Yulianti', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
 (182, '2023-05-29 14:22:20', '2023-05-01', 'Yulianti', 'Dika', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
-(183, '2023-05-31 08:28:59', '2023-05-01', 'Dwi', 'Fajardika', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak puas', 'Tidak puas');
+(183, '2023-05-31 08:28:59', '2023-05-01', 'Dwi', 'Fajardika', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak, Tidak puas', 'Tidak puas', 'Tidak puas'),
+(184, '2023-06-01 13:34:40', '0000-00-00', '', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(185, '2023-06-06 13:36:14', '0000-00-00', '', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(186, '2023-06-06 13:45:40', '0000-00-00', '', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'z', 'z'),
+(187, '2023-06-06 13:46:42', '0000-00-00', '', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(188, '2023-06-06 13:47:37', '0000-00-00', '', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(189, '2023-06-06 13:52:34', '0000-00-00', '', '', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(190, '2023-06-06 14:00:33', '2023-06-30', 'a', 'a', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', '', ''),
+(191, '2023-06-06 14:00:50', '0000-00-00', 'a', 'a', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'a', 'a'),
+(192, '2023-06-30 14:13:51', '2023-06-30', 'a', 'a', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'a', '');
 
 -- --------------------------------------------------------
 
@@ -471,7 +481,9 @@ INSERT INTO `jawaban_survey_ralan` (`id`, `tgl_isi`, `tgl_periksa`, `kd_sps`, `k
 (341, '2023-05-29 14:22:46', '2023-05-16', 1, 12, 'Yulianti', 'Dika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', '', ''),
 (342, '2023-05-29 14:58:07', '2023-05-31', 1, 12, 'Yulianti', 'Dika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', '', ''),
 (343, '2023-05-31 08:30:27', '2023-05-01', 1, 3, 'Dwi', 'Fajardika', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Puas', 'Puas'),
-(344, '2023-06-05 13:15:18', '2023-06-05', 4, 10, 'adaaaa', 'sari', 'Baik', 'Baik', 'Baik', 'Cukup', 'Cukup', 'saranya apa ngga tau', 'Belum nemu yang mau di kritik');
+(344, '2023-06-01 13:15:18', '2023-06-05', 4, 10, 'adaaaa', 'sari', 'Baik', 'Baik', 'Baik', 'Cukup', 'Cukup', 'saranya apa ngga tau', 'Belum nemu yang mau di kritik'),
+(345, '2023-06-06 14:51:20', '2023-06-01', 2, 70, 'alert&#40;\"Hello! I am an alert box!!\"&#41;;', 'alert&#40;\"Hello! I am an alert box2!!\"&#41;;', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'alert&#40;\"Hello! I am an alert box3!!\"&#41;;', 'alert&#40;\"Hello! I am an alert box4!!\"&#41;;'),
+(346, '2023-06-30 14:52:11', '2023-06-01', 1, 4, '<b>a</b>', 'a', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'a', 'a');
 
 -- --------------------------------------------------------
 
@@ -580,7 +592,12 @@ INSERT INTO `jawaban_survey_ranap` (`id`, `tgl_isi`, `tgl_ranap`, `pasien`, `pet
 (72, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Cukup', 'Cukup', 'Cukup', 'Cukup', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
 (73, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
 (74, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang', 'Kurang', 'Kurang', 'Kurang', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
-(75, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL);
+(75, '2023-06-01 00:00:00', '2023-06-01', 'Data Dummy', 'Data Dummy', 'Astina VIV', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, NULL, NULL),
+(76, '2023-06-07 08:31:44', '2023-06-08', 'a', '', 'Alengka', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, '', ''),
+(77, '2023-06-07 08:32:33', '2023-06-08', '<b>a</b>', 'a', 'Amarta', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, '', ''),
+(78, '2023-06-07 08:34:06', '2023-06-09', '<table></table>', '', 'Alengka', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, '', ''),
+(80, '2023-06-01 13:26:11', '2023-06-13', 'A', '&lt;/table&gt;', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, '', ''),
+(81, '2023-06-30 13:27:07', '2023-06-01', 'a', '&amp;lt;table&amp;gt;&amp;lt;/table&amp;gt;', 'Amarta', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', NULL, NULL, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -648,6 +665,20 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `vw_dokter`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `vw_dokter` (
+`kd_dokter` int(5)
+,`nm_dokter` varchar(250)
+,`kd_sps` int(5)
+,`nm_sps` varchar(250)
+,`status_aktif` tinyint(1)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Stand-in structure for view `vw_jawaban_survey_ralan`
 -- (Lihat di bawah untuk tampilan aktual)
 --
@@ -673,11 +704,20 @@ CREATE TABLE `vw_jawaban_survey_ralan` (
 -- --------------------------------------------------------
 
 --
+-- Struktur untuk view `vw_dokter`
+--
+DROP TABLE IF EXISTS `vw_dokter`;
+
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_dokter`  AS  select `dokter`.`kd_dokter` AS `kd_dokter`,`dokter`.`nm_dokter` AS `nm_dokter`,`dokter`.`kd_sps` AS `kd_sps`,`spesialis`.`nm_sps` AS `nm_sps`,`dokter`.`status_aktif` AS `status_aktif` from (`dokter` join `spesialis`) where (`spesialis`.`kd_sps` = `dokter`.`kd_sps`) ;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur untuk view `vw_jawaban_survey_ralan`
 --
 DROP TABLE IF EXISTS `vw_jawaban_survey_ralan`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`fajar`@`%` SQL SECURITY DEFINER VIEW `vw_jawaban_survey_ralan`  AS  select `jawaban_survey_ralan`.`id` AS `id`,`jawaban_survey_ralan`.`tgl_isi` AS `tgl_isi`,`jawaban_survey_ralan`.`tgl_periksa` AS `tgl_periksa`,`jawaban_survey_ralan`.`kd_sps` AS `kd_sps`,`spesialis`.`nm_sps` AS `nm_sps`,`jawaban_survey_ralan`.`kd_dokter` AS `kd_dokter`,`dokter`.`nm_dokter` AS `nm_dokter`,`jawaban_survey_ralan`.`nm_pasien` AS `nm_pasien`,`jawaban_survey_ralan`.`nm_petugas` AS `nm_petugas`,`jawaban_survey_ralan`.`p1` AS `p1`,`jawaban_survey_ralan`.`p2` AS `p2`,`jawaban_survey_ralan`.`p3` AS `p3`,`jawaban_survey_ralan`.`p4` AS `p4`,`jawaban_survey_ralan`.`p5` AS `p5`,`jawaban_survey_ralan`.`saran` AS `saran`,`jawaban_survey_ralan`.`kritik` AS `kritik` from ((`jawaban_survey_ralan` join `spesialis`) join `dokter`) where ((`jawaban_survey_ralan`.`kd_sps` = `spesialis`.`kd_sps`) and (`spesialis`.`kd_sps` = `dokter`.`kd_sps`)) group by `jawaban_survey_ralan`.`id` ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_jawaban_survey_ralan`  AS  select `jawaban_survey_ralan`.`id` AS `id`,`jawaban_survey_ralan`.`tgl_isi` AS `tgl_isi`,`jawaban_survey_ralan`.`tgl_periksa` AS `tgl_periksa`,`jawaban_survey_ralan`.`kd_sps` AS `kd_sps`,`spesialis`.`nm_sps` AS `nm_sps`,`jawaban_survey_ralan`.`kd_dokter` AS `kd_dokter`,`dokter`.`nm_dokter` AS `nm_dokter`,`jawaban_survey_ralan`.`nm_pasien` AS `nm_pasien`,`jawaban_survey_ralan`.`nm_petugas` AS `nm_petugas`,`jawaban_survey_ralan`.`p1` AS `p1`,`jawaban_survey_ralan`.`p2` AS `p2`,`jawaban_survey_ralan`.`p3` AS `p3`,`jawaban_survey_ralan`.`p4` AS `p4`,`jawaban_survey_ralan`.`p5` AS `p5`,`jawaban_survey_ralan`.`saran` AS `saran`,`jawaban_survey_ralan`.`kritik` AS `kritik` from ((`jawaban_survey_ralan` join `spesialis`) join `dokter`) where ((`jawaban_survey_ralan`.`kd_sps` = `spesialis`.`kd_sps`) and (`spesialis`.`kd_sps` = `dokter`.`kd_sps`)) group by `jawaban_survey_ralan`.`id` ;
 
 --
 -- Indexes for dumped tables
@@ -748,22 +788,22 @@ ALTER TABLE `bangsal`
 -- AUTO_INCREMENT for table `dokter`
 --
 ALTER TABLE `dokter`
-  MODIFY `kd_dokter` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `kd_dokter` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
 --
 -- AUTO_INCREMENT for table `jawaban_survey_igd`
 --
 ALTER TABLE `jawaban_survey_igd`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=184;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
 --
 -- AUTO_INCREMENT for table `jawaban_survey_ralan`
 --
 ALTER TABLE `jawaban_survey_ralan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=345;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=347;
 --
 -- AUTO_INCREMENT for table `jawaban_survey_ranap`
 --
 ALTER TABLE `jawaban_survey_ranap`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 --
 -- AUTO_INCREMENT for table `spesialis`
 --
