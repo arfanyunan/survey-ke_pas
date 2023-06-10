@@ -44,7 +44,7 @@ $(() => {
 												'rgb(255, 99, 132)',
 											  ],
 										data: result.data1,
-										// stack: 'Stack 0'
+										stack: 'Stack 0'
 									},
 									{
 										label : "P1 Tidak", 
@@ -77,7 +77,7 @@ $(() => {
 												'rgb(255, 99, 132)',
 											  ],
 										data: result.data2,
-										// stack: 'Stack 0'
+										stack: 'Stack 0'
 									},{
 										label : "P2 Ya", 
 										backgroundColor : [
@@ -110,7 +110,7 @@ $(() => {
 
 											  ],
 										data: result.data3,
-										// stack: 'Stack 1'
+										stack: 'Stack 1'
 									},
 									{
 										label : "P2 Tidak", 
@@ -144,7 +144,7 @@ $(() => {
 
 											  ],
 										data: result.data4,
-										// stack: 'Stack 1'
+										stack: 'Stack 1'
 									},{
 										label : "P3 Ya", 
 										backgroundColor : [
@@ -177,7 +177,7 @@ $(() => {
 										
 											  ],
 										data: result.data5,
-										// stack: 'Stack 2'
+										stack: 'Stack 2'
 									},
 									{
 										label : "P3 Tidak", 
@@ -211,7 +211,7 @@ $(() => {
 											
 											  ],
 										data: result.data6,
-										// stack: 'Stack 2'
+										stack: 'Stack 2'
 									},{
 										label : "P4 Ya", 
 										backgroundColor : [
@@ -244,7 +244,7 @@ $(() => {
 											
 											  ],
 										data: result.data7,
-										// stack: 'Stack 3'
+										stack: 'Stack 3'
 									},
 									{
 										label : "P4 Tidak", 
@@ -278,7 +278,7 @@ $(() => {
 											
 											  ],
 										data: result.data8,
-										// stack: 'Stack 3'
+										stack: 'Stack 3'
 									},{
 										label : "P5 Ya", 
 										backgroundColor : [
@@ -311,7 +311,7 @@ $(() => {
 											
 											  ],
 										data: result.data9,
-										// stack: 'Stack 4'
+										stack: 'Stack 4'
 									},
 									{
 										label : "P5 Tidak", 
@@ -345,7 +345,7 @@ $(() => {
 												
 											  ],
 										data: result.data10,
-										// stack: 'Stack 4'
+										stack: 'Stack 4'
 									},
 								],
 								},
