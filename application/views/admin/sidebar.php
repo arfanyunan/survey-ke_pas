@@ -1,5 +1,5 @@
 		<ul class="navbar-nav sidebar sidebar-dark accordion bg_admin" id="accordionSidebar">
-			<a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="<?= base_url('/survey-sadewa') ?>">
+			<a class="sidebar-brand d-flex align-items-center justify-content-center" target="_blank" href="<?= base_url('') ?>">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-laugh-wink"></i>
 				</div>
