@@ -70,7 +70,7 @@
 														<tr>
 															<td class="text-center col-sm-1"><?= $no; ?></td>
 															<td class="text-center col-sm-2"><?= $dt_admin['kd_dokter']; ?></td>
-															<td class="text-center col-sm-4"><?= $dt_admin['nm_dokter']; ?></td>
+															<td class="col-sm-4"><?= $dt_admin['nm_dokter']; ?></td>
 															<td class="text-center col-sm-1"><?= $dt_admin['kd_sps']; ?></td>
 															<td class="text-center col-sm-1"><?= $dt_admin['nm_sps']; ?></td>
 															<?php 
