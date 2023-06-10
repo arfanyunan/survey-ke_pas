@@ -352,7 +352,6 @@ $(() => {
 								options: {
 									scales: {
 										yAxes: [{
-											offset: true,
 											display: true,
 											ticks: {
 												suggestedMin: 0, 
