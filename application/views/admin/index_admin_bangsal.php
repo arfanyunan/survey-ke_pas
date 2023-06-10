@@ -118,8 +118,6 @@
 			</div>
 			<!-- End of Main Content -->
 
-			<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-
   			<!-- Footer -->
 			<?= $this->load->view('/template/admin_footer',null,true); ?>
 			</div>
