@@ -54,6 +54,7 @@ $(() => {
 							scales: {
 								yAxes: [{
 									display: true,
+									offset: true,
 									ticks: {
 										suggestedMin: 0, 
 										beginAtZero: true,   

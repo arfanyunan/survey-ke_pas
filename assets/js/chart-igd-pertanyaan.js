@@ -352,7 +352,7 @@ $(() => {
 								options: {
 									scales: {
 										yAxes: [{
-											// stacked : true,
+											offset: true,
 											display: true,
 											ticks: {
 												suggestedMin: 0, 
@@ -360,9 +360,6 @@ $(() => {
 												stepSize: 10
 											}
 										}],
-										// XAxes: [{
-										// 	stacked : true,
-										// }]
 									},
 									
 									plugins: {
