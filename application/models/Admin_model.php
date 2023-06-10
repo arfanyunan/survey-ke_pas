@@ -211,6 +211,7 @@ class Admin_model extends CI_Model
 		$this->db->like(['year(tgl_isi)' => $tahun]);
 		return $this->db->get()->result_array();
 	}
+	
 	function jumlah_ranap_pertanyaan_date_skrng()
 	{
 
@@ -255,6 +256,7 @@ class Admin_model extends CI_Model
 		$this->db->where('year(tgl_isi)', date('Y'));
 		return $this->db->get()->result_array();
 	}
+
 	function jumlah_ranap_pertanyaan($bulan, $tahun)
 	{
 
@@ -343,6 +345,7 @@ class Admin_model extends CI_Model
 		
 		return $this->db->get()->result_array();
 	}
+
 	function jumlah_ralan_pertanyaan_date_skrng()
 	{
 
@@ -384,6 +387,7 @@ class Admin_model extends CI_Model
 		
 		return $this->db->get()->result_array();
 	}
+
 	function jumlah_ralan_pertanyaan($bulan, $tahun)
 	{
 
