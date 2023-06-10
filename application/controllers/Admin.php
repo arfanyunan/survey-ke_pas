@@ -225,9 +225,7 @@ class Admin extends CI_Controller
 			$data['tahun'] = $tahun;
 			$data['data_admin']  =  $this->admin_model->jumlah_ranap_pertanyaan_date($bulan,$tahun);
 		} else {
-			$bulan = date("M");
-			$tahun = date("Y");
-			$data['data_admin']  = $this->admin_model->jumlah_ranap_pertanyaan_date($bulan,$tahun);
+			$data['data_admin']  = $this->admin_model->jumlah_ranap_pertanyaan_date_skrng();
 		}
 
 		$this->load->view('admin/index_admin_grafik_ranap', $data);
@@ -272,9 +270,7 @@ class Admin extends CI_Controller
 			$data['tahun'] = $tahun;
 			$data['data_admin']  =  $this->admin_model->jumlah_ralan_pertanyaan_date($bulan,$tahun);
 		} else {
-			$bulan = date("M");
-			$tahun = date("Y");
-			$data['data_admin']  = $this->admin_model->jumlah_ralan_pertanyaan_date($bulan,$tahun);
+			$data['data_admin']  = $this->admin_model->jumlah_ralan_pertanyaan_date_skrng();
 		}
 
 		$this->load->view('admin/index_admin_grafik_ralan', $data);

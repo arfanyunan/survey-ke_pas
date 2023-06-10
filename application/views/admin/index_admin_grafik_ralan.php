@@ -40,18 +40,18 @@
 										<div class="input-group shadow input-group-sm">
 											<select class="form-control" id="cmb_bulan" name="bulan" aria-label="Default select example">
 												<?php
-													echo '<option value="Jun"' . ($this->input->post('bulan') == 'Jun' ? "selected" : "") . '>' . "January" . '</option>';
-													echo '<option value="2"' . ($this->input->post('bulan') == '2' ? "selected" : "") . '>' . "February" . '</option>';
-													echo '<option value="3"' . ($this->input->post('bulan') == '3' ? "selected" : "") . '>' . "March" . '</option>';
-													echo '<option value="4"' . ($this->input->post('bulan') == '4' ? "selected" : "") . '>' . "April" . '</option>';
-													echo '<option value="5"' . ($this->input->post('bulan') == '5' ? "selected" : "") . '>' . "May" . '</option>';
-													echo '<option value="6"' . ($this->input->post('bulan') == '6' ? "selected" : "") . '>' . "June" . '</option>';
-													echo '<option value="7"' . ($this->input->post('bulan') == '7' ? "selected" : "") . '>' . "July" . '</option>';
-													echo '<option value="8"' . ($this->input->post('bulan') == '8' ? "selected" : "") . '>' . "August" . '</option>';
-													echo '<option value="9"' . ($this->input->post('bulan') == '9' ? "selected" : "") . '>' . "September" . '</option>';
-													echo '<option value="10"' . ($this->input->post('bulan') == '10' ? "selected" : "") . '>' . "October" . '</option>';
-													echo '<option value="11"' . ($this->input->post('bulan') == '11' ? "selected" : "") . '>' . "November" . '</option>';
-													echo '<option value="12"' . ($this->input->post('bulan') == '12' ? "selected" : "") . '>' . "December" . '</option>';
+													echo '<option value="1"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '1' ? "selected" : "") : (date('m') == '1' ? "selected" : "") )  . '>' . "January" . '</option>';
+													echo '<option value="2"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '2' ? "selected" : "") : (date('m') == '2' ? "selected" : "") )  . '>' . "February" . '</option>';
+													echo '<option value="3"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '3' ? "selected" : "") : (date('m') == '3' ? "selected" : "") )  . '>' . "March" . '</option>';
+													echo '<option value="4"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '4' ? "selected" : "") : (date('m') == '4' ? "selected" : "") ) . '>' . "April" . '</option>';
+													echo '<option value="5"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '5' ? "selected" : "") : (date('m') == '5' ? "selected" : "") )  . '>' . "May" . '</option>';
+													echo '<option value="6"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '6' ? "selected" : "") : (date('m') == '6' ? "selected" : "") )  . '>' . "June" . '</option>';
+													echo '<option value="7"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '7' ? "selected" : "") : (date('m') == '7' ? "selected" : "") ) . '>' . "July" . '</option>';
+													echo '<option value="8"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '8' ? "selected" : "") : (date('m') == '8' ? "selected" : "") ) . '>' . "August" . '</option>';
+													echo '<option value="9"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '9' ? "selected" : "") : (date('m') == '9' ? "selected" : "") )  . '>' . "September" . '</option>';
+													echo '<option value="10"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '10' ? "selected" : "") : (date('m') == '10' ? "selected" : "") )  . '>' . "October" . '</option>';
+													echo '<option value="11"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '11' ? "selected" : "") : (date('m') == '11' ? "selected" : "") )  . '>' . "November" . '</option>';
+													echo '<option value="12"' . ($this->input->post('bulan') == TRUE ? ($this->input->post('bulan') == '12' ? "selected" : "") : (date('m') == '12' ? "selected" : "") )  . '>' . "December" . '</option>';
 												?>
 											</select>
 											<select class="form-control" id="cmb_tahun" name="tahun" aria-label="Default select example">

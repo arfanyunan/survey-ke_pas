@@ -211,7 +211,50 @@ class Admin_model extends CI_Model
 		$this->db->like(['year(tgl_isi)' => $tahun]);
 		return $this->db->get()->result_array();
 	}
+	function jumlah_ranap_pertanyaan_date_skrng()
+	{
 
+		$this->db->select("DATE_FORMAT(tgl_isi,'%M') as bulan, month(tgl_isi) AS bulanku, year(tgl_isi) AS tahun, bangsal,
+
+		SUM(IF(p1='Kurang Sekali',1,0)) AS p1_kurang_sekali, 
+		SUM(IF(p1='Kurang',1,0)) AS p1_kurang,
+		SUM(IF(p1='Cukup',1,0)) AS p1_cukup,
+		SUM(IF(p1='Baik',1,0)) AS p1_baik,
+		SUM(IF(p1='Baik Sekali',1,0)) AS p1_baik_sekali,
+
+		SUM(IF(p2='Kurang Sekali',1,0)) AS p2_kurang_sekali, 
+		SUM(IF(p2='Kurang',1,0)) AS p2_kurang,
+		SUM(IF(p2='Cukup',1,0)) AS p2_cukup,
+		SUM(IF(p2='Baik',1,0)) AS p2_baik,
+		SUM(IF(p2='Baik Sekali',1,0)) AS p2_baik_sekali,
+		
+		SUM(IF(p3='Kurang Sekali',1,0)) AS p3_kurang_sekali, 
+		SUM(IF(p3='Kurang',1,0)) AS p3_kurang,
+		SUM(IF(p3='Cukup',1,0)) AS p3_cukup,
+		SUM(IF(p3='Baik',1,0)) AS p3_baik,
+		SUM(IF(p3='Baik Sekali',1,0)) AS p3_baik_sekali,
+		
+		SUM(IF(p4='Kurang Sekali',1,0)) AS p4_kurang_sekali, 
+		SUM(IF(p4='Kurang',1,0)) AS p4_kurang,
+		SUM(IF(p4='Cukup',1,0)) AS p4_cukup,
+		SUM(IF(p4='Baik',1,0)) AS p4_baik,
+		SUM(IF(p4='Baik Sekali',1,0)) AS p4_baik_sekali,
+		
+		SUM(IF(p5='Ya',1,0)) AS p5_ya,
+		SUM(IF(p5!='Ya',1,0)) AS p5_tidak,
+
+		SUM(IF(p6='Ya',1,0)) AS p6_ya,
+		SUM(IF(p6!='Ya',1,0)) AS p6_tidak,
+
+		SUM(IF(p7='Ya',1,0)) AS p7_ya,
+		SUM(IF(p7!='Ya',1,0)) AS p7_tidak");
+		
+		$this->db->from('jawaban_survey_ranap');
+		$this->db->group_by('bangsal');
+		$this->db->where('month(tgl_isi)', date('m'));
+		$this->db->where('year(tgl_isi)', date('Y'));
+		return $this->db->get()->result_array();
+	}
 	function jumlah_ranap_pertanyaan($bulan, $tahun)
 	{
 
@@ -300,7 +343,47 @@ class Admin_model extends CI_Model
 		
 		return $this->db->get()->result_array();
 	}
+	function jumlah_ralan_pertanyaan_date_skrng()
+	{
 
+		$this->db->select("DATE_FORMAT(tgl_isi,'%M') as bulan, month(tgl_isi) AS bulanku, year(tgl_isi) AS tahun, nm_sps, nm_dokter,
+		SUM(IF(p1='Kurang Sekali',1,0)) AS p1_kurang_sekali, 
+		SUM(IF(p1='Kurang',1,0)) AS p1_kurang,
+		SUM(IF(p1='Cukup',1,0)) AS p1_cukup,
+		SUM(IF(p1='Baik',1,0)) AS p1_baik,
+		SUM(IF(p1='Baik Sekali',1,0)) AS p1_baik_sekali,
+		
+		SUM(IF(p2='Kurang Sekali',1,0)) AS p2_kurang_sekali, 
+		SUM(IF(p2='Kurang',1,0)) AS p2_kurang,
+		SUM(IF(p2='Cukup',1,0)) AS p2_cukup,
+		SUM(IF(p2='Baik',1,0)) AS p2_baik,
+		SUM(IF(p2='Baik Sekali',1,0)) AS p2_baik_sekali,
+		
+		SUM(IF(p3='Kurang Sekali',1,0)) AS p3_kurang_sekali, 
+		SUM(IF(p3='Kurang',1,0)) AS p3_kurang,
+		SUM(IF(p3='Cukup',1,0)) AS p3_cukup,
+		SUM(IF(p3='Baik',1,0)) AS p3_baik,
+		SUM(IF(p3='Baik Sekali',1,0)) AS p3_baik_sekali,
+		
+		SUM(IF(p4='Kurang Sekali',1,0)) AS p4_kurang_sekali, 
+		SUM(IF(p4='Kurang',1,0)) AS p4_kurang,
+		SUM(IF(p4='Cukup',1,0)) AS p4_cukup,
+		SUM(IF(p4='Baik',1,0)) AS p4_baik,
+		SUM(IF(p4='Baik Sekali',1,0)) AS p4_baik_sekali,
+		
+		SUM(IF(p5='Kurang Sekali',1,0)) AS p5_kurang_sekali, 
+		SUM(IF(p5='Kurang',1,0)) AS p5_kurang,
+		SUM(IF(p5='Cukup',1,0)) AS p5_cukup,
+		SUM(IF(p5='Baik',1,0)) AS p5_baik,
+		SUM(IF(p5='Baik Sekali',1,0)) AS p5_baik_sekali");
+		
+		$this->db->from('vw_jawaban_survey_ralan');
+		$this->db->group_by('nm_dokter');
+		$this->db->where('month(tgl_isi)', date('m'));
+		$this->db->where('year(tgl_isi)', date('Y'));
+		
+		return $this->db->get()->result_array();
+	}
 	function jumlah_ralan_pertanyaan($bulan, $tahun)
 	{
 
