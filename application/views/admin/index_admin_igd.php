@@ -27,6 +27,7 @@
 						<!-- Kosong -->
 					</ul>
 				</nav>
+				
 				<div class="content-wrapper">
 					<div class="container-fluid">
 						<div class="row mb-3">
@@ -34,8 +35,13 @@
 								<h6>Data Berdasarkan Range Tanggal</h6>
 								<form action="<?= base_url('admin/igd'); ?>" method="POST">
 									<div class="input-group input-group-sm">
-										<input type="date" class="form-control" id="date_1" name="date_1" required value="<?= isset($date_1) ? $date_1 : date('Y-m-d') ; ?>">
-										<input type="date" class="form-control" id="date_2" name="date_2" required value="<?= isset($date_2) ? $date_2 : date('Y-m-d') ; ?>">
+										<?php
+											$hari_ini = date("Y-m-d");
+											$tgl_pertama = date('Y-m-01', strtotime($hari_ini));
+											$tgl_terakhir = date('Y-m-t', strtotime($hari_ini));
+										?>
+										<input type="date" class="form-control" id="date_1" name="date_1" required value="<?= isset($date_1) ? $date_1 : $tgl_pertama ; ?>">
+										<input type="date" class="form-control" id="date_2" name="date_2" required value="<?= isset($date_2) ? $date_2 : $tgl_terakhir ; ?>">
 										<span class="input-group-append">
 											<button type="submit" class="btn btn-info btn-flat">Lihat Data</button>
 										</span>
@@ -51,10 +57,9 @@
 								<div class="col-lg-12">
 									<div class="card card-success card-outline">
 										<div class="card-header bg-white">
-											<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien IGD Tanggal <b><?= isset($date_1) ? tgl_indo($date_1) : tgl_indo(date('Y-m-d')) ; ?></b> s.d <b><?= isset($date_2) ? tgl_indo($date_2) : tgl_indo(date('Y-m-d')) ; ?></b></h4>
+											<h4 class="card-title text-center">Tabel Data Survey Kepuasan Pasien IGD Tanggal <b><?= isset($date_1) ? tgl_indo($date_1) : tgl_indo($tgl_pertama ) ; ?></b> s.d <b><?= isset($date_2) ? tgl_indo($date_2) : tgl_indo($tgl_terakhir) ; ?></b></h4>
 											<h6 class="font-italic text-center mb-3" style="color : #4dcfc6;">*Data Yang Ditampilkan Berdasarkan Tanggal Isi Survey</h6>
 										</div>
-
 										<div class="card-body table-responsive">
 											<table id="tabelsurvey_igd" class="table table-light table-bordered table-striped table-hover table-sm dt-responsive nowrap" style="width: 100%;">
 												<thead class="thead-dark">

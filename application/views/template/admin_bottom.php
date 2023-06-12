@@ -38,7 +38,11 @@
 			<script src="<?= base_url('assets/js/chart-ralan.js'); ?>"></script>
 			<script src="<?= base_url('assets/js/chart-ranap.js'); ?>"></script>
 			<script src="<?= base_url('assets/js/chart-igd.js'); ?>"></script>
+			
+			<script src="<?= base_url('assets/js/chart-igd-pertanyaan.js'); ?>"></script>
+			<script src="<?= base_url('assets/js/chart-ralan-pertanyaan.js'); ?>"></script>
 			<script src="<?= base_url('assets/js/chart-ranap-pertanyaan.js'); ?>"></script>
+
 			<script>
 				const base_url = "/sadewa-survey/";
 				$(document).ready(function() {
@@ -89,6 +93,10 @@
 								title: `Data Survey Kepuasan Pasien Rawat Inap Tanggal ${label_5} s.d ${label_6}`
 							},
 						]
+					});
+				});
+				$(document).ready(function() {
+					$('#tabelsurvey_grafik_ranap').DataTable({
 					});
 				});
 				$(document).ready(function() {

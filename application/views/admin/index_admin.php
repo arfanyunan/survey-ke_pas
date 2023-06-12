@@ -49,7 +49,7 @@
 
 					<!-- Bar Chart -->
 					<div class="card shadow p-3">
-					<h4 class="text-center mt-3 mb-3 font-weight-bold">Grafik Survey Berdasarkan Jumlah Pengisi Survey</h4>
+					<h4 class="text-center mt-3 mb-3">Grafik Survey Berdasarkan Jumlah Pengisi Survey</h4>
 					<div class="row">
 						<!-- IGD -->
 						<div class="col-xl-3 col-md-6 mb-4">

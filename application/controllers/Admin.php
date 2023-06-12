@@ -15,23 +15,13 @@ class Admin extends CI_Controller
 		$this->load->library('form_validation');
 	}
 
-
 	public function index()
 	{
 		$this->load->database('sadewa_survey');
 
-		// Jika inputan tahun == True
-		if ($this->input->post('tahun') == true) {
-			$filter_tahun = $this->input->post('tahun');
-			$data['periode_thn'] = date('Y');
-			$data['periode_thn'] = $filter_tahun;
-			$data['jumlah_ralan_count'] =  $this->admin_model->jumlah_ralan_count($filter_tahun);
-		} else {
-			$filter_tahun = date('Y');
-			$data['periode_thn'] = $filter_tahun;
-			$data['jumlah_ralan_count'] =  $this->admin_model->jumlah_ralan_count($filter_tahun);
-		}
-
+		$filter_tahun = date('Y');
+		$data['periode_thn'] = $filter_tahun;
+		
 		// Jumlah IGD Berdasarkan Bulan
 		$data['jumlah_igd'] =  $this->admin_model->jumlah_igd_thn($filter_tahun);
 
@@ -49,6 +39,7 @@ class Admin extends CI_Controller
 		} else {
 			$data['tahun_input'] = date('Y');
 		}
+		
 		$this->load->view('admin/index_admin', $data);
 	}
 
@@ -90,7 +81,10 @@ class Admin extends CI_Controller
 			$data['date_2'] = $date_2;
 			$data['data_admin']  =  $this->admin_model->showDate1Date2Igd($date_1, $date_2);
 		} else {
-			$data['data_admin']  = $this->admin_model->showAllDataIgd(date('Y-m'));
+			$hari_ini = date("Y-m-d");
+			$tgl_pertama = date('Y-m-01', strtotime($hari_ini));
+			$tgl_terakhir = date('Y-m-t', strtotime($hari_ini));
+			$data['data_admin']  = $this->admin_model->showDate1Date2Igd($tgl_pertama, $tgl_terakhir);
 		}
 
 		$this->load->view('admin/index_admin_igd', $data);
@@ -133,7 +127,10 @@ class Admin extends CI_Controller
 			$data['date_2'] = $date_2;
 			$data['data_admin']  =  $this->admin_model->showDate1Date2Ralan($date_1, $date_2);
 		} else {
-			$data['data_admin']  = $this->admin_model->showAllDataRalan(date('Y-m'));
+			$hari_ini = date("Y-m-d");
+			$tgl_pertama = date('Y-m-01', strtotime($hari_ini));
+			$tgl_terakhir = date('Y-m-t', strtotime($hari_ini));
+			$data['data_admin']  = $this->admin_model->showDate1Date2Ralan($tgl_pertama, $tgl_terakhir);
 		}
 
 		$this->load->view('template/admin_header');
@@ -180,12 +177,124 @@ class Admin extends CI_Controller
 			$data['date_2'] = $date_2;
 			$data['data_admin']  =  $this->admin_model->showDate1Date2Ranap($date_1, $date_2);
 		} else {
-			$data['data_admin']  = $this->admin_model->showAllDataRanap(date('Y-m'));
+			$hari_ini = date("Y-m-d");
+			$tgl_pertama = date('Y-m-01', strtotime($hari_ini));
+			$tgl_terakhir = date('Y-m-t', strtotime($hari_ini));
+			$data['data_admin']  = $this->admin_model->showDate1Date2Ranap($tgl_pertama, $tgl_terakhir);
 		}
 
 		$this->load->view('admin/index_admin_ranap', $data);
 	}
 
+	public function data_grafik_ranap()
+	{
+
+		$this->load->database('sadewa_survey');
+		$data['title'] = "Survey Kepuasan Pasien RSKIA Sadewa";
+
+		// Tanggal Indonesia
+		function tgl_indo4($tanggal)
+		{
+			$bulan = array(
+				1 =>
+				'January',
+				'February',
+				'March',
+				'April',
+				'May',
+				'June',
+				'July',
+				'August',
+				'September',
+				'October',
+				'November',
+				'December'
+			);
+			$pecahkan = explode('-', $tanggal);
+
+			// variabel pecahkan 0 = tanggal
+			// variabel pecahkan 1 = bulan
+			// variabel pecahkan 2 = tahun
+
+			return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+		}
+		if ($this->input->post('tahun') == true) {
+			$bulan   = $this->input->post('bulan');
+			$tahun   = $this->input->post('tahun');
+			$data['bulan'] = $bulan;
+			$data['tahun'] = $tahun;
+			$data['data_admin']  =  $this->admin_model->jumlah_ranap_pertanyaan_date($bulan,$tahun);
+		} else {
+			$data['data_admin']  = $this->admin_model->jumlah_ranap_pertanyaan_date_skrng();
+		}
+
+		$this->load->view('admin/index_admin_grafik_ranap', $data);
+	}
+
+	public function data_grafik_ralan()
+	{
+
+		$this->load->database('sadewa_survey');
+		$data['title'] = "Survey Kepuasan Pasien RSKIA Sadewa";
+
+		// Tanggal Indonesia
+		function tgl_indo5($tanggal)
+		{
+			$bulan = array(
+				1 =>
+				'January',
+				'February',
+				'March',
+				'April',
+				'May',
+				'June',
+				'July',
+				'August',
+				'September',
+				'October',
+				'November',
+				'December'
+			);
+			$pecahkan = explode('-', $tanggal);
+
+			// variabel pecahkan 0 = tanggal
+			// variabel pecahkan 1 = bulan
+			// variabel pecahkan 2 = tahun
+
+			return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+		}
+		if ($this->input->post('bulan') == true) {
+			$bulan   = $this->input->post('bulan');
+			$tahun   = $this->input->post('tahun');
+			$data['bulan'] = $bulan;
+			$data['tahun'] = $tahun;
+			$data['data_admin']  =  $this->admin_model->jumlah_ralan_pertanyaan_date($bulan,$tahun);
+		} else {
+			$data['data_admin']  = $this->admin_model->jumlah_ralan_pertanyaan_date_skrng();
+		}
+
+		$this->load->view('admin/index_admin_grafik_ralan', $data);
+	}
+
+	public function data_grafik_igd()
+	{
+
+		$this->load->database('sadewa_survey');
+		$data['title'] = "Survey Kepuasan Pasien RSKIA Sadewa";
+
+		// Tanggal Indonesia
+
+		if ($this->input->post('tahun') == true) {
+			$periode_thn   = $this->input->post('tahun');
+			$data['tahun'] = $periode_thn;
+			$data['data_admin']  =  $this->admin_model->jumlah_igd_pertanyaan_date($periode_thn);
+		} else {
+			$periode_thn = date("Y");
+			$data['data_admin']  = $this->admin_model->jumlah_igd_pertanyaan_date($periode_thn);
+		}
+
+		$this->load->view('admin/index_admin_grafik_igd', $data);
+	}
 
 public function dokter()
 {
@@ -423,18 +532,18 @@ public function grafik_ralan()
 	}
 }
 
-	public function grafik_ranap()
-	{
-		if ($this->input->method(true) == "GET") {
-			$data = $this->admin_model->jumlah_ranap_count($this->input->get('tahun'));
-			$result = array();
+public function grafik_ranap()
+{
+	if ($this->input->method(true) == "GET") {
+		$data = $this->admin_model->jumlah_ranap_count($this->input->get('tahun'));
+		$result = array();
 			foreach ($data as $dt) {
-				$result['labels'][] = $dt['bulan'];
-				$result['data'][] = $dt['jumlah'];
-			}
-			echo json_encode($result);
+			$result['labels'][] = $dt['bulan'];
+			$result['data'][] = $dt['jumlah'];
 		}
+		echo json_encode($result);
 	}
+}
 
 	public function grafik_igd()
 	{
@@ -445,6 +554,130 @@ public function grafik_ralan()
 				$result['labels'][] = $dt['bulan'];
 				$result['data'][] = $dt['jumlah'];
 			}
+			echo json_encode($result);
+		}
+	}
+
+	public function grafik_ranap_bangsal()
+	{
+		if ($this->input->method(true) == "GET") {
+			$data = $this->admin_model->jumlah_ranap_bangsal($this->input->get('tahun'));
+			$result = array();
+			foreach ($data as $dt) {
+				$result['labels1'][] = $dt['bangsal'];
+				$result['data1'][] = $dt['p1_kurang_sekali'];
+				$result['data2'][] = $dt['p1_kurang'];
+				$result['data3'][] = $dt['p1_cukup'];
+				$result['data4'][] = $dt['p1_baik'];
+				$result['data5'][] = $dt['p1_baik_sekali'];
+			};
+			echo json_encode($result);
+		}
+	}
+
+	public function grafik_ranap_pertanyaan()
+	{
+		if ($this->input->method(true) == "GET") {
+			$data = $this->admin_model->jumlah_ranap_pertanyaan($this->input->get('bulan'), $this->input->get('tahun'));
+			$result = array();
+			foreach ($data as $dt) {
+				$result['labels'][] = $dt['bangsal'];
+				$result['data1'][] = $dt['p1_kurang_sekali'];
+				$result['data2'][] = $dt['p1_kurang'];
+				$result['data3'][] = $dt['p1_cukup'];
+				$result['data4'][] = $dt['p1_baik'];
+				$result['data5'][] = $dt['p1_baik_sekali'];
+
+				$result['data6'][] = $dt['p2_kurang_sekali'];
+				$result['data7'][] = $dt['p2_kurang'];
+				$result['data8'][] = $dt['p2_cukup'];
+				$result['data9'][] = $dt['p2_baik'];
+				$result['data10'][] = $dt['p2_baik_sekali'];
+
+				$result['data11'][] = $dt['p3_kurang_sekali'];
+				$result['data12'][] = $dt['p3_kurang'];
+				$result['data13'][] = $dt['p3_cukup'];
+				$result['data14'][] = $dt['p3_baik'];
+				$result['data15'][] = $dt['p3_baik_sekali'];
+
+				$result['data16'][] = $dt['p4_kurang_sekali'];
+				$result['data17'][] = $dt['p4_kurang'];
+				$result['data18'][] = $dt['p4_cukup'];
+				$result['data19'][] = $dt['p4_baik'];
+				$result['data20'][] = $dt['p4_baik_sekali'];
+
+				$result['data21'][] = $dt['p5_ya'];
+				$result['data22'][] = $dt['p5_tidak'];
+
+				$result['data23'][] = $dt['p6_ya'];
+				$result['data24'][] = $dt['p6_tidak'];
+
+				$result['data25'][] = $dt['p7_ya'];
+				$result['data26'][] = $dt['p7_tidak'];
+			};
+			echo json_encode($result);
+		}
+	}
+
+	public function grafik_ralan_pertanyaan()
+	{
+		if ($this->input->method(true) == "GET") {
+			$data = $this->admin_model->jumlah_ralan_pertanyaan($this->input->get('bulan'), $this->input->get('tahun'));
+			$result = array();
+			foreach ($data as $dt) {
+				$result['labels'][] = $dt['nm_dokter'];
+				$result['data1'][] = $dt['p1_kurang_sekali'];
+				$result['data2'][] = $dt['p1_kurang'];
+				$result['data3'][] = $dt['p1_cukup'];
+				$result['data4'][] = $dt['p1_baik'];
+				$result['data5'][] = $dt['p1_baik_sekali'];
+
+				$result['data6'][] = $dt['p2_kurang_sekali'];
+				$result['data7'][] = $dt['p2_kurang'];
+				$result['data8'][] = $dt['p2_cukup'];
+				$result['data9'][] = $dt['p2_baik'];
+				$result['data10'][] = $dt['p2_baik_sekali'];
+
+				$result['data11'][] = $dt['p3_kurang_sekali'];
+				$result['data12'][] = $dt['p3_kurang'];
+				$result['data13'][] = $dt['p3_cukup'];
+				$result['data14'][] = $dt['p3_baik'];
+				$result['data15'][] = $dt['p3_baik_sekali'];
+
+				$result['data16'][] = $dt['p4_kurang_sekali'];
+				$result['data17'][] = $dt['p4_kurang'];
+				$result['data18'][] = $dt['p4_cukup'];
+				$result['data19'][] = $dt['p4_baik'];
+				$result['data20'][] = $dt['p4_baik_sekali'];
+
+				$result['data21'][] = $dt['p5_kurang_sekali'];
+				$result['data22'][] = $dt['p5_kurang'];
+				$result['data23'][] = $dt['p5_cukup'];
+				$result['data24'][] = $dt['p5_baik'];
+				$result['data25'][] = $dt['p5_baik_sekali'];
+			};
+			echo json_encode($result);
+		}
+	}
+
+	public function grafik_igd_pertanyaan()
+	{
+		if ($this->input->method(true) == "GET") {
+			$data = $this->admin_model->jumlah_igd_pertanyaan($this->input->get('tahun'));
+			$result = array();
+			foreach ($data as $dt) {
+				$result['labels'][] = $dt['bulan'];
+				$result['data1'][]  = $dt['p1_ya'];
+				$result['data2'][]  = $dt['p1_tidak'];
+				$result['data3'][]  = $dt['p2_ya'];
+				$result['data4'][]  = $dt['p2_tidak'];
+				$result['data5'][]  = $dt['p3_ya'];
+				$result['data6'][]  = $dt['p3_tidak'];
+				$result['data7'][]  = $dt['p4_ya'];
+				$result['data8'][]  = $dt['p4_tidak'];
+				$result['data9'][]  = $dt['p5_ya'];
+				$result['data10'][] = $dt['p5_tidak'];
+			};
 			echo json_encode($result);
 		}
 	}
