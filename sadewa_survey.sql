@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5ubuntu0.5
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: 10 Jun 2023 pada 14.15
--- Versi Server: 10.1.48-MariaDB-0ubuntu0.18.04.1
--- PHP Version: 7.4.32
+-- Host: database
+-- Waktu pembuatan: 14 Jun 2023 pada 08.02
+-- Versi server: 10.6.14-MariaDB-1:10.6.14+maria~ubu2004
+-- Versi PHP: 8.1.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -29,7 +30,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `bangsal` (
   `kd_bangsal` int(4) NOT NULL,
   `nm_bangsal` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `bangsal`
@@ -53,7 +54,7 @@ CREATE TABLE `dokter` (
   `nm_dokter` varchar(250) NOT NULL,
   `kd_sps` int(5) NOT NULL,
   `status_aktif` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `dokter`
@@ -70,21 +71,21 @@ INSERT INTO `dokter` (`kd_dokter`, `nm_dokter`, `kd_sps`, `status_aktif`) VALUES
 (10008, 'dr Afiarina dhevianty, Sp.A', 3, 0),
 (10009, 'dr Pramudita Putri D.M ( dr.Ega )', 1, 0),
 (10010, 'dr Danny Wiguna, Sp.OG', 2, 0),
-(10011, '	dr Ayu Kurnia Priyantiningrum', 1, 0),
+(10011, 'dr Ayu Kurnia Priyantiningrum', 1, 0),
 (10012, 'dr Savitri Wijayanti', 1, 0),
 (10013, 'dr Virgien Eka Merdekawati Salina', 1, 0),
 (10014, 'dr Seso Sulijaya Suyono.,Sp.And', 5, 0),
 (10015, 'dr HMA Ashari, Sp.OG (K.Fer)', 2, 0),
 (10016, 'dr Agung Dewanto, Sp.OG (K. Fer)., PhD', 2, 0),
-(10017, '	dr Ria Rossi', 1, 0),
+(10017, 'dr Ria Rossi', 1, 0),
 (10018, 'dr Rinansita Warihwati', 1, 0),
 (10019, 'drg Maura Kurnia Uki A', 4, 0),
 (10020, 'dr Rakano Kautsar, Sp.OG', 2, 0),
-(10021, '	dr Braghmandita Widya I.,M,Sc.,Sp.A', 3, 0),
+(10021, 'dr Braghmandita Widya I.,M,Sc.,Sp.A', 3, 0),
 (10022, 'Dr.dr.Dicky Moch Rizal.,Mkes,Sp.And,AIFM', 5, 0),
 (10023, 'drg T. Dian Arisanti', 4, 0),
 (10024, 'drg Elfira Maharani, MPH, Sp.Ort', 4, 0),
-(10025, '	drg Sigit Aprianto', 4, 0),
+(10025, 'drg Sigit Aprianto', 4, 0),
 (10026, 'dr Desy R. Ningtyas.,M.Sc.,Sp.A (K)', 3, 0),
 (10027, 'dr Ade Febrina L.,M.Sc.,Sp.A', 3, 0),
 (10028, 'dr Nini Rahmani, Sp.A', 3, 0),
@@ -121,9 +122,16 @@ CREATE TABLE `jawaban_survey_igd` (
   `p3` varchar(50) NOT NULL,
   `p4` varchar(50) NOT NULL,
   `p5` varchar(50) NOT NULL,
-  `saran` text,
-  `kritik` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `saran` text DEFAULT NULL,
+  `kritik` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `jawaban_survey_igd`
+--
+
+INSERT INTO `jawaban_survey_igd` (`id`, `tgl_isi`, `tgl_periksa`, `pasien`, `petugas`, `p1`, `p2`, `p3`, `p4`, `p5`, `saran`, `kritik`) VALUES
+(194, '2022-01-11 07:07:10', '2022-01-01', 'Anonymous', 'Anonymous', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak ada', 'Tidak ada');
 
 -- --------------------------------------------------------
 
@@ -144,9 +152,9 @@ CREATE TABLE `jawaban_survey_ralan` (
   `p3` varchar(50) NOT NULL,
   `p4` varchar(50) NOT NULL,
   `p5` varchar(50) NOT NULL,
-  `saran` text,
-  `kritik` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `saran` text DEFAULT NULL,
+  `kritik` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -172,9 +180,9 @@ CREATE TABLE `jawaban_survey_ranap` (
   `p8b` varchar(50) DEFAULT NULL,
   `p8c` varchar(50) DEFAULT NULL,
   `p8d` varchar(50) DEFAULT NULL,
-  `saran` text,
-  `kritik` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `saran` text DEFAULT NULL,
+  `kritik` text DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -185,7 +193,7 @@ CREATE TABLE `jawaban_survey_ranap` (
 CREATE TABLE `spesialis` (
   `kd_sps` int(5) NOT NULL,
   `nm_sps` varchar(250) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `spesialis`
@@ -207,11 +215,11 @@ INSERT INTO `spesialis` (`kd_sps`, `nm_sps`) VALUES
 
 CREATE TABLE `user` (
   `nik` varchar(8) NOT NULL,
-  `nama` varchar(256) CHARACTER SET utf8mb4 NOT NULL,
-  `password` varchar(256) CHARACTER SET utf8mb4 NOT NULL,
+  `nama` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `role_id` int(11) NOT NULL,
   `date_created` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `user`
@@ -228,8 +236,8 @@ INSERT INTO `user` (`nik`, `nama`, `password`, `role_id`, `date_created`) VALUES
 
 CREATE TABLE `user_role` (
   `id` int(11) NOT NULL,
-  `role` varchar(128) CHARACTER SET utf8mb4 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `role` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `user_role`
@@ -241,7 +249,7 @@ INSERT INTO `user_role` (`id`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_dokter`
+-- Stand-in struktur untuk tampilan `vw_dokter`
 -- (Lihat di bawah untuk tampilan aktual)
 --
 CREATE TABLE `vw_dokter` (
@@ -255,7 +263,7 @@ CREATE TABLE `vw_dokter` (
 -- --------------------------------------------------------
 
 --
--- Stand-in structure for view `vw_jawaban_survey_ralan`
+-- Stand-in struktur untuk tampilan `vw_jawaban_survey_ralan`
 -- (Lihat di bawah untuk tampilan aktual)
 --
 CREATE TABLE `vw_jawaban_survey_ralan` (
@@ -284,7 +292,7 @@ CREATE TABLE `vw_jawaban_survey_ralan` (
 --
 DROP TABLE IF EXISTS `vw_dokter`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`fajar`@`%` SQL SECURITY DEFINER VIEW `vw_dokter`  AS  select `dokter`.`kd_dokter` AS `kd_dokter`,`dokter`.`nm_dokter` AS `nm_dokter`,`dokter`.`kd_sps` AS `kd_sps`,`spesialis`.`nm_sps` AS `nm_sps`,`dokter`.`status_aktif` AS `status_aktif` from (`dokter` join `spesialis`) where (`spesialis`.`kd_sps` = `dokter`.`kd_sps`) ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_dokter`  AS SELECT `dokter`.`kd_dokter` AS `kd_dokter`, `dokter`.`nm_dokter` AS `nm_dokter`, `dokter`.`kd_sps` AS `kd_sps`, `spesialis`.`nm_sps` AS `nm_sps`, `dokter`.`status_aktif` AS `status_aktif` FROM (`dokter` join `spesialis`) WHERE `spesialis`.`kd_sps` = `dokter`.`kd_sps` ;
 
 -- --------------------------------------------------------
 
@@ -293,33 +301,33 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`fajar`@`%` SQL SECURITY DEFINER VIEW `vw_dok
 --
 DROP TABLE IF EXISTS `vw_jawaban_survey_ralan`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`fajar`@`%` SQL SECURITY DEFINER VIEW `vw_jawaban_survey_ralan`  AS  select `jawaban_survey_ralan`.`id` AS `id`,`jawaban_survey_ralan`.`tgl_isi` AS `tgl_isi`,`jawaban_survey_ralan`.`tgl_periksa` AS `tgl_periksa`,`jawaban_survey_ralan`.`kd_sps` AS `kd_sps`,`spesialis`.`nm_sps` AS `nm_sps`,`jawaban_survey_ralan`.`kd_dokter` AS `kd_dokter`,`dokter`.`nm_dokter` AS `nm_dokter`,`jawaban_survey_ralan`.`nm_pasien` AS `nm_pasien`,`jawaban_survey_ralan`.`nm_petugas` AS `nm_petugas`,`jawaban_survey_ralan`.`p1` AS `p1`,`jawaban_survey_ralan`.`p2` AS `p2`,`jawaban_survey_ralan`.`p3` AS `p3`,`jawaban_survey_ralan`.`p4` AS `p4`,`jawaban_survey_ralan`.`p5` AS `p5`,`jawaban_survey_ralan`.`saran` AS `saran`,`jawaban_survey_ralan`.`kritik` AS `kritik` from ((`jawaban_survey_ralan` join `spesialis`) join `dokter`) where ((`jawaban_survey_ralan`.`kd_sps` = `spesialis`.`kd_sps`) and (`spesialis`.`kd_sps` = `dokter`.`kd_sps`)) group by `jawaban_survey_ralan`.`id` ;
+CREATE ALGORITHM=UNDEFINED SQL SECURITY DEFINER VIEW `vw_jawaban_survey_ralan`  AS SELECT `jawaban_survey_ralan`.`id` AS `id`, `jawaban_survey_ralan`.`tgl_isi` AS `tgl_isi`, `jawaban_survey_ralan`.`tgl_periksa` AS `tgl_periksa`, `jawaban_survey_ralan`.`kd_sps` AS `kd_sps`, `spesialis`.`nm_sps` AS `nm_sps`, `jawaban_survey_ralan`.`kd_dokter` AS `kd_dokter`, `dokter`.`nm_dokter` AS `nm_dokter`, `jawaban_survey_ralan`.`nm_pasien` AS `nm_pasien`, `jawaban_survey_ralan`.`nm_petugas` AS `nm_petugas`, `jawaban_survey_ralan`.`p1` AS `p1`, `jawaban_survey_ralan`.`p2` AS `p2`, `jawaban_survey_ralan`.`p3` AS `p3`, `jawaban_survey_ralan`.`p4` AS `p4`, `jawaban_survey_ralan`.`p5` AS `p5`, `jawaban_survey_ralan`.`saran` AS `saran`, `jawaban_survey_ralan`.`kritik` AS `kritik` FROM ((`jawaban_survey_ralan` join `spesialis`) join `dokter`) WHERE `jawaban_survey_ralan`.`kd_sps` = `spesialis`.`kd_sps` AND `spesialis`.`kd_sps` = `dokter`.`kd_sps` GROUP BY `jawaban_survey_ralan`.`id` ;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `bangsal`
+-- Indeks untuk tabel `bangsal`
 --
 ALTER TABLE `bangsal`
   ADD PRIMARY KEY (`kd_bangsal`);
 
 --
--- Indexes for table `dokter`
+-- Indeks untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   ADD PRIMARY KEY (`kd_dokter`),
   ADD KEY `kd_sps` (`kd_sps`);
 
 --
--- Indexes for table `jawaban_survey_igd`
+-- Indeks untuk tabel `jawaban_survey_igd`
 --
 ALTER TABLE `jawaban_survey_igd`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `jawaban_survey_ralan`
+-- Indeks untuk tabel `jawaban_survey_ralan`
 --
 ALTER TABLE `jawaban_survey_ralan`
   ADD PRIMARY KEY (`id`),
@@ -327,69 +335,76 @@ ALTER TABLE `jawaban_survey_ralan`
   ADD KEY `kd_sps` (`kd_sps`);
 
 --
--- Indexes for table `jawaban_survey_ranap`
+-- Indeks untuk tabel `jawaban_survey_ranap`
 --
 ALTER TABLE `jawaban_survey_ranap`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `spesialis`
+-- Indeks untuk tabel `spesialis`
 --
 ALTER TABLE `spesialis`
   ADD PRIMARY KEY (`kd_sps`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`nik`),
   ADD KEY `role_id` (`role_id`);
 
 --
--- Indexes for table `user_role`
+-- Indeks untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `bangsal`
+-- AUTO_INCREMENT untuk tabel `bangsal`
 --
 ALTER TABLE `bangsal`
   MODIFY `kd_bangsal` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1006;
+
 --
--- AUTO_INCREMENT for table `dokter`
+-- AUTO_INCREMENT untuk tabel `dokter`
 --
 ALTER TABLE `dokter`
   MODIFY `kd_dokter` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10044;
+
 --
--- AUTO_INCREMENT for table `jawaban_survey_igd`
+-- AUTO_INCREMENT untuk tabel `jawaban_survey_igd`
 --
 ALTER TABLE `jawaban_survey_igd`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=193;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+
 --
--- AUTO_INCREMENT for table `jawaban_survey_ralan`
+-- AUTO_INCREMENT untuk tabel `jawaban_survey_ralan`
 --
 ALTER TABLE `jawaban_survey_ralan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=352;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
+
 --
--- AUTO_INCREMENT for table `jawaban_survey_ranap`
+-- AUTO_INCREMENT untuk tabel `jawaban_survey_ranap`
 --
 ALTER TABLE `jawaban_survey_ranap`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+
 --
--- AUTO_INCREMENT for table `spesialis`
+-- AUTO_INCREMENT untuk tabel `spesialis`
 --
 ALTER TABLE `spesialis`
   MODIFY `kd_sps` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 --
--- AUTO_INCREMENT for table `user_role`
+-- AUTO_INCREMENT untuk tabel `user_role`
 --
 ALTER TABLE `user_role`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -411,6 +426,7 @@ ALTER TABLE `jawaban_survey_ralan`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `user_role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
