@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '192.168.88.2',
+	'hostname' => 'database',
 	'username' => 'fajar',
-	'password' => 'jr_dev',
+	'password' => 'fajar',
 	'database' => 'sadewa_survey',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
@@ -93,5 +93,4 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE,
-	'port'=> 3377
 );
