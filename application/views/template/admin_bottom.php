@@ -44,7 +44,7 @@
 			<script src="<?= base_url('assets/js/chart-ranap-pertanyaan.js'); ?>"></script>
 
 			<script>
-				const base_url = "/sadewa-survey/";
+				const base_url = "/";
 				$(document).ready(function() {
 					$('#tabelsurvey_bangsal').DataTable({
 					});
