@@ -192,32 +192,37 @@ class Admin extends CI_Controller
 		$this->load->database('sadewa_survey');
 		$data['title'] = "Survey Kepuasan Pasien RSKIA Sadewa";
 
-		// Tanggal Indonesia
-		function tgl_indo4($tanggal)
-		{
-			$bulan = array(
-				1 =>
-				'January',
-				'February',
-				'March',
-				'April',
-				'May',
-				'June',
-				'July',
-				'August',
-				'September',
-				'October',
-				'November',
-				'December'
-			);
-			$pecahkan = explode('-', $tanggal);
+		function edit_bulan2($bulan){
 
-			// variabel pecahkan 0 = tanggal
-			// variabel pecahkan 1 = bulan
-			// variabel pecahkan 2 = tahun
+			if($bulan == '01'){
+			   $bulan = 'January';
+			}elseif($bulan == '02'){
+			   $bulan = 'February';
+			}elseif($bulan == '03'){
+				$bulan = 'March';
+			}elseif($bulan == '04'){
+				$bulan = 'April';
+			}elseif($bulan == '05'){
+				$bulan = 'May';
+			}elseif($bulan == '06'){
+				$bulan = 'June';
+			}elseif($bulan == '07'){
+				$bulan = 'July';
+			}elseif($bulan == '08'){
+				$bulan = 'August';
+			}elseif($bulan == '09'){
+				$bulan = 'September';
+			}elseif($bulan == '10'){
+				$bulan = 'October';
+			}elseif($bulan == '11'){
+				$bulan = 'November';
+			}elseif($bulan == '12'){
+				$bulan = 'December';
+			}
 
-			return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+			return $bulan;
 		}
+
 		if ($this->input->post('tahun') == true) {
 			$bulan   = $this->input->post('bulan');
 			$tahun   = $this->input->post('tahun');
@@ -238,31 +243,37 @@ class Admin extends CI_Controller
 		$data['title'] = "Survey Kepuasan Pasien RSKIA Sadewa";
 
 		// Tanggal Indonesia
-		function tgl_indo5($tanggal)
-		{
-			$bulan = array(
-				1 =>
-				'January',
-				'February',
-				'March',
-				'April',
-				'May',
-				'June',
-				'July',
-				'August',
-				'September',
-				'October',
-				'November',
-				'December'
-			);
-			$pecahkan = explode('-', $tanggal);
+		function edit_bulan($bulan){
 
-			// variabel pecahkan 0 = tanggal
-			// variabel pecahkan 1 = bulan
-			// variabel pecahkan 2 = tahun
+			if($bulan == '01'){
+			   $bulan = 'January';
+			}elseif($bulan == '02'){
+			   $bulan = 'February';
+			}elseif($bulan == '03'){
+				$bulan = 'March';
+			}elseif($bulan == '04'){
+				$bulan = 'April';
+			}elseif($bulan == '05'){
+				$bulan = 'May';
+			}elseif($bulan == '06'){
+				$bulan = 'June';
+			}elseif($bulan == '07'){
+				$bulan = 'July';
+			}elseif($bulan == '08'){
+				$bulan = 'August';
+			}elseif($bulan == '09'){
+				$bulan = 'September';
+			}elseif($bulan == '10'){
+				$bulan = 'October';
+			}elseif($bulan == '11'){
+				$bulan = 'November';
+			}elseif($bulan == '12'){
+				$bulan = 'December';
+			}
 
-			return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+			return $bulan;
 		}
+
 		if ($this->input->post('bulan') == true) {
 			$bulan   = $this->input->post('bulan');
 			$tahun   = $this->input->post('tahun');

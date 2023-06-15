@@ -79,7 +79,7 @@
 
     									<div class="card card-success card-outline">
 										<div class="card-header bg-white">
-										<h4 class="card-title text-center">Tabel Grafik Survey Kepuasan Pasien Rawat Inap Tahun <b><?php $bulan = date('m'); $this->input->post('bulan') == TRUE ? $bulan =  $this->input->post('bulan') : $bulan = date('m'); echo $bulan; ?>-<?php $this->input->post('tahun') == TRUE ? $tahun =  $this->input->post('tahun') : $tahun = date('Y'); echo $tahun; ?></b></h4>
+										<h4 class="card-title text-center">Tabel Grafik Survey Kepuasan Pasien Rawat Inap Tahun <b><?php $bulan = date('m'); $this->input->post('bulan') == TRUE ? $bulan =  $this->input->post('bulan') : $bulan = date('m'); echo edit_bulan2($bulan);  ?> <?php $this->input->post('tahun') == TRUE ? $tahun =  $this->input->post('tahun') : $tahun = date('Y'); echo $tahun; ?></b></h4>
 											<h6 class="font-italic text-center mb-3" style="color : #4dcfc6;">*Data Yang Ditampilkan Berdasarkan Tanggal Isi Survey</h6>
 										</div>
     										<div class="card-body table-responsive">
