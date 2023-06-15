@@ -231,7 +231,7 @@
 											</div>
 										</div>
 										<div class="text-center mb-3">
-											<a href="/sadewa-survey" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
+											<a href="<?= base_url('') ?>" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
 											<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill ml-2">Simpan</button>
 										</div>
 										<marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien <b style="color:#4dcfc6;">RSKIA SADEWA</b> --</marquee>
@@ -247,48 +247,6 @@
 
 <!-- Footer -->
 <?= $this->load->view('/template/survey_footer',null,true); ?>
-
-	<script>
-		$(document).ready(function() {
-			$('#spesialis').change(function() {
-				var kd_sps = $(this).val();
-				// console.log(kd_sps);
-				$.ajax({
-					type: "POST",
-					url: "<?= base_url('Survey/isi_dokter') ?>",
-					data: {
-						kd_sps: kd_sps
-					},
-					dataType: "JSON",
-					success: function(response) {
-						// console.log(response);
-						$('#dokter').html(response);
-					}
-				})
-			});
-		});
-
-		function show1(kondisi1) {
-			$('#tap1').css('display', kondisi1);
-		}
-
-		function show2(kondisi2) {
-			$('#tap2').css('display', kondisi2);
-		}
-
-		function show3(kondisi3) {
-			$('#tap3').css('display', kondisi3);
-		}
-
-		function show4(kondisi4) {
-			$('#tap4').css('display', kondisi4);
-		}
-
-		function show5(kondisi5) {
-			$('#tap5').css('display', kondisi5);
-		}
-
-	</script>
 
 </body>
 </html>

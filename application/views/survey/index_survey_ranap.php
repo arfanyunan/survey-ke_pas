@@ -228,20 +228,20 @@
 														<div class="form-group mb-3">
 															<strong for="">8. Apakah anda mendapat edukasi mengenai cara:</strong><br>
 															<div class="form-check">
-																<input class="form-check-input" type="checkbox" name="p8a" value="Memberi ASI" id="flexCheckIndeterminate">
-																<label class="form-check-label" for="flexCheckIndeterminate">
+																<input class="form-check-input" type="checkbox" name="p8a" value="Memberi ASI" id="flexCheckIndeterminate1">
+																<label class="form-check-label" for="flexCheckIndeterminate1">
 																	Memberi ASI
 																</label><br>
-																<input class="form-check-input" type="checkbox" name="p8b" value="Menggendong bayi" id="flexCheckIndeterminate">
-																<label class="form-check-label" for="flexCheckIndeterminate">
+																<input class="form-check-input" type="checkbox" name="p8b" value="Menggendong bayi" id="flexCheckIndeterminate2">
+																<label class="form-check-label" for="flexCheckIndeterminate2">
 																	Menggendong bayi
 																</label><br>
-																<input class="form-check-input" type="checkbox" name="p8c" value="Merawat payudara" id="flexCheckIndeterminate">
-																<label class="form-check-label" for="flexCheckIndeterminate">
+																<input class="form-check-input" type="checkbox" name="p8c" value="Merawat payudara" id="flexCheckIndeterminate3">
+																<label class="form-check-label" for="flexCheckIndeterminate3">
 																	Merawat payudara
 																</label><br>
-																<input class="form-check-input" type="checkbox" name="p8d" value="Merawat bayi baru lahir" id="flexCheckIndeterminate">
-																<label class="form-check-label" for="flexCheckIndeterminate">
+																<input class="form-check-input" type="checkbox" name="p8d" value="Merawat bayi baru lahir" id="flexCheckIndeterminate4">
+																<label class="form-check-label" for="flexCheckIndeterminate4">
 																	Merawat bayi baru lahir
 																</label><br>
 																<?= form_error('p8', '<small class="text-danger">', '</small>'); ?>
@@ -267,7 +267,7 @@
 											</div>
 										</div>
 										<div class="text-center mb-3">
-											<a href="<?= base_url('/') ?>" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
+											<a href="<?= base_url('') ?>" class="btn btn-danger rounded-pill mr-2" role="button" aria-pressed="true">Kembali</a>
 											<button type="submit" style="background-color: #4dcfc6;" class="btn text-light rounded-pill ml-2">Simpan</button>
 										</div>
 										<marquee behavior="center" direction="left">-- Terimakasih atas ketersediaan Anda untuk mengisi Form Kepuasan Pasien <b style="color:#4dcfc6;">RSKIA SADEWA</b> --</marquee>
@@ -284,19 +284,7 @@
 	<!-- Footer -->
 	<?= $this->load->view('/template/survey_footer',null,true); ?>
 
-	<script>
-		function show5(kondisi5) {
-			$('#tap5').css('display', kondisi5);
-		}
-
-		function show6(kondisi6) {
-			$('#tap6').css('display', kondisi6);
-		}
-
-		function show7(kondisi7) {
-			$('#tap7').css('display', kondisi7);
-		}
-	</script>
+	<script src="<?= base_url('assets/js/ranap.js'); ?>"></script>
 
 </body>
 </html>
