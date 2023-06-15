@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: database
--- Waktu pembuatan: 14 Jun 2023 pada 08.02
+-- Waktu pembuatan: 15 Jun 2023 pada 02.39
 -- Versi server: 10.6.14-MariaDB-1:10.6.14+maria~ubu2004
 -- Versi PHP: 8.1.20
 
@@ -115,13 +115,13 @@ CREATE TABLE `jawaban_survey_igd` (
   `id` int(5) NOT NULL,
   `tgl_isi` datetime NOT NULL,
   `tgl_periksa` date NOT NULL,
-  `pasien` varchar(250) NOT NULL,
-  `petugas` varchar(250) DEFAULT '-',
-  `p1` varchar(50) NOT NULL,
-  `p2` varchar(50) NOT NULL,
-  `p3` varchar(50) NOT NULL,
-  `p4` varchar(50) NOT NULL,
-  `p5` varchar(50) NOT NULL,
+  `pasien` varchar(255) NOT NULL,
+  `petugas` varchar(255) DEFAULT '-',
+  `p1` text NOT NULL,
+  `p2` text NOT NULL,
+  `p3` text NOT NULL,
+  `p4` text NOT NULL,
+  `p5` text NOT NULL,
   `saran` text DEFAULT NULL,
   `kritik` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -131,7 +131,10 @@ CREATE TABLE `jawaban_survey_igd` (
 --
 
 INSERT INTO `jawaban_survey_igd` (`id`, `tgl_isi`, `tgl_periksa`, `pasien`, `petugas`, `p1`, `p2`, `p3`, `p4`, `p5`, `saran`, `kritik`) VALUES
-(194, '2022-01-11 07:07:10', '2022-01-01', 'Anonymous', 'Anonymous', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak ada', 'Tidak ada');
+(195, '2023-06-15 08:30:16', '2023-06-01', 'Anonymous', 'Anonymous', 'Ya', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak ada', 'Tidak ada'),
+(196, '2023-06-15 08:33:12', '2023-06-02', 'Anonymous', 'Anonymous', 'Tidak, Tidak sesuai bla bla bla', 'Ya', 'Ya', 'Ya', 'Ya', 'Tidak ada', 'Tidak ada'),
+(197, '2023-06-15 08:34:44', '2023-06-01', 'Anonymous', 'Anonymous', 'Ya', 'Tidak, 20 menit', 'Ya', 'Ya', 'Tidak, Kurang', 'Tidak ada', 'Tingkatkan kecepatan dalam pelayanan'),
+(198, '2023-06-15 08:42:56', '2023-06-02', 'Anonymous', 'Anonymous', 'Ya', 'Ya', 'Ya', 'Tidak, Belum tepat', 'Ya', 'Tidak ada', 'Tidak ada');
 
 -- --------------------------------------------------------
 
@@ -145,16 +148,26 @@ CREATE TABLE `jawaban_survey_ralan` (
   `tgl_periksa` date NOT NULL,
   `kd_sps` int(5) NOT NULL,
   `kd_dokter` int(5) NOT NULL,
-  `nm_pasien` varchar(250) NOT NULL,
-  `nm_petugas` varchar(250) DEFAULT '-',
-  `p1` varchar(50) NOT NULL,
-  `p2` varchar(50) NOT NULL,
-  `p3` varchar(50) NOT NULL,
-  `p4` varchar(50) NOT NULL,
-  `p5` varchar(50) NOT NULL,
+  `nm_pasien` varchar(255) NOT NULL,
+  `nm_petugas` varchar(255) DEFAULT '-',
+  `p1` text NOT NULL,
+  `p2` text NOT NULL,
+  `p3` text NOT NULL,
+  `p4` text NOT NULL,
+  `p5` text NOT NULL,
   `saran` text DEFAULT NULL,
   `kritik` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `jawaban_survey_ralan`
+--
+
+INSERT INTO `jawaban_survey_ralan` (`id`, `tgl_isi`, `tgl_periksa`, `kd_sps`, `kd_dokter`, `nm_pasien`, `nm_petugas`, `p1`, `p2`, `p3`, `p4`, `p5`, `saran`, `kritik`) VALUES
+(353, '2023-06-15 08:44:06', '2023-06-01', 1, 10003, 'Anonymous', 'Anonymous', 'Baik', 'Baik', 'Baik Sekali', 'Baik', 'Baik Sekali', 'Tidak ada', 'Tidak ada'),
+(354, '2023-06-15 08:44:47', '2023-06-02', 1, 10003, 'Anonymous', 'Anonymous', 'Baik', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik', 'Tidak ada', 'Tidak ada'),
+(355, '2023-06-15 08:45:56', '2023-06-01', 1, 10003, 'Anonymous', 'Anonymous', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Kurang Sekali', 'Tidak ada', 'Tidak ada'),
+(356, '2023-06-15 08:50:44', '2023-06-02', 3, 10001, 'Anonymous', 'Anonymous', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Tidak ada', 'Tidak ada');
 
 -- --------------------------------------------------------
 
@@ -166,9 +179,9 @@ CREATE TABLE `jawaban_survey_ranap` (
   `id` int(5) NOT NULL,
   `tgl_isi` datetime NOT NULL,
   `tgl_ranap` date NOT NULL,
-  `pasien` varchar(250) NOT NULL,
-  `petugas` varchar(250) DEFAULT '-',
-  `bangsal` varchar(250) NOT NULL,
+  `pasien` varchar(255) NOT NULL,
+  `petugas` varchar(255) DEFAULT '-',
+  `bangsal` varchar(255) NOT NULL,
   `p1` text NOT NULL,
   `p2` text NOT NULL,
   `p3` text NOT NULL,
@@ -183,6 +196,17 @@ CREATE TABLE `jawaban_survey_ranap` (
   `saran` text DEFAULT NULL,
   `kritik` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data untuk tabel `jawaban_survey_ranap`
+--
+
+INSERT INTO `jawaban_survey_ranap` (`id`, `tgl_isi`, `tgl_ranap`, `pasien`, `petugas`, `bangsal`, `p1`, `p2`, `p3`, `p4`, `p5`, `p6`, `p7`, `p8a`, `p8b`, `p8c`, `p8d`, `saran`, `kritik`) VALUES
+(83, '2023-06-15 08:52:42', '2023-06-01', 'Anonymous', 'Anonymous', 'Alengka', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Baik Sekali', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak ada', 'Tidak ada'),
+(84, '2023-06-15 08:53:19', '2023-06-01', 'Anonymous', 'Anonymous', 'Alengka', 'Baik Sekali', 'Baik', 'Baik', 'Cukup', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi', 'Merawat payudara', 'Merawat bayi baru lahir', 'Tidak ada', 'Tidak ada'),
+(85, '2023-06-15 08:54:07', '2023-06-10', 'Anonymous', 'Anonymous', 'Alengka', 'Baik', 'Baik', 'Kurang', 'Cukup', 'Tidak, tidak puas', 'Tidak, tidak puas', 'Tidak, tidak puas', NULL, NULL, NULL, NULL, '', ''),
+(86, '2023-06-15 08:55:33', '2023-06-02', 'Anonymous', 'Anonymous', 'Amarta', 'Baik', 'Baik', 'Baik', 'Baik Sekali', 'Ya', 'Ya', 'Ya', 'Memberi ASI', 'Menggendong bayi', 'Merawat payudara', 'Merawat bayi baru lahir', '', ''),
+(87, '2023-06-15 08:56:01', '2023-06-01', 'Anonymous', 'Anonymous', 'Amarta', 'Baik', 'Cukup', 'Baik', 'Kurang', 'Tidak', 'Tidak', 'Ya', NULL, NULL, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -201,10 +225,10 @@ CREATE TABLE `spesialis` (
 
 INSERT INTO `spesialis` (`kd_sps`, `nm_sps`) VALUES
 (1, 'Dokter Umum'),
-(2, 'Poli Obsgyn'),
-(3, 'Poli Anak'),
-(4, 'Poli Gigi'),
-(5, 'Poli Andrologi'),
+(2, 'Klinik Obsgyn'),
+(3, 'Klinik Anak'),
+(4, 'Klinik Gigi'),
+(5, 'Klinik Andrologi'),
 (6, 'Penyakit Dalam');
 
 -- --------------------------------------------------------
@@ -226,7 +250,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nik`, `nama`, `password`, `role_id`, `date_created`) VALUES
-('12345678', 'Fajardika Dwi Yulianto', '$2y$10$i4PEw3.CiTYxUwFG/.NwiOELTgBv5pDGUPeeKLnqmbqS9F6ktd.KO', 1, '2023-05-23');
+('12345678', 'User', '$2y$10$i4PEw3.CiTYxUwFG/.NwiOELTgBv5pDGUPeeKLnqmbqS9F6ktd.KO', 1, '2023-05-23'),
+('20230717', 'Fajardika Dwi Yulianto', '$2y$10$5A91wYnL1EWNSacqsSqSdej48mopJsmR.xqpkdlSuLmi1FCIpC.uy', 1, '2023-06-15');
 
 -- --------------------------------------------------------
 
@@ -274,13 +299,13 @@ CREATE TABLE `vw_jawaban_survey_ralan` (
 ,`nm_sps` varchar(250)
 ,`kd_dokter` int(5)
 ,`nm_dokter` varchar(250)
-,`nm_pasien` varchar(250)
-,`nm_petugas` varchar(250)
-,`p1` varchar(50)
-,`p2` varchar(50)
-,`p3` varchar(50)
-,`p4` varchar(50)
-,`p5` varchar(50)
+,`nm_pasien` varchar(255)
+,`nm_petugas` varchar(255)
+,`p1` text
+,`p2` text
+,`p3` text
+,`p4` text
+,`p5` text
 ,`saran` text
 ,`kritik` text
 );
@@ -379,19 +404,19 @@ ALTER TABLE `dokter`
 -- AUTO_INCREMENT untuk tabel `jawaban_survey_igd`
 --
 ALTER TABLE `jawaban_survey_igd`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=195;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT untuk tabel `jawaban_survey_ralan`
 --
 ALTER TABLE `jawaban_survey_ralan`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=353;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=357;
 
 --
 -- AUTO_INCREMENT untuk tabel `jawaban_survey_ranap`
 --
 ALTER TABLE `jawaban_survey_ranap`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT untuk tabel `spesialis`
