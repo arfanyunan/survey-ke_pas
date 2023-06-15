@@ -45,7 +45,7 @@ class Survey_model extends CI_Model
 	function showAllDataDokter($kd_sps)
 	{
 
-		return $this->db->get_where('dokter', ['kd_sps' => $kd_sps])->result();
+		return $this->db->where('status_aktif', 0)->get_where('dokter', ['kd_sps' => $kd_sps])->result();
 	}
 	function showAllDataBangsal()
 	{
